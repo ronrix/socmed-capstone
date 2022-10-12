@@ -3,7 +3,7 @@
 /* font sizes */
 /* box sizes */
 /* radius */
-div.post-form {
+form.post-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,34 +15,47 @@ div.post-form {
   padding: 1em;
   padding-bottom: 0.2em;
   border-radius: 15px;
+  min-height: 120px;
+  -webkit-transition: height 200ms ease-in-out;
+  transition: height 200ms ease-in-out;
+  position: relative;
 }
-div.post-form div.input-file {
+form.post-form div.post-form-img-wrapper {
+  margin-top: 0.5em;
+  border: 1px solid #434343;
+  width: 100%;
+  position: relative;
+}
+form.post-form div.post-form-img-wrapper img {
+  width: 100%;
+}
+form.post-form div.input-file {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   text-align: center;
 }
-div.post-form div.input-file:hover > svg path {
+form.post-form div.input-file:hover > svg path {
   stroke: #0092df;
 }
-div.post-form div.input-file input {
+form.post-form div.input-file input {
   display: none;
 }
-div.post-form div.input-file svg {
+form.post-form div.input-file svg {
   cursor: pointer;
   width: 47px;
   height: 47px;
 }
-div.post-form div.input-file svg path {
+form.post-form div.input-file svg path {
   stroke-width: 2;
 }
-div.post-form form.post-description {
+form.post-form div.post-description {
   -webkit-box-flex: 5;
       -ms-flex: 5;
           flex: 5;
   position: relative;
 }
-div.post-form form.post-description textarea {
+form.post-form div.post-description textarea {
   background-color: transparent;
   border: none;
   border-left: 1px solid #434343;
@@ -53,20 +66,20 @@ div.post-form form.post-description textarea {
   max-height: 90px;
   width: 100%;
 }
-div.post-form form.post-description textarea::-webkit-scrollbar {
+form.post-form div.post-description textarea::-webkit-scrollbar {
   width: 0.2em;
 }
-div.post-form form.post-description textarea::-webkit-scrollbar-track {
+form.post-form div.post-description textarea::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
           box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
 }
-div.post-form form.post-description textarea::-webkit-scrollbar-thumb {
+form.post-form div.post-description textarea::-webkit-scrollbar-thumb {
   background-color: #434343;
   outline: 1px solid #434343;
   border-radius: 15px;
 }
-div.post-form form.post-description div.btns {
+form.post-form div.post-description div.btns {
   margin: 0;
   display: block;
   display: -webkit-box;
@@ -79,7 +92,7 @@ div.post-form form.post-description div.btns {
       -ms-flex-align: center;
           align-items: center;
 }
-div.post-form form.post-description div.btns input {
+form.post-form div.post-description div.btns input {
   padding: 0.5em 2em;
   color: #fff;
   font-weight: bold;
@@ -88,23 +101,23 @@ div.post-form form.post-description div.btns input {
   -webkit-transition: color 200ms ease;
   transition: color 200ms ease;
 }
-div.post-form form.post-description div.btns input.cancel {
+form.post-form div.post-description div.btns input.cancel {
   color: #434343;
   background-color: transparent;
 }
-div.post-form form.post-description div.btns input.cancel:hover {
+form.post-form div.post-description div.btns input.cancel:hover {
   color: #00dfb7;
 }
-div.post-form form.post-description div.btns input.submit {
+form.post-form div.post-description div.btns input.submit {
   border-radius: 15px;
   background: -webkit-gradient(linear, left top, left bottom, from(#4dfede), to(#00dfb7));
   background: linear-gradient(180deg, #4dfede 0%, #00dfb7 100%);
 }
-div.post-form form.post-description div.btns input.submit:hover {
+form.post-form div.post-description div.btns input.submit:hover {
   background: #00dfb7;
 }
 @media (min-width: 1023px) {
-  div.post-form {
+  form.post-form {
     max-width: 500px;
     margin: auto;
     margin-top: 0.8em;

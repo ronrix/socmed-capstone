@@ -68,6 +68,30 @@ div.find-match {
                 }
             }
 
+            button.search-again {
+                margin-top: 0.5em;
+                border: 2px solid $dark-primary;
+                background: transparent;
+                color: $dark;
+
+                &:hover {
+                    background: $light-primary;
+                    color: $light;
+
+                    svg path {
+                        stroke: $light;
+                    }
+                }
+
+                svg {
+                    margin-right: 0.5em;
+                    path {
+                        stroke: $dark;
+                        stroke-width: 3;
+                    }
+                }
+            }
+
             p.match-info-muted {
                 font-size: $fs-small;
                 color: $dark;

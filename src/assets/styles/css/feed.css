@@ -119,6 +119,26 @@ div.feed div.container div.inside-container div.find-match div.match-info button
 div.feed div.container div.inside-container div.find-match div.match-info button:hover {
   background: #0092df;
 }
+div.feed div.container div.inside-container div.find-match div.match-info button.search-again {
+  margin-top: 0.5em;
+  border: 2px solid #0092df;
+  background: transparent;
+  color: #434343;
+}
+div.feed div.container div.inside-container div.find-match div.match-info button.search-again:hover {
+  background: #00b0f9;
+  color: #fff;
+}
+div.feed div.container div.inside-container div.find-match div.match-info button.search-again:hover svg path {
+  stroke: #fff;
+}
+div.feed div.container div.inside-container div.find-match div.match-info button.search-again svg {
+  margin-right: 0.5em;
+}
+div.feed div.container div.inside-container div.find-match div.match-info button.search-again svg path {
+  stroke: #434343;
+  stroke-width: 3;
+}
 div.feed div.container div.inside-container div.find-match div.match-info p.match-info-muted {
   font-size: 12px;
   color: #434343;

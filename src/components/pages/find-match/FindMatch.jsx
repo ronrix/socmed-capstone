@@ -9,15 +9,29 @@ import { ReactComponent as Details } from "../../../assets/icons/firstline.svg";
 import { ReactComponent as Description } from "../../../assets/icons/information.svg";
 import { ReactComponent as Location } from "../../../assets/icons/location.svg";
 import { ReactComponent as Like } from "../../../assets/icons/like.svg";
+import { ReactComponent as Search } from "../../../assets/icons/searchfavorite1.svg";
 import { ReactComponent as More } from "../../../assets/icons/more.svg";
 
 import "../../../assets/styles/css/feed.css";
 
 export default function FindMatch() {
-    const [loading, setLoading] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
+
+    const handleSearchAgain = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 5000);
+    };
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 5000);
+    }, []);
 
     return (
-        <div class="feed">
+        <div className="feed">
             <div className="container">
                 <Header />
                 <div className="inside-container">
@@ -25,7 +39,9 @@ export default function FindMatch() {
                     <div className="find-match">
                         <span className="space"></span>
                         {loading ? (
-                            <Loading />
+                            <>
+                                <Loading />
+                            </>
                         ) : (
                             <div className="match">
                                 <div className="match-img-wrapper">
@@ -64,6 +80,10 @@ export default function FindMatch() {
                                         Like
                                     </button>
                                     <p className="match-info-muted">You have to like this person to start chatting.</p>
+                                    <button className="search-again" onClick={handleSearchAgain}>
+                                        <Search />
+                                        Search Again
+                                    </button>
                                 </div>
                             </div>
                         )}

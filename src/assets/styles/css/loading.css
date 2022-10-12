@@ -5,6 +5,7 @@
 /* radius */
 div.loading {
   text-align: center;
+  width: 82vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,8 +19,6 @@ div.loading {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 1px solid black;
-  height: 100%;
 }
 div.loading svg {
   width: 62px;
