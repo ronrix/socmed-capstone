@@ -8,6 +8,7 @@ import { ReactComponent as Profile } from "../assets/icons/circle-profile.svg";
 import { ReactComponent as Search } from "../assets/icons/searchfavorite1.svg";
 import { ReactComponent as Settings } from "../assets/icons/setting.svg";
 import { ReactComponent as Logout } from "../assets/icons/logout.svg";
+import Match from "./pages/feed/Match";
 
 export default function Navigations({ active, otherClass }) {
     return (
@@ -48,6 +49,13 @@ export default function Navigations({ active, otherClass }) {
                 </abbr>
                 <span>Logout</span>
             </Link>
+            <div className="matches">
+                <h5>Matches</h5>
+                <Match />
+                <Match />
+                <Match />
+                <Match />
+            </div>
         </nav>
     );
 }

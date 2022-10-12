@@ -6,13 +6,22 @@
 div.post-wrapper {
   width: 100%;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 div.post-wrapper div.img-wrapper {
   margin-top: 1em;
   margin-bottom: 0.2em;
   border-radius: 15px;
   overflow: hidden;
-  height: 600px;
   position: relative;
 }
 div.post-wrapper div.img-wrapper div.info-overlay {
@@ -71,19 +80,11 @@ div.post-wrapper div.img-wrapper div.info-overlay-body p {
 div.post-wrapper div.img-wrapper img {
   width: 100%;
 }
-@media (max-width: 480px) {
-  div.post-wrapper div.img-wrapper {
-    max-height: 300px;
-  }
-}
-@media (min-width: 481px) {
-  div.post-wrapper div.img-wrapper {
-    max-height: 320px;
-  }
-}
 @media (min-width: 1023px) {
   div.post-wrapper div.img-wrapper {
     max-height: 600px;
+    max-width: 500px;
+    text-align: center;
   }
 }
 div.post-wrapper button {
@@ -116,4 +117,9 @@ div.post-wrapper button svg {
 }
 div.post-wrapper button svg path {
   stroke-width: 3;
+}
+@media (min-width: 1023px) {
+  div.post-wrapper button {
+    width: 500px;
+  }
 }

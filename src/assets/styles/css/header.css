@@ -10,15 +10,28 @@ div.header {
   width: 100%;
 }
 div.header span.space {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
 }
 div.header div {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 div.header div form.search-wrapper {
   margin-top: 0.5em;
@@ -39,7 +52,7 @@ div.header div form.search-wrapper:hover {
   border: 1px solid #0092df;
 }
 div.header div form.search-wrapper:has(input:focus) {
-  width: 100%;
+  width: 85%;
   border: 1px solid #0092df;
 }
 div.header div form.search-wrapper svg path {

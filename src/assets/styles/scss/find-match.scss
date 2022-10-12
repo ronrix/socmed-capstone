@@ -3,17 +3,18 @@
 div.find-match {
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
 
     padding: 3em 0;
 
-    span.space {
-        flex: 2;
+    & span.space {
+        height: 5px;
+        flex: 1 !important;
     }
 
     div.match {
-        flex: 6;
+        flex: 5;
         width: 100%;
         display: flex;
         flex-direction: column;

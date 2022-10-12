@@ -9,10 +9,15 @@ nav {
     flex-direction: column;
     align-items: flex-start;
     padding: 1em;
-    border-radius: $radius;
     width: auto;
     transition: all 200ms ease-in-out;
-    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+    height: 90vh;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &.prof-nav {
         width: 50px;
@@ -23,6 +28,10 @@ nav {
 
         span {
             display: none;
+        }
+
+        div.matches h5 {
+            font-size: 0.5em;
         }
     }
 
@@ -37,10 +46,10 @@ nav {
 
         transition: color 100ms ease, stroke 100ms ease;
 
-        &:hover > svg path,
+        &:hover > abbr svg path,
         &:hover > span {
-            color: $dark-primary;
             stroke: $dark-primary;
+            color: $dark-primary;
         }
 
         svg {
@@ -62,36 +71,74 @@ nav {
             stroke: $dark-primary;
         }
     }
-}
-@media (max-width: 480px) {
-    nav {
-        width: 50px;
-        left: 0;
 
-        span {
-            display: none;
+    div.matches {
+        margin-top: 1em;
+        &-match {
+            &-body {
+                display: flex;
+                align-items: center;
+                padding: 0.4em;
+                border-radius: $radius;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(65, 146, 223, 0.5);
+                }
+
+                img {
+                    width: 29px;
+                    height: 29px;
+                    clip-path: circle(14px at center);
+                }
+                span {
+                    margin-left: 0.5em;
+                    font-size: $fs-small;
+                    font-weight: bold;
+                }
+            }
         }
     }
-}
 
-@media (min-width: 481px) {
-    nav {
-        width: 50px;
-        left: 80px;
+    @media (max-width: 480px) {
+        & {
+            width: 50px;
+            left: 0;
 
-        span {
-            display: none;
+            span {
+                display: none;
+            }
+            div.matches h5 {
+                font-size: 0.5em;
+            }
         }
     }
-}
 
-@media (min-width: 1023px) {
-    nav {
-        width: auto;
-        left: 75px;
+    @media (min-width: 481px) {
+        & {
+            width: 50px;
+            left: 80px;
 
-        span {
-            display: block;
+            span {
+                display: none;
+            }
+            div.matches h5 {
+                font-size: 0.5em;
+            }
+        }
+    }
+
+    @media (min-width: 1023px) {
+        & {
+            width: auto;
+            left: 75px;
+
+            span {
+                display: block;
+            }
+            div.matches h5 {
+                font-size: 1em;
+            }
         }
     }
 }

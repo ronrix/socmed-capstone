@@ -5,12 +5,16 @@ div.header {
     width: 100%;
 
     span.space {
-        flex: 1;
+        flex: 0.5;
     }
 
     div {
         flex: 2;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         form.search-wrapper {
             margin-top: 0.5em;
@@ -27,7 +31,7 @@ div.header {
             }
 
             &:has(input:focus) {
-                width: 100%;
+                width: 85%;
                 border: 1px solid $dark-primary;
             }
 

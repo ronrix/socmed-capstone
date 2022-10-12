@@ -5,11 +5,15 @@ import Navigations from "../../Navigations";
 import "../../../assets/styles/css/feed.css";
 import { ReactComponent as Send } from "../../../assets/icons/send.svg";
 import { ReactComponent as Profile } from "../../../assets/icons/circle-profile.svg";
+import { ReactComponent as Menu } from "../../../assets/icons/menu.svg";
+import { ReactComponent as MessageIcon } from "../../../assets/icons/messagefavorite.svg";
 
 import Msg from "./Msg";
-import SideMsgs from "./SideMsgs";
+import SideMsgs from "./SideMsg";
 
 export default function Messages() {
+    const [showMsgs, setShowMsgs] = React.useState(false);
+
     return (
         <div className="feed">
             <div className="container">
@@ -39,23 +43,31 @@ export default function Messages() {
                             </button>
                         </form>
                     </div>
+                    <div className="side-container-menubar">
+                        <Menu onClick={() => setShowMsgs(!showMsgs)} />
+                    </div>
                     <span className="space">
-                        <div className="side-content">
-                            <div className="side-content-header">
-                                <h2>Messages</h2>
-                                <input type="search" placeholder="search message" />
-                            </div>
-                            <div className="side-content-msgs">
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
-                                <SideMsgs />
+                        <div className={`side-container ${showMsgs ? "show" : ""}`}>
+                            <div className="side-container-msgs">
+                                <div className="side-container-msgs-header">
+                                    <h2>
+                                        <MessageIcon />
+                                        Messages
+                                    </h2>
+                                    <input type="search" placeholder="search message" />
+                                </div>
+                                <div className="side-container-msgs-body">
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                    <SideMsgs />
+                                </div>
                             </div>
                         </div>
                     </span>

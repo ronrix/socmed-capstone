@@ -21,15 +21,7 @@ export default function Feed() {
                         <Post />
                         <Post />
                     </div>
-                    <span className="space">
-                        <div className="side-content-matches">
-                            <h2>Matches</h2>
-                            <Match />
-                            <Match />
-                            <Match />
-                            <Match />
-                        </div>
-                    </span>
+                    <span className="space"></span>
                 </div>
             </div>
         </div>

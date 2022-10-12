@@ -2,10 +2,11 @@
 
 div.post-form {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 0.8em;
     background-color: $grey;
     padding: 1em;
+    padding-bottom: 0.2em;
     border-radius: $radius;
 
     div.input-file {
@@ -33,17 +34,18 @@ div.post-form {
 
     form.post-description {
         flex: 5;
-        border-left: 1px solid $dark;
         position: relative;
 
         textarea {
             background-color: transparent;
             border: none;
+            border-left: 1px solid $dark;
             outline: none;
             height: 100%;
             padding: 0.8em;
             resize: none;
             max-height: 90px;
+            width: 100%;
 
             &::-webkit-scrollbar {
                 width: 0.2em;
@@ -58,6 +60,47 @@ div.post-form {
                 outline: 1px solid $dark;
                 border-radius: $radius;
             }
+        }
+
+        div.btns {
+            margin: 0;
+            display: block;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            input {
+                padding: 0.5em 2em;
+                color: $light;
+                font-weight: bold;
+                outline: none;
+                border: none;
+                transition: color 200ms ease;
+            }
+            input.cancel {
+                color: $dark;
+                background-color: transparent;
+
+                &:hover {
+                    color: $dark-secondary;
+                }
+            }
+            input.submit {
+                border-radius: $radius;
+                background: linear-gradient(180deg, $light-secondary 0%, $dark-secondary 100%);
+
+                &:hover {
+                    background: $dark-secondary;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1023px) {
+        & {
+            max-width: 500px;
+            margin: auto;
+            margin-top: 0.8em;
         }
     }
 }

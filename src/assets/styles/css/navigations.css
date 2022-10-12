@@ -21,11 +21,15 @@ nav {
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 1em;
-  border-radius: 15px;
   width: auto;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
-  overflow: hidden;
+  overflow-y: scroll;
+  z-index: 1;
+  height: 90vh;
+}
+nav::-webkit-scrollbar {
+  display: none;
 }
 nav.prof-nav {
   width: 50px;
@@ -37,6 +41,9 @@ nav.prof-nav {
 }
 nav.prof-nav span {
   display: none;
+}
+nav.prof-nav div.matches h5 {
+  font-size: 0.5em;
 }
 nav a {
   text-decoration: none;
@@ -55,9 +62,9 @@ nav a {
   -webkit-transition: color 100ms ease, stroke 100ms ease;
   transition: color 100ms ease, stroke 100ms ease;
 }
-nav a:hover > svg path, nav a:hover > span {
-  color: #0092df;
+nav a:hover > abbr svg path, nav a:hover > span {
   stroke: #0092df;
+  color: #0092df;
 }
 nav a svg {
   margin-right: 1em;
@@ -74,7 +81,34 @@ nav a.active span {
 nav a.active svg path {
   stroke: #0092df;
 }
-
+nav div.matches {
+  margin-top: 1em;
+}
+nav div.matches-match-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.4em;
+  border-radius: 15px;
+  cursor: pointer;
+}
+nav div.matches-match-body:hover {
+  background-color: rgba(65, 146, 223, 0.5);
+}
+nav div.matches-match-body img {
+  width: 29px;
+  height: 29px;
+  -webkit-clip-path: circle(14px at center);
+          clip-path: circle(14px at center);
+}
+nav div.matches-match-body span {
+  margin-left: 0.5em;
+  font-size: 12px;
+  font-weight: bold;
+}
 @media (max-width: 480px) {
   nav {
     width: 50px;
@@ -82,6 +116,9 @@ nav a.active svg path {
   }
   nav span {
     display: none;
+  }
+  nav div.matches h5 {
+    font-size: 0.5em;
   }
 }
 @media (min-width: 481px) {
@@ -92,6 +129,9 @@ nav a.active svg path {
   nav span {
     display: none;
   }
+  nav div.matches h5 {
+    font-size: 0.5em;
+  }
 }
 @media (min-width: 1023px) {
   nav {
@@ -100,5 +140,8 @@ nav a.active svg path {
   }
   nav span {
     display: block;
+  }
+  nav div.matches h5 {
+    font-size: 1em;
   }
 }

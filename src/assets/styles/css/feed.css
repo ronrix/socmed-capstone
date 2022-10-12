@@ -3,9 +3,10 @@
 /* font sizes */
 /* box sizes */
 /* radius */
+div.feed {
+  overflow-x: hidden;
+}
 div.feed div.container {
-  max-width: 1200px;
-  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,10 +14,9 @@ div.feed div.container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
 }
 div.feed div.container div.inside-container {
-  width: 100%;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,23 +35,24 @@ div.feed div.container div.inside-container div.find-match {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 3em 0;
 }
 div.feed div.container div.inside-container div.find-match span.space {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  height: 5px;
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 !important;
+          flex: 1 !important;
 }
 div.feed div.container div.inside-container div.find-match div.match {
-  -webkit-box-flex: 6;
-      -ms-flex: 6;
-          flex: 6;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -386,23 +387,69 @@ div.feed div.container div.inside-container div.chats-body-msg p {
 div.feed div.container div.inside-container div.chats-body::-webkit-scrollbar {
   display: none;
 }
-div.feed div.container div.inside-container span.space {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  position: relative;
-}
-div.feed div.container div.inside-container div.side-content-matches {
+div.feed div.container div.inside-container div.side-container-menubar {
   position: fixed;
+  right: 10px;
   top: 10px;
+  z-index: 2;
+}
+div.feed div.container div.inside-container div.side-container-menubar svg:hover > path {
+  stroke: #0092df;
+}
+div.feed div.container div.inside-container span.space {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+  /* colors */
+  /* facebook color */
+  /* font sizes */
+  /* box sizes */
+  /* radius */
+}
+div.feed div.container div.inside-container span.space div.side-container {
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transform: translateX(500px) !important;
+          transform: translateX(500px) !important;
+}
+div.feed div.container div.inside-container span.space div.side-container.show {
+  -webkit-transform: translateX(110px) !important;
+          transform: translateX(110px) !important;
+}
+div.feed div.container div.inside-container span.space div.side-container-msgs {
+  width: 300px;
+  position: fixed;
+  right: 50px;
+  top: 10px;
+  z-index: 1;
   padding: 1em;
-  right: 220px;
-  display: none;
+  border-radius: 15px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
-div.feed div.container div.inside-container div.side-content-matches-match {
-  padding: 0.5em 0;
+div.feed div.container div.inside-container span.space div.side-container-msgs-header input {
+  margin: 0.5em 0;
+  width: 100%;
+  border-radius: 15px;
+  padding: 0.5em 0.8em;
+  border: none;
+  -webkit-box-shadow: 0px 0px 2px #434343;
+          box-shadow: 0px 0px 2px #434343;
+  -webkit-transition: border 300ms ease;
+  transition: border 300ms ease;
+  outline: none;
 }
-div.feed div.container div.inside-container div.side-content-matches-match-body {
+div.feed div.container div.inside-container span.space div.side-container-msgs-header input:hover, div.feed div.container div.inside-container span.space div.side-container-msgs-header input:focus {
+  -webkit-box-shadow: 0px 0px 2px #0092df;
+          box-shadow: 0px 0px 2px #0092df;
+}
+div.feed div.container div.inside-container span.space div.side-container-msgs-header h2 {
+  border-radius: 15px;
+  width: 100%;
+  font-size: 17px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -413,39 +460,20 @@ div.feed div.container div.inside-container div.side-content-matches-match-body 
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
-div.feed div.container div.inside-container div.side-content-matches-match-body span {
-  margin-left: 0.5em;
+div.feed div.container div.inside-container span.space div.side-container-msgs-header h2 svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5em;
 }
-div.feed div.container div.inside-container div.side-content {
-  position: fixed;
-  max-width: 300px;
-  right: 70px;
-  top: 10px;
-  display: none;
-  padding: 1em;
-}
-div.feed div.container div.inside-container div.side-content-header input {
-  margin: 0.5em 0;
-  width: 100%;
-  border-radius: 15px;
-  padding: 0.5em 0.8em;
-  border: none;
-  border: 1px solid #434343;
-  -webkit-transition: border 300ms ease;
-  transition: border 300ms ease;
-  outline: none;
-}
-div.feed div.container div.inside-container div.side-content-header input:hover, div.feed div.container div.inside-container div.side-content-header input:focus {
-  border: 1px solid #0092df;
-}
-div.feed div.container div.inside-container div.side-content-msgs {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body {
   overflow-y: scroll;
-  height: 70vh;
+  height: 90vh;
 }
-div.feed div.container div.inside-container div.side-content-msgs::-webkit-scrollbar {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body::-webkit-scrollbar {
   display: none;
 }
-div.feed div.container div.inside-container div.side-content-msg {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper {
+  background-color: #fff;
   margin: 0.5em 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -457,39 +485,50 @@ div.feed div.container div.inside-container div.side-content-msg {
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding: 0.3em 0;
-  background-color: transparent;
   -webkit-transition: background-color 100ms ease-in-out;
   transition: background-color 100ms ease-in-out;
   cursor: pointer;
   -webkit-box-shadow: -3px 0px 5px #e5e5e5;
           box-shadow: -3px 0px 5px #e5e5e5;
 }
-div.feed div.container div.inside-container div.side-content-msg:hover {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper:hover {
   background-color: #e5e5e5;
 }
-div.feed div.container div.inside-container div.side-content-msg svg {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper svg {
   width: 50px;
   height: 50px;
   margin-right: 0.2em;
 }
-div.feed div.container div.inside-container div.side-content-msg h4 {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper h4 {
   font-size: 12px;
 }
-div.feed div.container div.inside-container div.side-content-msg-body p {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper-body p {
   font-size: 12px;
-}
-div.feed div.container div.inside-container div.side-content h2 {
-  border-radius: 15px;
-  background-color: #e5e5e5;
-  padding: 0.8em;
-  width: 100%;
-  font-size: 17px;
 }
 @media (max-width: 480px) {
-  div.feed div.container div.inside-container div.side-content {
+  div.feed div.container div.inside-container span.space div.side-container {
+    position: absolute;
     top: 0;
-    right: 0;
-    opacity: 0.2;
+    right: -500px;
+  }
+  div.feed div.container div.inside-container span.space div.side-container-msgs {
+    width: 70vw;
+    z-index: 4;
+  }
+  div.feed div.container div.inside-container span.space div.side-container.show {
+    right: 80px;
+  }
+}
+@media (min-width: 481px) {
+  div.feed div.container div.inside-container span.space div.side-container.show {
+    -webkit-transform: translateX(10px) !important;
+            transform: translateX(10px) !important;
+  }
+}
+@media (min-width: 1306px) {
+  div.feed div.container div.inside-container span.space div.side-container {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
   }
 }
 @media (max-width: 480px) {

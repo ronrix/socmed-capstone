@@ -8,23 +8,24 @@ div.find-match {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 3em 0;
 }
 div.find-match span.space {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  height: 5px;
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 !important;
+          flex: 1 !important;
 }
 div.find-match div.match {
-  -webkit-box-flex: 6;
-      -ms-flex: 6;
-          flex: 6;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
