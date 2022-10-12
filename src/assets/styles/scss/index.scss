@@ -1,0 +1,43 @@
+@use "./variables.scss" as *;
+
+@font-face {
+    font-family: "Inter";
+    src: local("Inter"), url(../fonts/Inter.ttf) format("truetype");
+}
+
+* {
+    color: $dark;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 0.3em;
+    transition: width 150ms ease;
+
+    &:hover {
+        width: 0.5em;
+    }
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: $radius;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: $dark;
+    outline: 1px solid $dark;
+    border-radius: $radius;
+}
+
+.me-3 {
+    margin-right: 0.5em;
+}

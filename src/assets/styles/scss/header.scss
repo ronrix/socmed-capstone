@@ -1,0 +1,82 @@
+@use "./variables.scss" as *;
+
+div.header {
+    display: flex;
+    width: 100%;
+
+    span.space {
+        flex: 1;
+    }
+
+    div {
+        flex: 2;
+        position: relative;
+
+        form.search-wrapper {
+            margin-top: 0.5em;
+            width: 20%;
+            padding: 0.3em;
+            border: 1px solid $dark;
+            border-radius: $radius;
+            display: flex;
+            align-items: center;
+            transition: width 200ms ease-in-out;
+
+            &:hover {
+                border: 1px solid $dark-primary;
+            }
+
+            &:has(input:focus) {
+                width: 100%;
+                border: 1px solid $dark-primary;
+            }
+
+            svg path {
+                stroke: $dark;
+            }
+
+            input {
+                width: 90%;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                margin-left: 0.5em;
+                text-align: center;
+                transition: width 100ms ease;
+
+                &::placeholder {
+                    color: $dark;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    @media (max-width: 480px) {
+        & {
+            span.space {
+                display: none;
+            }
+            div {
+                width: 100%;
+                form.search-wrapper {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    @media (min-width: 481px) {
+        & {
+            div {
+                width: 100%;
+                form.search-wrapper {
+                    width: 50%;
+                }
+            }
+        }
+    }
+    @media (min-width: 1023px) {
+        form.search-wrapper {
+            width: 20%;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+@use "./variables.scss" as *;
+
+div.post-form {
+    display: flex;
+    align-items: center;
+    margin-top: 0.8em;
+    background-color: $grey;
+    padding: 1em;
+    border-radius: $radius;
+
+    div.input-file {
+        flex: 1;
+        text-align: center;
+
+        &:hover > svg path {
+            stroke: $dark-primary;
+        }
+
+        input {
+            display: none;
+        }
+
+        svg {
+            cursor: pointer;
+            width: $bs-medium;
+            height: $bs-medium;
+
+            path {
+                stroke-width: 2;
+            }
+        }
+    }
+
+    form.post-description {
+        flex: 5;
+        border-left: 1px solid $dark;
+        position: relative;
+
+        textarea {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            height: 100%;
+            padding: 0.8em;
+            resize: none;
+            max-height: 90px;
+
+            &::-webkit-scrollbar {
+                width: 0.2em;
+            }
+
+            &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                border-radius: $radius;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: $dark;
+                outline: 1px solid $dark;
+                border-radius: $radius;
+            }
+        }
+    }
+}

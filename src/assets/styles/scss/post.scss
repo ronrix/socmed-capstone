@@ -1,0 +1,109 @@
+@use "./variables.scss" as *;
+
+div.post-wrapper {
+    width: 100%;
+    position: relative;
+
+    div.img-wrapper {
+        margin-top: 1em;
+        margin-bottom: 0.2em;
+        border-radius: $radius;
+        overflow: hidden;
+        height: 600px;
+        position: relative;
+
+        div.info-overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &:hover > div.info-overlay-body {
+                display: block;
+                opacity: 1;
+            }
+
+            &-header {
+                padding: 1em;
+                color: $light;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    margin-right: 0.5em;
+                    width: $fs-medium;
+                    height: $fs-medium;
+                    path {
+                        stroke: $light;
+                        stroke-width: 2;
+                    }
+                }
+            }
+
+            &-body {
+                padding: 3em;
+                opacity: 0;
+                box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.5);
+                transition: opacity 300ms ease-in-out;
+
+                p {
+                    font-size: $fs-small;
+                    color: $light;
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            & {
+                max-height: 300px;
+            }
+        }
+        @media (min-width: 481px) {
+            & {
+                max-height: 320px;
+            }
+        }
+        @media (min-width: 1023px) {
+            & {
+                max-height: 600px;
+            }
+        }
+    }
+
+    button {
+        padding: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-weight: bold;
+        font-size: $fs-small;
+        border-radius: $radius;
+        background: linear-gradient(180deg, $light-primary 0%, $dark-primary 100%);
+        border: none;
+        outline: none;
+        color: $light;
+
+        &:hover {
+            background: $dark-primary;
+        }
+
+        svg {
+            width: 25px;
+            height: 25px;
+
+            path {
+                stroke-width: 3;
+            }
+        }
+    }
+}

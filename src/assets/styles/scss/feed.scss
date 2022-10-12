@@ -1,0 +1,353 @@
+@use "./variables.scss" as *;
+@use "./global.scss" as *;
+
+div.feed {
+    div.container {
+        @include container;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        div.inside-container {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+
+            @import "./find-match";
+
+            div.posts {
+                padding: 0;
+                @media (max-width: 480px) {
+                    flex: 4.5;
+                }
+            }
+            div.posts,
+            div.chats {
+                flex: 2;
+
+                @media (max-width: 480px) {
+                    flex: 4.5;
+                }
+
+                @media (min-width: 481px) {
+                    flex: 2;
+                }
+            }
+
+            div.chats {
+                padding: 1em 0;
+                &-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 0.2em;
+
+                    svg {
+                        width: $fs-medium;
+                        height: $fs-medium;
+                    }
+
+                    span {
+                        font-weight: bold;
+                        margin-left: 0.5em;
+                    }
+                }
+
+                form.chats-form {
+                    margin-top: 0.3em;
+                    display: flex;
+                    align-items: flex-start;
+
+                    textarea {
+                        border-radius: $radius;
+                        flex: 5;
+                        width: 100%;
+                        padding: 1em;
+                        height: $bs-large;
+                        outline: none;
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+
+                        &:focus {
+                            border: 2px solid $dark-primary;
+                        }
+
+                        @media (max-width: 480px) {
+                            flex: 4;
+                        }
+                        @media (min-width: 481px) {
+                            flex: 5;
+                        }
+                    }
+
+                    button {
+                        margin-left: 0.3em;
+                        flex: 1;
+                        height: $bs-large;
+                        border: none;
+                        border-radius: $radius;
+                        outline: none;
+                        color: $light;
+                        font-weight: bold;
+                        background: linear-gradient(180deg, $light-primary 0%, $dark-primary 100%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        @media (max-width: 480px) {
+                            flex: 2;
+                        }
+                        @media (min-width: 481px) {
+                            flex: 1;
+                        }
+
+                        svg {
+                            margin-left: 0.3em;
+                            width: $fs-medium;
+                            height: $fs-medium;
+
+                            path {
+                                stroke: $light;
+                            }
+                        }
+
+                        &:hover {
+                            background: $dark-primary;
+                        }
+                    }
+                }
+
+                &-body {
+                    max-height: 500px;
+                    height: 500px;
+                    overflow-y: scroll;
+                    padding: 1em;
+                    box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.25) inset;
+                    -webkit-box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.25) inset;
+                    -moz-box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.25) inset;
+                    display: flex;
+                    flex-direction: column-reverse;
+
+                    &-msg.from {
+                        align-self: flex-end;
+                        flex-direction: row-reverse;
+                        p {
+                            color: $light;
+                            background: linear-gradient(180deg, $light-primary 0%, $dark-primary 100%);
+                        }
+                    }
+
+                    &-msg {
+                        display: flex;
+                        align-items: flex-start;
+                        margin: 0.3em 0;
+
+                        svg {
+                            width: $bs-medium;
+                            height: $bs-medium;
+                        }
+
+                        p {
+                            font-size: 0.8em;
+                            padding: 0.8em;
+                            max-width: 280px;
+                            border: 1px solid $grey;
+                            border-radius: $radius;
+                        }
+
+                        @media (max-width: 480px) {
+                            & {
+                                flex-direction: column;
+                            }
+
+                            & svg {
+                                width: calc($fs-small + 10px);
+                                height: calc($fs-small + 10px);
+                            }
+
+                            &.from {
+                                flex-direction: column;
+                                svg {
+                                    align-self: flex-end;
+                                }
+                            }
+                        }
+
+                        @media (min-width: 481px) {
+                            & {
+                                flex-direction: row;
+                            }
+
+                            &.from svg {
+                                align-self: flex-end;
+                                width: $bs-medium;
+                                height: $bs-medium;
+                            }
+                            p {
+                                font-size: 0.7em;
+                                max-width: 180px;
+                            }
+                        }
+                    }
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+            }
+
+            span.space {
+                flex: 1;
+                position: relative;
+            }
+
+            div.side-content-matches {
+                position: fixed;
+                top: 10px;
+                padding: 1em;
+                right: 220px;
+                display: none;
+
+                &-match {
+                    padding: 0.5em 0;
+
+                    &-body {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+
+                        span {
+                            margin-left: 0.5em;
+                        }
+                    }
+                }
+            }
+            div.side-content {
+                position: fixed;
+                max-width: 300px;
+                right: 70px;
+                top: 10px;
+                display: none;
+                padding: 1em;
+
+                &-header {
+                    input {
+                        margin: 0.5em 0;
+                        width: 100%;
+                        border-radius: $radius;
+                        padding: 0.5em 0.8em;
+                        border: none;
+                        border: 1px solid $dark;
+                        transition: border 300ms ease;
+                        outline: none;
+
+                        &:hover,
+                        &:focus {
+                            border: 1px solid $dark-primary;
+                        }
+                    }
+                }
+
+                &-msgs {
+                    overflow-y: scroll;
+                    height: 70vh;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+
+                &-msg {
+                    margin: 0.5em 0;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    padding: 0.3em 0;
+                    background-color: transparent;
+                    transition: background-color 100ms ease-in-out;
+                    cursor: pointer;
+                    box-shadow: -3px 0px 5px $grey;
+
+                    &:hover {
+                        background-color: $grey;
+                    }
+
+                    svg {
+                        width: 50px;
+                        height: 50px;
+                        margin-right: 0.2em;
+                    }
+
+                    h4 {
+                        font-size: $fs-small;
+                    }
+
+                    &-body {
+                        p {
+                            font-size: $fs-small;
+                        }
+                    }
+                }
+
+                h2 {
+                    border-radius: $radius;
+                    background-color: $grey;
+                    padding: 0.8em;
+                    width: 100%;
+                    font-size: $fs-medium;
+                }
+
+                @media (max-width: 480px) {
+                    & {
+                        top: 0;
+                        right: 0;
+                        opacity: 0.2;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            & {
+                width: 100vw;
+
+                div.inside-container {
+                    width: 100%;
+                    display: block;
+
+                    div.posts {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 481px) {
+            & {
+                width: 100vw;
+
+                div.inside-container {
+                    width: 100%;
+                    display: flex;
+
+                    div.posts {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        @media (min-width: 1023px) {
+            & {
+                width: 1200px;
+
+                div.inside-container {
+                    display: flex;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

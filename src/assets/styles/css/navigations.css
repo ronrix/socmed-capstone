@@ -1,0 +1,104 @@
+/* colors */
+/* facebook color */
+/* font sizes */
+/* box sizes */
+/* radius */
+nav {
+  position: fixed;
+  left: 100px;
+  top: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 1em;
+  border-radius: 15px;
+  width: auto;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  overflow: hidden;
+}
+nav.prof-nav {
+  width: 50px;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  left: 0;
+  position: fixed;
+  top: 10px;
+}
+nav.prof-nav span {
+  display: none;
+}
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0.5em 0;
+  position: relative;
+  -webkit-transition: color 100ms ease, stroke 100ms ease;
+  transition: color 100ms ease, stroke 100ms ease;
+}
+nav a:hover > svg path, nav a:hover > span {
+  color: #0092df;
+  stroke: #0092df;
+}
+nav a svg {
+  margin-right: 1em;
+  width: 29px;
+  height: 29px;
+}
+nav a svg path {
+  stroke: #434343;
+  stroke-width: 2;
+}
+nav a.active span {
+  color: #0092df;
+}
+nav a.active svg path {
+  stroke: #0092df;
+}
+
+@media (max-width: 480px) {
+  nav {
+    width: 50px;
+    left: 0;
+  }
+  nav span {
+    display: none;
+  }
+}
+@media (min-width: 481px) {
+  nav {
+    width: 50px;
+    left: 80px;
+  }
+  nav span {
+    display: none;
+  }
+}
+@media (min-width: 1023px) {
+  nav {
+    width: auto;
+    left: 75px;
+  }
+  nav span {
+    display: block;
+  }
+}
