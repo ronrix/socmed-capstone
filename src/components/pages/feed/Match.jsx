@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as Profile } from "../../../assets/icons/circle-profile.svg";
 
 export default function Match() {
     return (

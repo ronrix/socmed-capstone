@@ -93,9 +93,13 @@ div.wrapper form div.form-wrapper input {
   border: 1px solid #434343;
   display: block;
   width: 100%;
+  outline: none;
 }
 div.wrapper form div.form-wrapper input.error {
   border: 1px solid #ff857a;
+}
+div.wrapper form div.form-wrapper input.error:focus {
+  border: 2px solid #ff857a;
 }
 div.wrapper form div.form-wrapper input.btn {
   margin-top: 1em;

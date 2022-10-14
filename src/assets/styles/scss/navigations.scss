@@ -43,12 +43,12 @@ nav {
         justify-content: flex-start;
         margin: 0.5em 0;
         position: relative;
+        transition: color 110ms ease;
 
-        transition: color 100ms ease, stroke 100ms ease;
-
-        &:hover > abbr svg path,
-        &:hover > span {
+        &:hover > abbr svg path {
             stroke: $dark-primary;
+        }
+        &:hover > span {
             color: $dark-primary;
         }
 
@@ -56,6 +56,7 @@ nav {
             margin-right: 1em;
             width: 29px;
             height: 29px;
+            transition: stroke 120ms ease;
 
             path {
                 stroke: $dark;
@@ -67,8 +68,15 @@ nav {
         span {
             color: $dark-primary;
         }
+
+        &:hover > abbr svg path {
+            stroke: $light;
+        }
+
         svg path {
-            stroke: $dark-primary;
+            stroke: $light;
+            fill: $light-primary;
+            stroke-width: 1;
         }
     }
 
@@ -108,8 +116,13 @@ nav {
             span {
                 display: none;
             }
-            div.matches h5 {
-                font-size: 0.5em;
+            div.matches {
+                &-match-body {
+                    padding: 0;
+                }
+                h5 {
+                    font-size: 0.5em;
+                }
             }
         }
     }
@@ -117,7 +130,7 @@ nav {
     @media (min-width: 481px) {
         & {
             width: 50px;
-            left: 80px;
+            left: 20px;
 
             span {
                 display: none;
@@ -131,7 +144,21 @@ nav {
     @media (min-width: 1023px) {
         & {
             width: auto;
-            left: 75px;
+            left: 50px;
+
+            span {
+                display: block;
+            }
+            div.matches h5 {
+                font-size: 1em;
+            }
+        }
+    }
+
+    @media (min-width: 1300px) {
+        & {
+            width: auto;
+            left: 200px;
 
             span {
                 display: block;

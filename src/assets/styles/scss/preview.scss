@@ -1,0 +1,131 @@
+@use "./variables.scss" as *;
+
+div.post-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 100ms ease-in-out;
+
+    &-inside {
+        background-color: $light;
+        padding: 1em;
+        border-radius: $radius;
+        width: 70vw;
+        height: 80vh;
+        position: relative;
+        display: flex;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        &-info {
+            padding: 0 0.5em;
+            position: relative;
+
+            h6 {
+                margin-top: 1em;
+                text-align: left;
+                display: block;
+                width: 100%;
+            }
+
+            &-header {
+                font-weight: bold;
+            }
+
+            &-body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100%;
+
+                &-img-wrapper {
+                    overflow-y: scroll;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    div.img {
+                        margin: 0.5em 0;
+                        width: 50%;
+                        position: relative;
+
+                        img {
+                            display: inline-block;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                button {
+                    margin-top: 1em;
+                    padding: 0.5em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: $fs-small;
+                    border-radius: $radius;
+                    background: linear-gradient(180deg, $light-primary 0%, $dark-primary 100%);
+                    border: none;
+                    outline: none;
+                    color: $light;
+
+                    &:hover {
+                        background: $dark-primary;
+                    }
+
+                    svg {
+                        width: 25px;
+                        height: 25px;
+
+                        path {
+                            stroke-width: 3;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 744px) {
+            & {
+                flex-direction: column;
+
+                img {
+                    width: 80%;
+                    margin: auto;
+                    margin-bottom: 0.5em;
+                }
+            }
+        }
+
+        @media (min-width: 745px) {
+            & {
+                flex-direction: row;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

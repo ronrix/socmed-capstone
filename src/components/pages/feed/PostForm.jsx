@@ -5,7 +5,7 @@ import { ReactComponent as Image } from "../../../assets/icons/upload.svg";
 
 import "../../../assets/styles/css/postform.css";
 
-export default function PostForm({ dispatch }) {
+export default function PostForm({ formSubmit }) {
     const fileRef = React.useRef(null);
     const [file, setFile] = React.useState(null);
 
@@ -21,12 +21,10 @@ export default function PostForm({ dispatch }) {
             initialValues={{ description: "", file: [] }}
             onSubmit={(values, actions) => {
                 // insert new post
-                dispatch(values);
-                setTimeout(() => {
-                    actions.resetForm();
-                    actions.setSubmitting(false);
-                    setFile(null);
-                }, 1000);
+                formSubmit(values);
+                actions.resetForm();
+                actions.setSubmitting(false);
+                setFile(null);
             }}
         >
             {props => (
@@ -54,11 +52,12 @@ export default function PostForm({ dispatch }) {
                             onBlur={props.handleBlur}
                             required
                         />
-                        <div className="btns">
+                        <div className="post-form-img-wrapper">{file && <img src={file} alt="preview of pic" />}</div>
+
+                        <div className="btns" style={{ display: props.values.description && props.values.file ? "flex" : "none" }}>
                             <input type="button" className="cancel" value="Cancel" onClick={() => handleCancel(props)} />
                             <input type="submit" className="submit" value="Post" disabled={!props.isValid} />
                         </div>
-                        <div className="post-form-img-wrapper">{file && <img src={file} alt="preview of image" />}</div>
                     </div>
                 </form>
             )}

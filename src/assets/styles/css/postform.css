@@ -22,12 +22,12 @@ form.post-form {
 }
 form.post-form div.post-form-img-wrapper {
   margin-top: 0.5em;
-  border: 1px solid #434343;
   width: 100%;
   position: relative;
 }
 form.post-form div.post-form-img-wrapper img {
   width: 100%;
+  border: 1px solid #434343;
 }
 form.post-form div.input-file {
   -webkit-box-flex: 1;
@@ -47,7 +47,10 @@ form.post-form div.input-file svg {
   height: 47px;
 }
 form.post-form div.input-file svg path {
+  -webkit-transition: stroke 100ms ease;
+  transition: stroke 100ms ease;
   stroke-width: 2;
+  fill: #434343;
 }
 form.post-form div.post-description {
   -webkit-box-flex: 5;
@@ -81,16 +84,14 @@ form.post-form div.post-description textarea::-webkit-scrollbar-thumb {
 }
 form.post-form div.post-description div.btns {
   margin: 0;
-  display: block;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  margin-top: 1em;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: none;
 }
 form.post-form div.post-description div.btns input {
   padding: 0.5em 2em;

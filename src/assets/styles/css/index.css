@@ -7,7 +7,10 @@
   font-family: "Inter";
   src: local("Inter"), url(../fonts/Inter.ttf) format("truetype");
 }
-* {
+*,
+input,
+li,
+a {
   color: #434343;
   padding: 0;
   margin: 0;

@@ -5,8 +5,9 @@ import Navigations from "../../Navigations";
 import Post from "../../Post";
 import PostForm from "./PostForm";
 
-import reducer from "../../../config/reducer";
+// import reducer from "../../../config/reducer";
 import "../../../assets/styles/css/feed.css";
+import PostPreview from "../../modals/PostPreview";
 
 const initialPosts = [
     {
@@ -30,15 +31,32 @@ const initialPosts = [
 ];
 
 export default function Feed() {
-    const [posts, dispatch] = React.useReducer(reducer, initialPosts);
+    // const [posts, dispatch] = React.useReducer(reducer, initialPosts);
+    const [posts, setPosts] = React.useState(initialPosts);
+    const [postPreview, setPostPreview] = React.useState(null);
+    let clonePosts = [...posts];
 
     const formSubmit = values => {
-        dispatch({ type: "POST", values });
+        // dispatch({ type: "POST", values });
+        console.log(values);
+        setPosts([
+            ...posts,
+            {
+                id: posts.length + 1,
+                username: "Test " + (posts.length + 1),
+                description: values.description,
+                imgFile: URL.createObjectURL(values.file)
+            }
+        ]);
+
+        clonePosts = [...posts];
     };
 
-    React.useEffect(() => {
-        console.log(posts.reverse());
-    }, [posts]);
+    const handlePreviewPost = post => {
+        setPostPreview(post);
+    };
+
+    React.useEffect(() => {}, [posts]);
 
     return (
         <div className="feed">
@@ -48,9 +66,12 @@ export default function Feed() {
                     <span className="space"></span>
                     <Navigations active="home" />
                     <div className="posts">
-                        <PostForm dispatch={formSubmit} />
-                        {posts.reverse().map(post => (
-                            <Post key={post.id} post={post} />
+                        <PostForm formSubmit={formSubmit} />
+
+                        <PostPreview post={postPreview} setPostPreview={setPostPreview} />
+
+                        {clonePosts.reverse().map(post => (
+                            <Post key={post.id} post={post} onClick={handlePreviewPost} />
                         ))}
                     </div>
                     <span className="space"></span>

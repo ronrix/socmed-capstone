@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, Formik } from "formik";
+import { useNavigate } from "react-router-dom";
 import { loginSchema } from "../../config/validation";
 
 import "../../assets/styles/css/registration.css";
@@ -9,6 +10,7 @@ import { ReactComponent as Facebook } from "../../assets/icons/facebook.svg";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
     return (
         <div className="wrapper">
             <Formik
@@ -17,9 +19,10 @@ const Login = () => {
                     password: ""
                 }}
                 onSubmit={(values, actions) => {
-                    alert(JSON.stringify(values, null, 2));
-                    actions.setSubmitting(false);
+                    console.log(values);
                     actions.resetForm();
+                    actions.setSubmitting(false);
+                    navigate("/app");
                 }}
                 validationSchema={loginSchema}
             >

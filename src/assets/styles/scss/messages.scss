@@ -2,7 +2,7 @@
 
 div.side-container {
     transition: transform 200ms ease-in-out;
-    transform: translateX(500px) !important;
+    transform: translateX(10px) !important;
 
     &.show {
         transform: translateX(110px) !important;
@@ -11,7 +11,6 @@ div.side-container {
     &-msgs {
         width: 300px;
         position: fixed;
-        right: 50px;
         top: 10px;
         z-index: 1;
         padding: 1em;
@@ -96,27 +95,30 @@ div.side-container {
         & {
             position: absolute;
             top: 0;
-            right: -500px;
 
             &-msgs {
                 width: 70vw;
                 z-index: 4;
+                transform: translateX(450px);
             }
 
             &.show {
-                right: 80px;
+                transform: translateX(-320px) !important;
             }
         }
     }
 
     @media (min-width: 481px) {
         &.show {
-            transform: translateX(10px) !important;
+            transform: translateX(-600px) !important;
+        }
+        &-msgs {
+            transform: translateX(420px);
         }
     }
 
-    @media (min-width: 1306px) {
-        & {
+    @media (min-width: 1080px) {
+        &-msgs {
             transform: translateX(0px);
         }
     }

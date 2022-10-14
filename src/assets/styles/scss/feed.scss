@@ -20,17 +20,24 @@ div.feed {
                 @media (max-width: 480px) {
                     flex: 4.5;
                 }
+                @media (min-width: 481px) {
+                    flex: 5;
+                }
             }
             div.posts,
             div.chats {
                 flex: 2;
 
                 @media (max-width: 480px) {
-                    flex: 4.5;
+                    flex: 4;
                 }
 
                 @media (min-width: 481px) {
                     flex: 2;
+                }
+
+                @media (min-width: 1023px) {
+                    flex: 1;
                 }
             }
 
@@ -221,6 +228,7 @@ div.feed {
         @media (max-width: 480px) {
             & {
                 width: 100vw;
+                padding-left: 3em;
 
                 div.inside-container {
                     width: 100%;
@@ -228,6 +236,7 @@ div.feed {
 
                     div.posts {
                         width: 100%;
+                        padding: 0.3em;
                     }
                 }
             }
@@ -249,8 +258,9 @@ div.feed {
         }
         @media (min-width: 1023px) {
             & {
-                width: 1200px;
-
+                div.side-container-menubar {
+                    display: none;
+                }
                 div.inside-container {
                     display: flex;
                     width: 100%;

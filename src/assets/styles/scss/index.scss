@@ -5,7 +5,10 @@
     src: local("Inter"), url(../fonts/Inter.ttf) format("truetype");
 }
 
-* {
+*,
+input,
+li,
+a {
     color: $dark;
     padding: 0;
     margin: 0;

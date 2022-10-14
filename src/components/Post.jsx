@@ -3,10 +3,23 @@ import React from "react";
 import "../assets/styles/css/post.css";
 import { ReactComponent as Like } from "../assets/icons/like.svg";
 import { ReactComponent as Profile } from "../assets/icons/profile.svg";
+import { useSpring, animated } from "react-spring";
 
-export default function Post({ post }) {
+export default function Post({ post, onClick }) {
+    const [state, toggle] = React.useState(false);
+    const { x } = useSpring({
+        from: { x: 0 },
+        x: state ? 1 : 0,
+        config: { duration: 1000 }
+    });
+
+    const handleLikeBtn = e => {
+        toggle(!state);
+        e.stopPropagation();
+    };
+
     return (
-        <div className="post-wrapper">
+        <div className="post-wrapper" onClick={() => onClick(post)}>
             <div className="img-wrapper">
                 <div className="info-overlay">
                     <div className="info-overlay-header">
@@ -17,12 +30,21 @@ export default function Post({ post }) {
                         <p>{post.description}</p>
                     </div>
                 </div>
-                <img src={require(`../assets/images/${post.imgPath}`)} alt="sample post" />
+                <img src={post.imgFile || require(`../assets/images/${post.imgPath}`)} alt="sample post" />
             </div>
-            <button>
+            <animated.button
+                onClick={handleLikeBtn}
+                style={{
+                    opacity: x.to({ range: [0, 1], output: [0.9, 1] }),
+                    scale: x.to({
+                        range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+                        output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1]
+                    })
+                }}
+            >
                 <Like />
-                Like
-            </button>
+                {state ? "Liked" : "Like"}
+            </animated.button>
         </div>
     );
 }

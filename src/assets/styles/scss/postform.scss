@@ -14,12 +14,12 @@ form.post-form {
 
     div.post-form-img-wrapper {
         margin-top: 0.5em;
-        border: 1px solid $dark;
         width: 100%;
         position: relative;
 
         img {
             width: 100%;
+            border: 1px solid $dark;
         }
     }
 
@@ -41,7 +41,9 @@ form.post-form {
             height: $bs-medium;
 
             path {
+                transition: stroke 100ms ease;
                 stroke-width: 2;
+                fill: $dark;
             }
         }
     }
@@ -78,10 +80,10 @@ form.post-form {
 
         div.btns {
             margin: 0;
-            display: block;
-            display: flex;
+            margin-top: 1em;
             justify-content: flex-end;
             align-items: center;
+            display: none;
 
             input {
                 padding: 0.5em 2em;

@@ -3,8 +3,7 @@
 /* font sizes */
 /* box sizes */
 /* radius */
-div.container {
-  width: 1200px;
+div.profile-container {
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,15 +11,15 @@ div.container {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 1em;
+  padding: 0.5em;
 }
-div.container div.description,
-div.container div.posts {
+div.profile-container div.description,
+div.profile-container div.posts {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
 }
-div.container div.description div.head-profile {
+div.profile-container div.description div.head-profile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,29 +30,62 @@ div.container div.description div.head-profile {
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
-div.container div.description div.head-profile img {
+div.profile-container div.description div.head-profile-img-wrapper {
+  position: relative;
+  height: auto;
+  border-radius: 20%;
+  overflow: hidden;
+}
+div.profile-container div.description div.head-profile-img-wrapper:hover svg {
+  opacity: 1;
+}
+div.profile-container div.description div.head-profile-img-wrapper input {
+  display: none;
+}
+div.profile-container div.description div.head-profile-img-wrapper img {
   width: 120px;
-  margin: 1em;
   margin-left: 0;
   -webkit-clip-path: circle(60px at center);
           clip-path: circle(60px at center);
 }
-div.container div.description div.head-profile-txt p {
+div.profile-container div.description div.head-profile-img-wrapper svg {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 25px;
+  right: 25px;
+  border-radius: 50%;
+  padding: 0.2em;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+}
+div.profile-container div.description div.head-profile-img-wrapper svg:hover > path {
+  stroke: #00b0f9;
+}
+div.profile-container div.description div.head-profile-img-wrapper svg path {
+  stroke: #fff;
+  stroke-width: 4;
+}
+div.profile-container div.description div.head-profile-txt {
+  margin: 1em 0;
+}
+div.profile-container div.description div.head-profile-txt p {
   font-size: 12px;
 }
-div.container div.description form label {
+div.profile-container div.description div.more-info label {
   margin: 0.8em 0;
   display: block;
   font-size: 12px;
 }
-div.container div.description form label span {
+div.profile-container div.description div.more-info label span {
   font-weight: bold;
   font-size: 17px;
 }
-div.container div.description form label input {
+div.profile-container div.description div.more-info label input {
   margin-right: 0.5em;
 }
-div.container div.description form label textarea {
+div.profile-container div.description div.more-info label textarea {
   resize: none;
   height: 100px;
   display: block;
@@ -63,13 +95,13 @@ div.container div.description form label textarea {
   outline: none;
   font-family: Inter, sans-serif;
 }
-div.container div.description form label textarea:focus, div.container div.description form label textarea:hover {
+div.profile-container div.description div.more-info label textarea:focus, div.profile-container div.description div.more-info label textarea:hover {
   border: 1px solid #0092df;
 }
-div.container div.description form div.location {
+div.profile-container div.description div.more-info div.location {
   margin: 1em 0;
 }
-div.container div.description form div.location span {
+div.profile-container div.description div.more-info div.location span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,44 +110,92 @@ div.container div.description form div.location span {
           align-items: center;
   font-size: 12px;
 }
-div.container div.description form div.location span svg {
+div.profile-container div.description div.more-info div.location span svg {
   width: 12px;
   height: 12px;
   margin-right: 0.3em;
 }
-div.container div.description form div.location span a {
+div.profile-container div.description div.more-info div.location span textarea.location-text.edit {
+  border: 1px solid #00b0f9;
+}
+div.profile-container div.description div.more-info div.location span textarea.location-text {
+  border: none;
+  outline: none;
+  color: #434343;
+  background-color: transparent;
+  text-decoration: none;
+  width: auto;
+  resize: none;
+}
+div.profile-container div.description div.more-info div.location span input {
   margin-left: 0.3em;
   text-decoration: none;
+  border: none;
+  outline: none;
   color: #00b0f9;
+  background-color: transparent;
 }
-div.container div.description form h4 {
+div.profile-container div.description div.more-info div.location span input:hover {
+  text-decoration: underline;
+}
+div.profile-container div.description div.more-info h4 {
   margin: 0.5em 0 0.2em 0;
 }
-div.container div.description form div.checkbox-wrapper {
+div.profile-container div.description div.more-info label.fw-bold {
+  font-weight: bold;
+}
+div.profile-container div.description div.more-info label.fw-bold input[type=text] {
+  margin-left: 0.5em;
+  padding: 0.2em;
+}
+div.profile-container div.description div.more-info label.fw-bold input[type=button] {
+  border: none;
+  outline: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00b0f9), color-stop(80%, #0092df));
+  background: linear-gradient(180deg, #00b0f9 0%, #0092df 80%);
+  color: #fff;
+  font-weight: bolder;
+  padding: 0.2em 0.5em;
+  border-radius: 15px;
+}
+div.profile-container div.description div.more-info div.checkbox-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
-div.container div.description form div.checkbox-wrapper-left, div.container div.description form div.checkbox-wrapper-right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+div.profile-container div.description div.more-info div.checkbox-wrapper label.fw-bold {
+  font-weight: bold;
 }
-div.container div.posts {
+div.profile-container div.description div.more-info div.checkbox-wrapper label {
+  width: 50%;
+  margin: 0;
+  margin-top: 0.4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+div.profile-container div.posts {
   padding: 0.5em;
-  width: 100%;
   position: relative;
 }
-div.container div.posts h4 {
+div.profile-container div.posts h4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0.5em 0;
 }
-div.container div.posts span {
+div.profile-container div.posts span {
   color: #0092df;
   margin-left: 1em;
   display: -webkit-box;
@@ -126,24 +206,25 @@ div.container div.posts span {
           align-items: center;
   cursor: pointer;
 }
-div.container div.posts span:hover, div.container div.posts span:hover svg path {
+div.profile-container div.posts span:hover, div.profile-container div.posts span:hover svg path {
   color: #00b0f9;
   stroke: #00b0f9;
 }
-div.container div.posts span input {
+div.profile-container div.posts span input {
   display: none;
 }
-div.container div.posts span svg {
+div.profile-container div.posts span svg {
   margin-left: 0.2em;
 }
-div.container div.posts div.img-post-wrapper {
-  width: 100%;
+div.profile-container div.posts div.img-post-wrapper {
+  width: 90%;
   height: 50%;
+  min-height: 500px;
 }
-div.container div.posts div.img-post-wrapper img {
+div.profile-container div.posts div.img-post-wrapper img {
   width: 100%;
 }
-div.container div.posts div.btns {
+div.profile-container div.posts div.btns {
   margin-top: 2em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -154,7 +235,7 @@ div.container div.posts div.btns {
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
-div.container div.posts div.btns input {
+div.profile-container div.posts div.btns input {
   padding: 0.8em 2em;
   color: #fff;
   font-weight: bold;
@@ -163,20 +244,20 @@ div.container div.posts div.btns input {
   -webkit-transition: color 200ms ease;
   transition: color 200ms ease;
 }
-div.container div.posts div.btns input.cancel {
+div.profile-container div.posts div.btns input.cancel {
   color: #434343;
   background-color: transparent;
 }
-div.container div.posts div.btns input.cancel:hover {
+div.profile-container div.posts div.btns input.cancel:hover {
   color: #00dfb7;
 }
-div.container div.posts div.btns input.save {
+div.profile-container div.posts div.btns input.save {
   border-radius: 15px;
   background: -webkit-gradient(linear, left top, left bottom, from(#4dfede), to(#00dfb7));
   background: linear-gradient(180deg, #4dfede 0%, #00dfb7 100%);
 }
 @media (max-width: 480px) {
-  div.container {
+  div.profile-container {
     padding-left: 3.5em;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -191,10 +272,10 @@ div.container div.posts div.btns input.save {
             align-items: flex-start;
     width: 100vw;
   }
-  div.container div.description {
+  div.profile-container div.description {
     width: 100%;
   }
-  div.container div.description div.head-profile {
+  div.profile-container div.description div.head-profile {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -204,24 +285,27 @@ div.container div.posts div.btns input.save {
             flex-direction: column;
     width: 100%;
   }
-  div.container div.checkbox-wrapper {
+  div.profile-container div.checkbox-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  div.container div.posts {
+  div.profile-container div.checkbox-wrapper label {
+    width: 100%;
+  }
+  div.profile-container div.posts {
     width: auto;
   }
-  div.container div.posts div.img-post-wrapper {
+  div.profile-container div.posts div.img-post-wrapper {
     width: 300px;
   }
-  div.container div.posts div.img-post-wrapper img {
+  div.profile-container div.posts div.img-post-wrapper img {
     width: 100%;
   }
 }
 @media (min-width: 481px) {
-  div.container {
+  div.profile-container {
     padding-left: 5em;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -234,12 +318,11 @@ div.container div.posts div.btns input.save {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    width: 100vw;
   }
-  div.container div.description {
+  div.profile-container div.description {
     width: 100%;
   }
-  div.container div.description div.head-profile {
+  div.profile-container div.description div.head-profile {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -249,15 +332,15 @@ div.container div.posts div.btns input.save {
             flex-direction: column;
     width: 100%;
   }
-  div.container div.posts {
+  div.profile-container div.posts {
     width: 100vw;
   }
-  div.container div.posts div.img-post-wrapper {
+  div.profile-container div.posts div.img-post-wrapper {
     width: 100%;
   }
 }
 @media (min-width: 1023px) {
-  div.container {
+  div.profile-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;

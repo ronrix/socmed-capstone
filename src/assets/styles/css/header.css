@@ -10,14 +10,14 @@ div.header {
   width: 100%;
 }
 div.header span.space {
-  -webkit-box-flex: 0.5;
-      -ms-flex: 0.5;
-          flex: 0.5;
-}
-div.header div {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+}
+div.header div {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,6 +94,7 @@ div.header div form.search-wrapper input::placeholder {
   }
   div.header div {
     width: 100%;
+    padding: 0.3em;
   }
   div.header div form.search-wrapper {
     width: 100%;

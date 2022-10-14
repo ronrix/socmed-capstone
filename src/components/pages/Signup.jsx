@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, Formik } from "formik";
-import { loginSchema } from "../../config/validation";
+import { registerSchema } from "../../config/validation";
+import { useNavigate } from "react-router-dom";
 
 import "../../assets/styles/css/registration.css";
 import { ReactComponent as Google } from "../../assets/icons/google.svg";
@@ -9,6 +10,7 @@ import { ReactComponent as Facebook } from "../../assets/icons/facebook.svg";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+    const navigate = useNavigate();
     return (
         <div className="wrapper">
             <Formik
@@ -19,11 +21,13 @@ const Signup = () => {
                     confirmPassword: ""
                 }}
                 onSubmit={(values, actions) => {
-                    alert(JSON.stringify(values, null, 2));
+                    console.log(values);
+                    localStorage.setItem("fullname", values.fullname);
                     actions.setSubmitting(false);
                     actions.resetForm();
+                    navigate("/app/profile");
                 }}
-                validationSchema={loginSchema}
+                validationSchema={registerSchema}
             >
                 {props => (
                     <form onSubmit={props.handleSubmit}>

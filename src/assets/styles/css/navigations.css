@@ -59,17 +59,21 @@ nav a {
           justify-content: flex-start;
   margin: 0.5em 0;
   position: relative;
-  -webkit-transition: color 100ms ease, stroke 100ms ease;
-  transition: color 100ms ease, stroke 100ms ease;
+  -webkit-transition: color 110ms ease;
+  transition: color 110ms ease;
 }
-nav a:hover > abbr svg path, nav a:hover > span {
+nav a:hover > abbr svg path {
   stroke: #0092df;
+}
+nav a:hover > span {
   color: #0092df;
 }
 nav a svg {
   margin-right: 1em;
   width: 29px;
   height: 29px;
+  -webkit-transition: stroke 120ms ease;
+  transition: stroke 120ms ease;
 }
 nav a svg path {
   stroke: #434343;
@@ -78,8 +82,13 @@ nav a svg path {
 nav a.active span {
   color: #0092df;
 }
+nav a.active:hover > abbr svg path {
+  stroke: #fff;
+}
 nav a.active svg path {
-  stroke: #0092df;
+  stroke: #fff;
+  fill: #00b0f9;
+  stroke-width: 1;
 }
 nav div.matches {
   margin-top: 1em;
@@ -117,6 +126,9 @@ nav div.matches-match-body span {
   nav span {
     display: none;
   }
+  nav div.matches-match-body {
+    padding: 0;
+  }
   nav div.matches h5 {
     font-size: 0.5em;
   }
@@ -124,7 +136,7 @@ nav div.matches-match-body span {
 @media (min-width: 481px) {
   nav {
     width: 50px;
-    left: 80px;
+    left: 20px;
   }
   nav span {
     display: none;
@@ -136,7 +148,19 @@ nav div.matches-match-body span {
 @media (min-width: 1023px) {
   nav {
     width: auto;
-    left: 75px;
+    left: 50px;
+  }
+  nav span {
+    display: block;
+  }
+  nav div.matches h5 {
+    font-size: 1em;
+  }
+}
+@media (min-width: 1300px) {
+  nav {
+    width: auto;
+    left: 200px;
   }
   nav span {
     display: block;

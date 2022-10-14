@@ -1,10 +1,15 @@
 import React from "react";
 
-export default function CheckBox({ text, name }) {
+import { Field } from "formik";
+
+export default function CheckBox({ name, onChange, value }) {
+    const storedInfo = JSON.parse(localStorage.getItem("profile"));
+    const isChecked = storedInfo && storedInfo[name].find(info => info === value);
+
     return (
-        <label className="">
-            <input type="checkbox" name={name} id="" />
-            {text}
+        <label>
+            <Field type="checkbox" name={name} onChange={onChange} value={value} checked={isChecked} />
+            {value}
         </label>
     );
 }

@@ -82,9 +82,13 @@ div.wrapper {
                 border: 1px solid $dark;
                 display: block;
                 width: 100%;
+                outline: none;
             }
             input.error {
                 border: 1px solid $light-red;
+                &:focus {
+                    border: 2px solid $light-red;
+                }
             }
 
             input.btn {
