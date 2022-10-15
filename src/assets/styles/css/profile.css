@@ -12,6 +12,7 @@ div.profile-container {
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 0.5em;
+  position: relative;
 }
 div.profile-container div.description,
 div.profile-container div.posts {
@@ -84,6 +85,10 @@ div.profile-container div.description div.more-info label span {
 }
 div.profile-container div.description div.more-info label input {
   margin-right: 0.5em;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  border: 1px solid #434343;
 }
 div.profile-container div.description div.more-info label textarea {
   resize: none;
@@ -217,12 +222,45 @@ div.profile-container div.posts span svg {
   margin-left: 0.2em;
 }
 div.profile-container div.posts div.img-post-wrapper {
-  width: 90%;
-  height: 50%;
-  min-height: 500px;
+  width: 100%;
+  position: relative;
+  height: 600px;
+}
+div.profile-container div.posts div.img-post-wrapper button {
+  padding: 1em;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  outline: none;
+  position: absolute;
+}
+div.profile-container div.posts div.img-post-wrapper button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+div.profile-container div.posts div.img-post-wrapper button svg path {
+  stroke: #fff;
+}
+div.profile-container div.posts div.img-post-wrapper button.arrow-left {
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+div.profile-container div.posts div.img-post-wrapper button.arrow-right {
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+div.profile-container div.posts div.img-post-wrapper div.use-spring-carousel-main-wrapper {
+  overflow: hidden;
 }
 div.profile-container div.posts div.img-post-wrapper img {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 div.profile-container div.posts div.btns {
   margin-top: 2em;

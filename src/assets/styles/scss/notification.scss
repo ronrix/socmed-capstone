@@ -1,0 +1,43 @@
+@use "./variables.scss" as *;
+
+div.notification {
+    &.show {
+        height: 80px;
+    }
+
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $light;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+    z-index: 3000;
+    height: 0px;
+    overflow: hidden;
+    transition: height 200ms ease-in-out;
+
+    &-header {
+        border-bottom: 1px solid $dark;
+        padding: 0.5em;
+        &.success {
+            background-color: $dark-secondary;
+        }
+
+        &.error {
+            background-color: $light-red;
+        }
+
+        h3 {
+            font-size: 1em;
+            color: $light;
+        }
+    }
+
+    &-body {
+        padding: 0.5em;
+        p {
+            font-size: 0.8em;
+        }
+    }
+}

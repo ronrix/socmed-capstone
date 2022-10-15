@@ -1,0 +1,184 @@
+/* colors */
+/* facebook color */
+/* font sizes */
+/* box sizes */
+/* radius */
+form.modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+form.modal-container div.modal-container-inside {
+  width: 500px;
+  padding: 1em;
+  border-radius: 15px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+form.modal-container div.modal-container-inside-start, form.modal-container div.modal-container-inside-end {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+form.modal-container div.modal-container-inside-start {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: flex;
+      -ms-flex-align: flex;
+          align-items: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+form.modal-container div.modal-container-inside-start-img-wrapper {
+  border: 1px solid #434343;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 200px;
+  min-height: 200px;
+  overflow: hidden;
+}
+form.modal-container div.modal-container-inside-start-img-wrapper img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+form.modal-container div.modal-container-inside-start-img-wrapper div.ph-item {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+form.modal-container div.modal-container-inside-start-img-wrapper span {
+  font-size: 0.7em;
+  font-weight: bold;
+}
+form.modal-container div.modal-container-inside-start-img-wrapper svg {
+  cursor: pointer;
+}
+form.modal-container div.modal-container-inside-start input[type=file] {
+  display: none;
+}
+form.modal-container div.modal-container-inside-start-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.2em 0;
+}
+form.modal-container div.modal-container-inside-start-btns button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #00b0f9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+form.modal-container div.modal-container-inside-start-btns button:hover {
+  color: #0092df;
+}
+form.modal-container div.modal-container-inside-start-btns button.cancel {
+  color: #ff857a;
+}
+form.modal-container div.modal-container-inside-start-btns button.cancel:hover {
+  color: #f6645b;
+}
+form.modal-container div.modal-container-inside-start h3 {
+  text-align: left;
+  width: 100%;
+}
+form.modal-container div.modal-container-inside-start img {
+  width: 100%;
+}
+form.modal-container div.modal-container-inside-end {
+  padding: 0 1em;
+}
+form.modal-container div.modal-container-inside-end label {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+form.modal-container div.modal-container-inside-end label textarea {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  padding: 0.5em;
+  resize: none;
+  outline: none;
+}
+form.modal-container div.modal-container-inside-end label textarea:hover, form.modal-container div.modal-container-inside-end label textarea:focus {
+  border: 1px solid #0092df;
+}
+form.modal-container div.modal-container-inside-end input {
+  border: none;
+  outline: none;
+  padding: 0.5em;
+  border-radius: 15px;
+  margin-top: 1em;
+  cursor: pointer;
+}
+form.modal-container div.modal-container-inside-end input.cancel {
+  background-color: #e5e5e5;
+  margin-right: 0.5em;
+  font-weight: bold;
+}
+form.modal-container div.modal-container-inside-end input.cancel:hover {
+  opacity: 0.85;
+}
+form.modal-container div.modal-container-inside-end input.submit {
+  background: -webkit-gradient(linear, left top, left bottom, from(#00b0f9), color-stop(80%, #0092df));
+  background: linear-gradient(180deg, #00b0f9 0%, #0092df 80%);
+  color: #fff;
+  font-weight: bold;
+}
+form.modal-container div.modal-container-inside-end input.submit:hover {
+  background: #0092df;
+}

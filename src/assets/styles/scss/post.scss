@@ -1,5 +1,38 @@
 @use "./variables.scss" as *;
 
+div.placeholder-loading {
+    width: 100%;
+    position: relative;
+    margin-top: 1em;
+
+    div.ph-item {
+        width: 100%;
+        border: none;
+        padding: 2em;
+
+        @media (max-width: 480px) {
+            & {
+                padding: 0;
+            }
+        }
+        @media (min-width: 481px) {
+            & {
+                padding: 1em;
+            }
+        }
+
+        div.ph-picture {
+            height: 200px;
+            border-radius: $radius;
+        }
+
+        div.big {
+            border-radius: $radius;
+            height: 30px;
+        }
+    }
+}
+
 div.post-wrapper {
     width: 100%;
     position: relative;

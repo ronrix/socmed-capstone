@@ -1,9 +1,12 @@
+import { carouselItems } from "./carousel-items";
+
 const user = {
     id: 1,
     username: "Ronrix Lante",
     description: "This is a sample description",
     sports: ["Basketball", "Chess"],
-    hobbies: ["Playing Games"]
+    hobbies: ["Playing Games"],
+    posts: [...carouselItems]
 };
 
 const users = [

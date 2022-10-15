@@ -46,6 +46,18 @@ div.post-preview {
 
             &-header {
                 font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin-top: 0.2em;
+
+                img.profile {
+                    width: 20px;
+                    height: 20px;
+                    clip-path: circle(10px at center);
+                    outline: 2px solid $dark;
+                    margin-left: 0.2em;
+                }
             }
 
             &-body {
@@ -53,6 +65,11 @@ div.post-preview {
                 flex-direction: column;
                 align-items: center;
                 height: 100%;
+
+                p {
+                    text-align: left;
+                    width: 100%;
+                }
 
                 &-img-wrapper {
                     overflow-y: scroll;
@@ -64,13 +81,14 @@ div.post-preview {
                     }
 
                     div.img {
-                        margin: 0.5em 0;
+                        margin: 0.3em 0;
                         width: 50%;
                         position: relative;
 
                         img {
                             display: inline-block;
                             width: 100%;
+                            padding: 0.2em;
                         }
                     }
                 }
@@ -110,7 +128,7 @@ div.post-preview {
             & {
                 flex-direction: column;
 
-                img {
+                img.highlight-photo {
                     width: 80%;
                     margin: auto;
                     margin-bottom: 0.5em;

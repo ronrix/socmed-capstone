@@ -59,6 +59,24 @@ div.post-preview-inside-info h6 {
 }
 div.post-preview-inside-info-header {
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 0.2em;
+}
+div.post-preview-inside-info-header img.profile {
+  width: 20px;
+  height: 20px;
+  -webkit-clip-path: circle(10px at center);
+          clip-path: circle(10px at center);
+  outline: 2px solid #434343;
+  margin-left: 0.2em;
 }
 div.post-preview-inside-info-body {
   display: -webkit-box;
@@ -73,6 +91,10 @@ div.post-preview-inside-info-body {
           align-items: center;
   height: 100%;
 }
+div.post-preview-inside-info-body p {
+  text-align: left;
+  width: 100%;
+}
 div.post-preview-inside-info-body-img-wrapper {
   overflow-y: scroll;
   display: -webkit-box;
@@ -85,13 +107,14 @@ div.post-preview-inside-info-body-img-wrapper::-webkit-scrollbar {
   display: none;
 }
 div.post-preview-inside-info-body-img-wrapper div.img {
-  margin: 0.5em 0;
+  margin: 0.3em 0;
   width: 50%;
   position: relative;
 }
 div.post-preview-inside-info-body-img-wrapper div.img img {
   display: inline-block;
   width: 100%;
+  padding: 0.2em;
 }
 div.post-preview-inside-info-body button {
   margin-top: 1em;
@@ -132,7 +155,7 @@ div.post-preview-inside-info-body button svg path {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  div.post-preview-inside img {
+  div.post-preview-inside img.highlight-photo {
     width: 80%;
     margin: auto;
     margin-bottom: 0.5em;

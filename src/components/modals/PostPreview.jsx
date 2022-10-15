@@ -28,11 +28,11 @@ export default function PostPreview({ post, setPostPreview }) {
     return (
         <div ref={modalRef} className="post-preview" style={{ transform: post && "scale(1)" }} onClick={handleCloseModal}>
             <div className="post-preview-inside" onClick={e => e.stopPropagation()}>
-                <img src={post?.imgFile || require(`../../assets/images/model.jpg`)} alt="sample post" />
+                <img src={post?.imgFile || require(`../../assets/images/model.jpg`)} alt="sample post" className="hightlight-photo" />
 
                 <div className="post-preview-inside-info">
                     <div className="post-preview-inside-info-header">
-                        <img src="" alt="" />
+                        <img src={require("../../assets/images/model.jpg")} alt="" className="profile" />
                         {post?.username}
                     </div>
                     <div className="post-preview-inside-info-body">

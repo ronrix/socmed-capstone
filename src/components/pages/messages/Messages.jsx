@@ -17,7 +17,7 @@ export default function Messages() {
     return (
         <div className="feed">
             <div className="container">
-                <Navigations active="chats" />
+                <Navigations active="chats" otherClass="msg-nav" />
                 <div className="inside-container">
                     <span className="space"></span>
                     <div className="chats">

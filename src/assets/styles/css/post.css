@@ -3,6 +3,35 @@
 /* font sizes */
 /* box sizes */
 /* radius */
+div.placeholder-loading {
+  width: 100%;
+  position: relative;
+  margin-top: 1em;
+}
+div.placeholder-loading div.ph-item {
+  width: 100%;
+  border: none;
+  padding: 2em;
+}
+@media (max-width: 480px) {
+  div.placeholder-loading div.ph-item {
+    padding: 0;
+  }
+}
+@media (min-width: 481px) {
+  div.placeholder-loading div.ph-item {
+    padding: 1em;
+  }
+}
+div.placeholder-loading div.ph-item div.ph-picture {
+  height: 200px;
+  border-radius: 15px;
+}
+div.placeholder-loading div.ph-item div.big {
+  border-radius: 15px;
+  height: 30px;
+}
+
 div.post-wrapper {
   width: 100%;
   position: relative;

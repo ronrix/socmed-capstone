@@ -31,10 +31,31 @@ nav {
 nav::-webkit-scrollbar {
   display: none;
 }
+nav.msg-nav {
+  left: 100px;
+}
+@media (max-width: 480px) {
+  nav.msg-nav {
+    left: 0;
+  }
+}
+@media (min-width: 481px) {
+  nav.msg-nav {
+    left: 30px;
+  }
+}
+@media (min-width: 1023px) {
+  nav.msg-nav {
+    left: 70px;
+  }
+}
+@media (min-width: 1158px) {
+  nav.msg-nav {
+    left: 100px;
+  }
+}
 nav.prof-nav {
   width: 50px;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
   left: 0;
   position: fixed;
   top: 10px;
@@ -160,7 +181,7 @@ nav div.matches-match-body span {
 @media (min-width: 1300px) {
   nav {
     width: auto;
-    left: 200px;
+    left: 180px;
   }
   nav span {
     display: block;

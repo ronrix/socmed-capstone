@@ -34,6 +34,7 @@ div.loading svg {
   transition: transform 200ms cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, -webkit-transform 200ms cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards;
   -ms-flex-item-align: center;
       align-self: center;
+  margin-bottom: 1em;
 }
 div.loading span {
   font-weight: bold;

@@ -428,7 +428,7 @@ div.feed div.container div.inside-container div.chats-body::-webkit-scrollbar {
 div.feed div.container div.inside-container div.side-container-menubar {
   position: fixed;
   right: 10px;
-  top: 10px;
+  top: 5px;
   z-index: 2;
 }
 div.feed div.container div.inside-container div.side-container-menubar svg:hover > path {
@@ -582,6 +582,9 @@ div.feed div.container div.inside-container span.space div.side-container-msgs-b
   div.feed div.container div.inside-container {
     width: 100%;
     display: block;
+  }
+  div.feed div.container div.inside-container div.chats {
+    padding: 0.3em;
   }
   div.feed div.container div.inside-container div.posts {
     width: 100%;
