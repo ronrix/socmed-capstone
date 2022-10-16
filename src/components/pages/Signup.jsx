@@ -21,7 +21,6 @@ const Signup = () => {
                     confirmPassword: ""
                 }}
                 onSubmit={(values, actions) => {
-                    console.log(values);
                     localStorage.setItem("fullname", values.fullname);
                     actions.setSubmitting(false);
                     actions.resetForm();

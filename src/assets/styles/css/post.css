@@ -23,6 +23,12 @@ div.placeholder-loading div.ph-item {
     padding: 1em;
   }
 }
+@media (min-width: 1023px) {
+  div.placeholder-loading div.ph-item {
+    width: 90%;
+    margin: auto;
+  }
+}
 div.placeholder-loading div.ph-item div.ph-picture {
   height: 200px;
   border-radius: 15px;

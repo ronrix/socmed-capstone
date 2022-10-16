@@ -1,0 +1,91 @@
+/* colors */
+/* facebook color */
+/* font sizes */
+/* box sizes */
+/* radius */
+form.settings-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  z-index: 5000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+form.settings-container div.settings-container-inside {
+  width: 500px;
+  margin: auto;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 15px;
+}
+form.settings-container div.settings-container-inside h4 {
+  font-size: 17px;
+}
+form.settings-container div.settings-container-inside label {
+  margin: 0.5em 0;
+  display: block;
+  font-size: 12px;
+}
+form.settings-container div.settings-container-inside label span.error {
+  font-size: 0.8em;
+  color: #f6645b;
+}
+form.settings-container div.settings-container-inside label input.error {
+  border: 1px solid #ff857a;
+}
+form.settings-container div.settings-container-inside label input.error:focus {
+  border: 2px solid #ff857a;
+}
+form.settings-container div.settings-container-inside label input {
+  border: 1px solid #434343;
+  outline: none;
+  padding: 0.8em;
+  border-radius: 15px;
+  display: block;
+  width: 100%;
+  font-size: 12px;
+}
+form.settings-container div.settings-container-inside div.btns {
+  margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+form.settings-container div.settings-container-inside div.btns input,
+form.settings-container div.settings-container-inside div.btns a {
+  padding: 0.2em 2em;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  -webkit-transition: color 200ms ease;
+  transition: color 200ms ease;
+}
+form.settings-container div.settings-container-inside div.btns a.cancel {
+  color: #434343;
+  background-color: transparent;
+}
+form.settings-container div.settings-container-inside div.btns a.cancel:hover {
+  color: #e5e5e5;
+}
+form.settings-container div.settings-container-inside div.btns input.save {
+  border-radius: 15px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4dfede), to(#00dfb7));
+  background: linear-gradient(180deg, #4dfede 0%, #00dfb7 100%);
+}

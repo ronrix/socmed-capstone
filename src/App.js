@@ -25,8 +25,8 @@ function App() {
                     <Route exact path="/app/profile" element={<Profile />} />
                     <Route exact path="/app/messages" element={<Messages />} />
                     <Route exact path="/app/create-profile" element={<Profile />} />
+                    <Route exact path="/app/find-match/:id" element={<FindMatch />} />
                     <Route exact path="/app/find-match" element={<FindMatch />} />
-                    <Route exact path="/app/settings" element={<h1>Settings</h1>} />
                     <Route path="*" element={<h1>Page not found</h1>} />
                 </Routes>
             </Router>

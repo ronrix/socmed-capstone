@@ -12,6 +12,7 @@ div.feed {
             display: flex;
             align-items: flex-start;
             position: relative;
+            justify-content: center;
 
             @import "./find-match";
 
@@ -49,9 +50,11 @@ div.feed {
                     justify-content: flex-start;
                     padding: 0.2em;
 
-                    svg {
-                        width: $fs-medium;
-                        height: $fs-medium;
+                    img {
+                        clip-path: circle(25px at center);
+                        width: 50px;
+                        height: 50px;
+                        margin-right: 0.3em;
                     }
 
                     span {
@@ -60,7 +63,7 @@ div.feed {
                     }
                 }
 
-                form.chats-form {
+                div.chats-form {
                     margin-top: 0.3em;
                     display: flex;
                     align-items: flex-start;
@@ -151,7 +154,8 @@ div.feed {
                         align-items: flex-start;
                         margin: 0.3em 0;
 
-                        svg {
+                        img {
+                            clip-path: circle(22px at center);
                             width: $bs-medium;
                             height: $bs-medium;
                         }
@@ -169,14 +173,14 @@ div.feed {
                                 flex-direction: column;
                             }
 
-                            & svg {
+                            & img {
                                 width: calc($fs-small + 10px);
                                 height: calc($fs-small + 10px);
+                                clip-path: circle(12px at center);
                             }
 
                             &.from {
-                                flex-direction: column;
-                                svg {
+                                img {
                                     align-self: flex-end;
                                 }
                             }
@@ -187,7 +191,7 @@ div.feed {
                                 flex-direction: row;
                             }
 
-                            &.from svg {
+                            &.from img {
                                 align-self: flex-end;
                                 width: $bs-medium;
                                 height: $bs-medium;
@@ -220,7 +224,6 @@ div.feed {
 
             span.space {
                 flex: 0.5;
-
                 @import "./messages.scss";
             }
         }

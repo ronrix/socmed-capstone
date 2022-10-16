@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Settings from "./modals/Settings";
+import Matches from "./matches/Matches";
 import "../assets/styles/css/navigations.css";
 
 // line icons
@@ -8,7 +10,7 @@ import { ReactComponent as Home } from "../assets/icons/home.svg";
 import { ReactComponent as Message } from "../assets/icons/messagefavorite.svg";
 import { ReactComponent as Profile } from "../assets/icons/circle-profile.svg";
 import { ReactComponent as Search } from "../assets/icons/searchfavorite1.svg";
-import { ReactComponent as Settings } from "../assets/icons/setting.svg";
+import { ReactComponent as SettingsIcon } from "../assets/icons/setting.svg";
 import { ReactComponent as Logout } from "../assets/icons/logout.svg";
 
 // solid icons
@@ -18,11 +20,13 @@ import { ReactComponent as ProfileSolid } from "../assets/icons/circle-profile-s
 import { ReactComponent as SearchSolid } from "../assets/icons/searchfavorite1-solid.svg";
 import { ReactComponent as SettingsSolid } from "../assets/icons/setting-solid.svg";
 
-import Match from "./pages/feed/Match";
-
 export default function Navigations({ active, otherClass }) {
+    const [settingsModal, setShowSettingsModal] = React.useState(false);
+
     return (
         <nav className={`${otherClass ? otherClass : ""}`}>
+            {settingsModal && <Settings setShowSettingsModal={setShowSettingsModal} />}
+
             <Link to="/app" className={`${active === "home" && "active"}`}>
                 <abbr title="Home">{active === "home" ? <HomeSolid /> : <Home />}</abbr>
                 <span>Home</span>
@@ -39,8 +43,8 @@ export default function Navigations({ active, otherClass }) {
                 <abbr title="Find your Match">{active === "find-match" ? <SearchSolid /> : <Search />}</abbr>
                 <span>Find Your Match</span>
             </Link>
-            <Link to="/app/settings" className={`${active === "settings" && "active"}`}>
-                <abbr title="Settings">{active === "settings" ? <SettingsSolid /> : <Settings />}</abbr>
+            <Link to="#settings" className={`${active === "settings" && "active"}`} onClick={() => setShowSettingsModal(true)}>
+                <abbr title="Settings">{active === "settings" ? <SettingsSolid /> : <SettingsIcon />}</abbr>
                 <span>Settings</span>
             </Link>
             <Link to="/login">
@@ -49,13 +53,7 @@ export default function Navigations({ active, otherClass }) {
                 </abbr>
                 <span>Logout</span>
             </Link>
-            <div className="matches">
-                <h5>Matches</h5>
-                <Match />
-                <Match />
-                <Match />
-                <Match />
-            </div>
+            <Matches />
         </nav>
     );
 }

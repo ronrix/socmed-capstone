@@ -63,6 +63,9 @@ nav.prof-nav {
 nav.prof-nav span {
   display: none;
 }
+nav.prof-nav div.matches {
+  display: block;
+}
 nav.prof-nav div.matches h5 {
   font-size: 0.5em;
 }
@@ -113,6 +116,7 @@ nav a.active svg path {
 }
 nav div.matches {
   margin-top: 1em;
+  display: none;
 }
 nav div.matches-match-body {
   display: -webkit-box;
@@ -147,6 +151,9 @@ nav div.matches-match-body span {
   nav span {
     display: none;
   }
+  nav div.matches {
+    display: block;
+  }
   nav div.matches-match-body {
     padding: 0;
   }
@@ -162,6 +169,9 @@ nav div.matches-match-body span {
   nav span {
     display: none;
   }
+  nav div.matches {
+    display: block;
+  }
   nav div.matches h5 {
     font-size: 0.5em;
   }
@@ -174,6 +184,9 @@ nav div.matches-match-body span {
   nav span {
     display: block;
   }
+  nav div.matches {
+    display: none;
+  }
   nav div.matches h5 {
     font-size: 1em;
   }
@@ -185,8 +198,5 @@ nav div.matches-match-body span {
   }
   nav span {
     display: block;
-  }
-  nav div.matches h5 {
-    font-size: 1em;
   }
 }

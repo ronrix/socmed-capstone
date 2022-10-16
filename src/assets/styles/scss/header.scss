@@ -16,6 +16,66 @@ div.header {
         justify-content: center;
         align-items: center;
 
+        div.search-results {
+            margin-top: 0.1em;
+            width: 50%;
+            padding: 1em;
+            background: rgba(255, 255, 255, 0.38);
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(17.4px);
+            -webkit-backdrop-filter: blur(17.4px);
+            display: none;
+            position: absolute;
+            top: 100%;
+            z-index: 1000;
+
+            &.show {
+                display: block;
+            }
+
+            span {
+                display: block;
+                text-align: left;
+                width: 100%;
+                font-weight: bold;
+                font-size: $fs-small;
+            }
+
+            &-user {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+                margin: 0.2em 0;
+                padding: 0.2em;
+                border-radius: $radius;
+
+                img {
+                    clip-path: circle(15px at center);
+                    width: 30px;
+                }
+
+                &:hover {
+                    background-color: $light-primary;
+                    opacity: 0.5;
+                }
+
+                span {
+                    display: inline-block;
+                    margin-left: 0.5em;
+                }
+            }
+
+            @media (max-width: 800px) {
+                width: 100%;
+            }
+
+            @media (min-width: 1023px) {
+                width: 50%;
+            }
+        }
+
         form.search-wrapper {
             margin-top: 0.5em;
             width: 20%;

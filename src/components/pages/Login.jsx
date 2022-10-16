@@ -19,7 +19,6 @@ const Login = () => {
                     password: ""
                 }}
                 onSubmit={(values, actions) => {
-                    console.log(values);
                     actions.resetForm();
                     actions.setSubmitting(false);
                     navigate("/app");

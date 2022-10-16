@@ -1,0 +1,84 @@
+@use "./variables.scss" as *;
+
+form.settings-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div.settings-container-inside {
+        width: 500px;
+        margin: auto;
+        background-color: $light;
+        padding: 1em;
+        border-radius: $radius;
+
+        h4 {
+            font-size: $fs-medium;
+        }
+
+        label {
+            margin: 0.5em 0;
+            display: block;
+            font-size: $fs-small;
+
+            span.error {
+                font-size: 0.8em;
+                color: $dark-red;
+            }
+
+            input.error {
+                border: 1px solid $light-red;
+                &:focus {
+                    border: 2px solid $light-red;
+                }
+            }
+
+            input {
+                border: 1px solid $dark;
+                outline: none;
+                padding: 0.8em;
+                border-radius: $radius;
+                display: block;
+                width: 100%;
+                font-size: $fs-small;
+            }
+        }
+
+        div.btns {
+            margin-top: 2em;
+            display: flex;
+            justify-content: flex-end;
+            align-self: center;
+
+            input,
+            a {
+                padding: 0.2em 2em;
+                color: $light;
+                font-weight: bold;
+                outline: none;
+                border: none;
+                transition: color 200ms ease;
+            }
+            a.cancel {
+                color: $dark;
+                background-color: transparent;
+
+                &:hover {
+                    color: $grey;
+                }
+            }
+            input.save {
+                border-radius: $radius;
+                background: linear-gradient(180deg, $light-secondary 0%, $dark-secondary 100%);
+            }
+        }
+    }
+}

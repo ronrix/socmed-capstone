@@ -49,8 +49,11 @@ nav {
             display: none;
         }
 
-        div.matches h5 {
-            font-size: 0.5em;
+        div.matches {
+            display: block;
+            h5 {
+                font-size: 0.5em;
+            }
         }
     }
 
@@ -101,6 +104,7 @@ nav {
 
     div.matches {
         margin-top: 1em;
+        display: none;
         &-match {
             &-body {
                 display: flex;
@@ -136,6 +140,7 @@ nav {
                 display: none;
             }
             div.matches {
+                display: block;
                 &-match-body {
                     padding: 0;
                 }
@@ -154,8 +159,12 @@ nav {
             span {
                 display: none;
             }
-            div.matches h5 {
-                font-size: 0.5em;
+            div.matches {
+                display: block;
+
+                h5 {
+                    font-size: 0.5em;
+                }
             }
         }
     }
@@ -168,8 +177,11 @@ nav {
             span {
                 display: block;
             }
-            div.matches h5 {
-                font-size: 1em;
+            div.matches {
+                display: none;
+                h5 {
+                    font-size: 1em;
+                }
             }
         }
     }
@@ -181,9 +193,6 @@ nav {
 
             span {
                 display: block;
-            }
-            div.matches h5 {
-                font-size: 1em;
             }
         }
     }

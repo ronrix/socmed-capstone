@@ -9,7 +9,7 @@ div.post-preview {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30,7 +30,11 @@ div.post-preview {
   transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
 }
 div.post-preview-inside {
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.38);
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(17.4px);
+  -webkit-backdrop-filter: blur(17.4px);
   padding: 1em;
   border-radius: 15px;
   width: 70vw;
@@ -94,6 +98,7 @@ div.post-preview-inside-info-body {
 div.post-preview-inside-info-body p {
   text-align: left;
   width: 100%;
+  margin: 0.5em 0;
 }
 div.post-preview-inside-info-body-img-wrapper {
   overflow-y: scroll;

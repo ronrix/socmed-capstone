@@ -9,35 +9,49 @@ div.notification {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: #fff;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.38);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(17.4px);
+  -webkit-backdrop-filter: blur(17.4px);
   z-index: 3000;
-  height: 0px;
   overflow: hidden;
   -webkit-transition: height 200ms ease-in-out;
   transition: height 200ms ease-in-out;
+  display: none;
 }
 div.notification.show {
-  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.31);
+  display: block;
 }
-div.notification-header {
-  border-bottom: 1px solid #434343;
+div.notification.show div.notification-body, div.notification.show div.notification-header {
   padding: 0.5em;
 }
 div.notification-header.success {
-  background-color: #00dfb7;
+  background-color: #434343;
 }
 div.notification-header.error {
   background-color: #ff857a;
 }
 div.notification-header h3 {
-  font-size: 1em;
   color: #fff;
+  font-size: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-div.notification-body {
-  padding: 0.5em;
+div.notification-header h3 svg {
+  margin-right: 0.5em;
 }
 div.notification-body p {
   font-size: 0.8em;
+  padding: 1em 0;
 }

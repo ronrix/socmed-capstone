@@ -24,6 +24,9 @@ div.feed div.container div.inside-container {
       -ms-flex-align: start;
           align-items: flex-start;
   position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   /* colors */
   /* facebook color */
   /* font sizes */
@@ -42,7 +45,7 @@ div.feed div.container div.inside-container div.find-match {
       -ms-flex-align: start;
           align-items: flex-start;
   position: relative;
-  padding: 3em 0;
+  padding: 2em 0;
 }
 div.feed div.container div.inside-container div.find-match span.space {
   height: 5px;
@@ -51,32 +54,23 @@ div.feed div.container div.inside-container div.find-match span.space {
           flex: 1 !important;
 }
 div.feed div.container div.inside-container div.find-match div.match {
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
 div.feed div.container div.inside-container div.find-match div.match-img-wrapper {
   text-align: center;
+  max-width: 70%;
   width: 100%;
-  height: 100%;
   position: relative;
+  margin: auto;
 }
 div.feed div.container div.inside-container div.find-match div.match-img-wrapper img {
   width: 100%;
 }
 div.feed div.container div.inside-container div.find-match div.match-info {
   padding: 0 3em;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
 }
 div.feed div.container div.inside-container div.find-match div.match-info-container {
   margin: 1em 0;
@@ -154,16 +148,34 @@ div.feed div.container div.inside-container div.find-match div.match-info p.matc
   }
   div.feed div.container div.inside-container div.find-match div.match-info {
     padding: 0;
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
   }
 }
 @media (min-width: 481px) {
+  div.feed div.container div.inside-container div.find-match {
+    padding: 0.3em;
+  }
   div.feed div.container div.inside-container div.find-match span.space {
     -webkit-box-flex: 1 !important;
         -ms-flex: 1 !important;
             flex: 1 !important;
   }
+  div.feed div.container div.inside-container div.find-match div.match {
+    padding: 0.3em;
+  }
+  div.feed div.container div.inside-container div.find-match div.match-info {
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+    padding: 0 4em;
+  }
 }
 @media (min-width: 1023px) {
+  div.feed div.container div.inside-container div.find-match {
+    padding: 3em 0;
+  }
   div.feed div.container div.inside-container div.find-match span.space {
     -webkit-box-flex: 2 !important;
         -ms-flex: 2 !important;
@@ -174,6 +186,15 @@ div.feed div.container div.inside-container div.find-match div.match-info p.matc
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-flex: 5;
+        -ms-flex: 5;
+            flex: 5;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 div.feed div.container div.inside-container div.posts {
@@ -238,15 +259,18 @@ div.feed div.container div.inside-container div.chats-header {
           justify-content: flex-start;
   padding: 0.2em;
 }
-div.feed div.container div.inside-container div.chats-header svg {
-  width: 17px;
-  height: 17px;
+div.feed div.container div.inside-container div.chats-header img {
+  -webkit-clip-path: circle(25px at center);
+          clip-path: circle(25px at center);
+  width: 50px;
+  height: 50px;
+  margin-right: 0.3em;
 }
 div.feed div.container div.inside-container div.chats-header span {
   font-weight: bold;
   margin-left: 0.5em;
 }
-div.feed div.container div.inside-container div.chats form.chats-form {
+div.feed div.container div.inside-container div.chats div.chats-form {
   margin-top: 0.3em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -255,7 +279,7 @@ div.feed div.container div.inside-container div.chats form.chats-form {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-div.feed div.container div.inside-container div.chats form.chats-form textarea {
+div.feed div.container div.inside-container div.chats div.chats-form textarea {
   border-radius: 15px;
   -webkit-box-flex: 5;
       -ms-flex: 5;
@@ -265,27 +289,27 @@ div.feed div.container div.inside-container div.chats form.chats-form textarea {
   height: 62px;
   outline: none;
 }
-div.feed div.container div.inside-container div.chats form.chats-form textarea::-webkit-scrollbar {
+div.feed div.container div.inside-container div.chats div.chats-form textarea::-webkit-scrollbar {
   display: none;
 }
-div.feed div.container div.inside-container div.chats form.chats-form textarea:focus {
+div.feed div.container div.inside-container div.chats div.chats-form textarea:focus {
   border: 2px solid #0092df;
 }
 @media (max-width: 480px) {
-  div.feed div.container div.inside-container div.chats form.chats-form textarea {
+  div.feed div.container div.inside-container div.chats div.chats-form textarea {
     -webkit-box-flex: 4;
         -ms-flex: 4;
             flex: 4;
   }
 }
 @media (min-width: 481px) {
-  div.feed div.container div.inside-container div.chats form.chats-form textarea {
+  div.feed div.container div.inside-container div.chats div.chats-form textarea {
     -webkit-box-flex: 5;
         -ms-flex: 5;
             flex: 5;
   }
 }
-div.feed div.container div.inside-container div.chats form.chats-form button {
+div.feed div.container div.inside-container div.chats div.chats-form button {
   margin-left: 0.3em;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -309,28 +333,28 @@ div.feed div.container div.inside-container div.chats form.chats-form button {
           justify-content: center;
 }
 @media (max-width: 480px) {
-  div.feed div.container div.inside-container div.chats form.chats-form button {
+  div.feed div.container div.inside-container div.chats div.chats-form button {
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
   }
 }
 @media (min-width: 481px) {
-  div.feed div.container div.inside-container div.chats form.chats-form button {
+  div.feed div.container div.inside-container div.chats div.chats-form button {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
   }
 }
-div.feed div.container div.inside-container div.chats form.chats-form button svg {
+div.feed div.container div.inside-container div.chats div.chats-form button svg {
   margin-left: 0.3em;
   width: 17px;
   height: 17px;
 }
-div.feed div.container div.inside-container div.chats form.chats-form button svg path {
+div.feed div.container div.inside-container div.chats div.chats-form button svg path {
   stroke: #fff;
 }
-div.feed div.container div.inside-container div.chats form.chats-form button:hover {
+div.feed div.container div.inside-container div.chats div.chats-form button:hover {
   background: #0092df;
 }
 div.feed div.container div.inside-container div.chats-body {
@@ -371,7 +395,9 @@ div.feed div.container div.inside-container div.chats-body-msg {
           align-items: flex-start;
   margin: 0.3em 0;
 }
-div.feed div.container div.inside-container div.chats-body-msg svg {
+div.feed div.container div.inside-container div.chats-body-msg img {
+  -webkit-clip-path: circle(22px at center);
+          clip-path: circle(22px at center);
   width: 47px;
   height: 47px;
 }
@@ -389,17 +415,13 @@ div.feed div.container div.inside-container div.chats-body-msg p {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  div.feed div.container div.inside-container div.chats-body-msg svg {
+  div.feed div.container div.inside-container div.chats-body-msg img {
     width: 22px;
     height: 22px;
+    -webkit-clip-path: circle(12px at center);
+            clip-path: circle(12px at center);
   }
-  div.feed div.container div.inside-container div.chats-body-msg.from {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  div.feed div.container div.inside-container div.chats-body-msg.from svg {
+  div.feed div.container div.inside-container div.chats-body-msg.from img {
     -ms-flex-item-align: end;
         align-self: flex-end;
   }
@@ -411,7 +433,7 @@ div.feed div.container div.inside-container div.chats-body-msg p {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  div.feed div.container div.inside-container div.chats-body-msg.from svg {
+  div.feed div.container div.inside-container div.chats-body-msg.from img {
     -ms-flex-item-align: end;
         align-self: flex-end;
     width: 47px;
@@ -531,10 +553,12 @@ div.feed div.container div.inside-container span.space div.side-container-msgs-b
 div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper:hover {
   background-color: #e5e5e5;
 }
-div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper svg {
+div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper img {
+  -webkit-clip-path: circle(25px at center);
+          clip-path: circle(25px at center);
   width: 50px;
   height: 50px;
-  margin-right: 0.2em;
+  margin-right: 0.3em;
 }
 div.feed div.container div.inside-container span.space div.side-container-msgs-body-msg-wrapper h4 {
   font-size: 12px;

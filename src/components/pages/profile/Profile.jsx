@@ -2,7 +2,7 @@ import React from "react";
 import CheckBox from "./CheckBox";
 import Navigations from "../../Navigations";
 
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import { useSpringCarousel } from "react-spring-carousel";
 
 import "../../../assets/styles/css/profile.css";
@@ -11,6 +11,7 @@ import { ReactComponent as DocumentUpload } from "../../../assets/icons/document
 import { ReactComponent as Camera } from "../../../assets/icons/camera.svg";
 import { ReactComponent as ArrowLeft } from "../../../assets/icons/arrowleft2.svg";
 import { ReactComponent as ArrowRight } from "../../../assets/icons/arrowright2.svg";
+import { ReactComponent as Cake } from "../../../assets/icons/cake.svg";
 
 import { sports, hobbies } from "../../../config/user-details";
 import { carouselItems } from "../../../config/carousel-items";
@@ -19,16 +20,14 @@ import Notification from "../../modals/Notification";
 
 export default function Profile() {
     const profileRef = React.useRef(null);
-    const locationRef = React.useRef(null);
 
+    const [disableLoc, setDisableLoc] = React.useState(true);
     const [file, setFile] = React.useState(null);
     const [showPostFormModal, setShowPostFormModal] = React.useState(false);
     const [moreInfo, _] = React.useState({ sports, hobbies });
     const [whats, setWhats] = React.useState({ sports: "", hobbies: "" });
     const [user, setUser] = React.useState(() => JSON.parse(localStorage.getItem("profile")));
-
     const [carouselItemsState, setCarouselItemsState] = React.useState(carouselItems);
-
     const [showNoficationModal, setShowNoticationModal] = React.useState(false);
 
     const handleAddInfo = (array, value, name) => {
@@ -37,15 +36,14 @@ export default function Profile() {
     };
 
     const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
-        items: carouselItems.map(i => ({
+        items: carouselItemsState.map(i => ({
             id: i.id,
-            renderItem: <img src={require(`../../../assets/images/${i.img}`)} alt="profile" />
+            renderItem: <img src={i.file || require(`../../../assets/images/${i.img}`)} alt="profile" />
         }))
     });
 
     const handleEditLocation = () => {
-        locationRef.current.classList.add("edit");
-        locationRef.current.disabled = false;
+        setDisableLoc(false);
     };
 
     const handleAddPostImg = () => {
@@ -54,7 +52,7 @@ export default function Profile() {
 
     React.useEffect(() => {
         setUser(() => JSON.parse(localStorage.getItem("profile")));
-    }, [moreInfo]);
+    }, [moreInfo, disableLoc]);
 
     return (
         <Formik
@@ -62,6 +60,7 @@ export default function Profile() {
                 profilePicture: "",
                 description: "",
                 location: "",
+                bday: "",
                 hobbies: [],
                 sports: [],
                 posts: []
@@ -69,13 +68,12 @@ export default function Profile() {
             onSubmit={(values, actions) => {
                 actions.setSubmitting(false);
                 localStorage.setItem("profile", JSON.stringify(values));
-                locationRef.current.classList.remove("edit");
-                locationRef.current.disabled = true;
                 setShowNoticationModal(true);
+                setDisableLoc(false);
 
                 setTimeout(() => {
                     setShowNoticationModal(false);
-                }, 2000);
+                }, 5000);
             }}
         >
             {props => (
@@ -88,7 +86,7 @@ export default function Profile() {
                         show={showNoficationModal}
                         notifBodyMsg="Successfully saving your profile"
                         notifHeaderMsg="Success"
-                        status={"error"}
+                        status={"success"}
                     />
 
                     <form onSubmit={props.handleSubmit}>
@@ -100,14 +98,14 @@ export default function Profile() {
                                     <div className="head-profile-img-wrapper">
                                         <img src={user?.file || file || require("../../../assets/images/profile.png")} alt="profile" />
                                         <Camera onClick={() => profileRef.current.click()} />
-                                        <input
+                                        <Field
                                             type="file"
                                             value={props.values.file}
                                             onChange={e => {
                                                 setFile(URL.createObjectURL(e.target.files[0]));
                                                 props.setFieldValue("profilePicture", e.currentTarget.files[0]);
                                             }}
-                                            ref={profileRef}
+                                            innerRef={profileRef}
                                         />
                                     </div>
                                     <div className="head-profile-txt">
@@ -118,27 +116,40 @@ export default function Profile() {
                                 <div className="more-info">
                                     <label htmlFor="">
                                         <span>Description</span>
-                                        <textarea
+                                        <Field
+                                            as="textarea"
                                             name="description"
                                             value={user?.description || props.values.description}
                                             onChange={props.handleChange}
                                             placeholder="Describe yourself here to impress everyone"
-                                        ></textarea>
+                                        />
                                     </label>
                                     <div className="location">
                                         <h4 htmlFor="">Location</h4>
                                         <span>
                                             <Location />
-                                            <textarea
+                                            <Field
+                                                as="textarea"
                                                 type="text"
                                                 name="location"
-                                                className="location-text"
-                                                disabled
-                                                ref={locationRef}
+                                                className={`location-text ${!disableLoc ? "edit" : ""}`}
+                                                disabled={disableLoc}
                                                 onChange={props.handleChange}
                                                 defaultValue={user?.location || props.values.location || "Palengke ng San Francisco, USA."}
-                                            ></textarea>
+                                            />
                                             <input type="button" value="edit" onClick={handleEditLocation} />
+                                        </span>
+                                    </div>
+                                    <div className="bday">
+                                        <h4 htmlFor="">Birthday</h4>
+                                        <span>
+                                            <Cake />
+                                            <Field
+                                                type="date"
+                                                name="bday"
+                                                value={user?.bday || props.values.bday}
+                                                onChange={props.handleChange}
+                                            />
                                         </span>
                                     </div>
                                     <h4 htmlFor="">What are your favourite sports?</h4>
@@ -195,12 +206,11 @@ export default function Profile() {
                                     </span>
                                 </h4>
                                 <div className="img-post-wrapper">
-                                    {/* <img src={require("../../../assets/images/model.jpg")} alt="profile" /> */}
                                     {carouselFragment}
-                                    <button onClick={slideToPrevItem} className="arrow-left">
+                                    <button type="button" onClick={slideToPrevItem} className="arrow-left">
                                         <ArrowLeft />
                                     </button>
-                                    <button onClick={slideToNextItem} className="arrow-right">
+                                    <button type="button" onClick={slideToNextItem} className="arrow-right">
                                         <ArrowRight />
                                     </button>
                                 </div>

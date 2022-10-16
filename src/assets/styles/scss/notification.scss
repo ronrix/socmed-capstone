@@ -2,26 +2,35 @@
 
 div.notification {
     &.show {
-        height: 80px;
+        border: 1px solid rgba(255, 255, 255, 0.31);
+        display: block;
+    }
+
+    &.show &-body,
+    &.show &-header {
+        padding: 0.5em;
     }
 
     position: fixed;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: $light;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.4px);
+    -webkit-backdrop-filter: blur(17.4px);
 
     z-index: 3000;
-    height: 0px;
     overflow: hidden;
     transition: height 200ms ease-in-out;
 
+    display: none;
+
     &-header {
-        border-bottom: 1px solid $dark;
-        padding: 0.5em;
         &.success {
-            background-color: $dark-secondary;
+            background-color: $dark;
         }
 
         &.error {
@@ -29,15 +38,22 @@ div.notification {
         }
 
         h3 {
-            font-size: 1em;
             color: $light;
+            font-size: 1em;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            svg {
+                margin-right: 0.5em;
+            }
         }
     }
 
     &-body {
-        padding: 0.5em;
         p {
             font-size: 0.8em;
+            padding: 1em 0;
         }
     }
 }

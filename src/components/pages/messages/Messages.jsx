@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Formik, Field } from "formik";
 import Navigations from "../../Navigations";
 
 import "../../../assets/styles/css/feed.css";
@@ -10,69 +11,115 @@ import { ReactComponent as MessageIcon } from "../../../assets/icons/messagefavo
 
 import Msg from "./Msg";
 import SideMsgs from "./SideMsg";
+import { sampleMsgs } from "../../../config/messages";
+import { users } from "../../../config/users";
 
 export default function Messages() {
     const [showMsgs, setShowMsgs] = React.useState(false);
+    const [msgState, setMsgState] = React.useState(sampleMsgs[1]);
+
+    const [allMsgs, setAllMsgs] = React.useState(sampleMsgs);
+    const [searchMsg, setSearchMsg] = React.useState("");
+
+    const [user, setUser] = React.useState(null);
+
+    const handleDisplayMsgs = id => {
+        setMsgState(sampleMsgs[id]);
+    };
+
+    const handleSearchMsg = e => {
+        setSearchMsg(e.target.value);
+        setAllMsgs(() =>
+            sampleMsgs.filter(msg => {
+                const tempUser = users.find(a => a.id === msg.id);
+                if (tempUser.username.toLowerCase().includes(searchMsg)) {
+                    return msg;
+                }
+            })
+        );
+    };
+
+    React.useEffect(() => {
+        setUser(() => users.find(user => user.id === msgState.id));
+    }, [msgState, user]);
 
     return (
-        <div className="feed">
-            <div className="container">
-                <Navigations active="chats" otherClass="msg-nav" />
-                <div className="inside-container">
-                    <span className="space"></span>
-                    <div className="chats">
-                        <div className="chats-header">
-                            <Profile />
-                            <span>Username</span>
-                        </div>
-                        <div className="chats-body">
-                            <Msg />
-                            <Msg from={true} />
-                            <Msg />
-                            <Msg from={true} />
-                            <Msg />
-                            <Msg />
-                            <Msg />
-                            <Msg from={true} />
-                        </div>
-                        <form action="" className="chats-form">
-                            <textarea placeholder="Type your message here..."></textarea>
-                            <button type="submit">
-                                SEND
-                                <Send />
-                            </button>
-                        </form>
-                    </div>
-                    <div className="side-container-menubar">
-                        <Menu onClick={() => setShowMsgs(!showMsgs)} />
-                    </div>
-                    <span className="space">
-                        <div className={`side-container ${showMsgs ? "show" : ""}`}>
-                            <div className="side-container-msgs">
-                                <div className="side-container-msgs-header">
-                                    <h2>
-                                        <MessageIcon />
-                                        Messages
-                                    </h2>
-                                    <input type="search" placeholder="search message" />
+        <Formik
+            initialValues={{ msg: "" }}
+            onSubmit={(values, actions) => {
+                actions.setSubmitting(false);
+                actions.resetForm();
+                setMsgState(prevState => ({ id: prevState.id, msgs: [...prevState.msgs, { id: 1, msg: values.msg }] }));
+            }}
+        >
+            {props => (
+                <form onSubmit={props.handleSubmit}>
+                    <div className="feed">
+                        <div className="container">
+                            <Navigations active="chats" otherClass="msg-nav" />
+                            <div className="inside-container">
+                                <span className="space"></span>
+                                <div className="chats">
+                                    <div className="chats-header">
+                                        {user ? (
+                                            <img src={user && require(`../../../assets/images/${user.posts[0].img}`)} alt="" />
+                                        ) : (
+                                            <Profile />
+                                        )}
+                                        <span>{user?.username}</span>
+                                    </div>
+                                    <div className="chats-body">
+                                        <div>
+                                            {msgState.msgs.map((msg, key) => {
+                                                return <Msg id={msg.id} key={key} from={msg.id === 1} msg={msg.msg} />;
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div className="chats-form">
+                                        <Field
+                                            as="textarea"
+                                            placeholder="Type your message here..."
+                                            name="msg"
+                                            value={props.values.msg}
+                                            onChange={props.handleChange}
+                                        />
+                                        <button type="submit">
+                                            SEND
+                                            <Send />
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="side-container-msgs-body">
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
-                                    <SideMsgs />
+                                <div className="side-container-menubar">
+                                    <Menu onClick={() => setShowMsgs(!showMsgs)} />
                                 </div>
+                                <span className="space">
+                                    <div className={`side-container ${showMsgs ? "show" : ""}`}>
+                                        <div className="side-container-msgs">
+                                            <div className="side-container-msgs-header">
+                                                <h2>
+                                                    <MessageIcon />
+                                                    Messages
+                                                </h2>
+                                                <input
+                                                    type="search"
+                                                    placeholder="search message"
+                                                    value={searchMsg}
+                                                    onChange={handleSearchMsg}
+                                                />
+                                            </div>
+                                            <div className="side-container-msgs-body">
+                                                {allMsgs?.map((data, id) => {
+                                                    return <SideMsgs key={id} id={id} data={data} handleDisplayMsgs={handleDisplayMsgs} />;
+                                                })}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
                             </div>
                         </div>
-                    </span>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </form>
+            )}
+        </Formik>
     );
 }

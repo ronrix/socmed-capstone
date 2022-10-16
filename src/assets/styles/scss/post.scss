@@ -20,6 +20,12 @@ div.placeholder-loading {
                 padding: 1em;
             }
         }
+        @media (min-width: 1023px) {
+            & {
+                width: 90%;
+                margin: auto;
+            }
+        }
 
         div.ph-picture {
             height: 200px;

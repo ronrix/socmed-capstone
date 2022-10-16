@@ -103,10 +103,12 @@ div.profile-container div.description div.more-info label textarea {
 div.profile-container div.description div.more-info label textarea:focus, div.profile-container div.description div.more-info label textarea:hover {
   border: 1px solid #0092df;
 }
-div.profile-container div.description div.more-info div.location {
+div.profile-container div.description div.more-info div.location,
+div.profile-container div.description div.more-info div.bday {
   margin: 1em 0;
 }
-div.profile-container div.description div.more-info div.location span {
+div.profile-container div.description div.more-info div.location span,
+div.profile-container div.description div.more-info div.bday span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,15 +117,18 @@ div.profile-container div.description div.more-info div.location span {
           align-items: center;
   font-size: 12px;
 }
-div.profile-container div.description div.more-info div.location span svg {
+div.profile-container div.description div.more-info div.location span svg,
+div.profile-container div.description div.more-info div.bday span svg {
   width: 12px;
   height: 12px;
   margin-right: 0.3em;
 }
-div.profile-container div.description div.more-info div.location span textarea.location-text.edit {
+div.profile-container div.description div.more-info div.location span textarea.location-text.edit,
+div.profile-container div.description div.more-info div.bday span textarea.location-text.edit {
   border: 1px solid #00b0f9;
 }
-div.profile-container div.description div.more-info div.location span textarea.location-text {
+div.profile-container div.description div.more-info div.location span textarea.location-text,
+div.profile-container div.description div.more-info div.bday span textarea.location-text {
   border: none;
   outline: none;
   color: #434343;
@@ -132,7 +137,8 @@ div.profile-container div.description div.more-info div.location span textarea.l
   width: auto;
   resize: none;
 }
-div.profile-container div.description div.more-info div.location span input {
+div.profile-container div.description div.more-info div.location span input,
+div.profile-container div.description div.more-info div.bday span input {
   margin-left: 0.3em;
   text-decoration: none;
   border: none;
@@ -140,7 +146,8 @@ div.profile-container div.description div.more-info div.location span input {
   color: #00b0f9;
   background-color: transparent;
 }
-div.profile-container div.description div.more-info div.location span input:hover {
+div.profile-container div.description div.more-info div.location span input:hover,
+div.profile-container div.description div.more-info div.bday span input:hover {
   text-decoration: underline;
 }
 div.profile-container div.description div.more-info h4 {

@@ -1,0 +1,43 @@
+@use "./variables.scss" as *;
+
+div.matches {
+    margin-top: 1em;
+    &-match {
+        width: auto;
+
+        &-body {
+            display: flex;
+            align-items: center;
+            padding: 0.4em;
+            border-radius: $radius;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(65, 146, 223, 0.5);
+            }
+
+            img {
+                width: 29px;
+                height: 29px;
+                clip-path: circle(14px at center);
+            }
+            span {
+                margin-left: 0.5em;
+                font-size: $fs-small;
+                font-weight: bold;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        display: none;
+    }
+
+    @media (min-width: 481px) {
+        display: none;
+    }
+
+    @media (min-width: 1023px) {
+        display: block;
+    }
+}

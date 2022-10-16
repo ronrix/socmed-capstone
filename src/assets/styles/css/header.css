@@ -33,6 +33,72 @@ div.header div {
       -ms-flex-align: center;
           align-items: center;
 }
+div.header div div.search-results {
+  margin-top: 0.1em;
+  width: 50%;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.38);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(17.4px);
+  -webkit-backdrop-filter: blur(17.4px);
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+}
+div.header div div.search-results.show {
+  display: block;
+}
+div.header div div.search-results span {
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+  font-size: 12px;
+}
+div.header div div.search-results-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0.2em 0;
+  padding: 0.2em;
+  border-radius: 15px;
+}
+div.header div div.search-results-user img {
+  -webkit-clip-path: circle(15px at center);
+          clip-path: circle(15px at center);
+  width: 30px;
+}
+div.header div div.search-results-user:hover {
+  background-color: #00b0f9;
+  opacity: 0.5;
+}
+div.header div div.search-results-user span {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+@media (max-width: 800px) {
+  div.header div div.search-results {
+    width: 100%;
+  }
+}
+@media (min-width: 1023px) {
+  div.header div div.search-results {
+    width: 50%;
+  }
+}
 div.header div form.search-wrapper {
   margin-top: 0.5em;
   width: 20%;

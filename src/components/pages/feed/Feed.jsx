@@ -4,6 +4,7 @@ import Header from "../../Header";
 import Navigations from "../../Navigations";
 import Post from "../../Post";
 import PostForm from "./PostForm";
+import Matches from "../../matches/Matches";
 
 // import reducer from "../../../config/reducer";
 import "../../../assets/styles/css/feed.css";
@@ -74,7 +75,9 @@ export default function Feed() {
                             <Post key={post.id} post={post} onClick={handlePreviewPost} />
                         ))}
                     </div>
-                    <span className="space"></span>
+                    <span className="space">
+                        <Matches />
+                    </span>
                 </div>
             </div>
         </div>

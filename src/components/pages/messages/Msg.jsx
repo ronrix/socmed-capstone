@@ -1,11 +1,14 @@
 import React from "react";
-import { ReactComponent as Profile } from "../../../assets/icons/circle-profile.svg";
 
-export default function Msg({ from }) {
+import { users } from "../../../config/users";
+
+export default function Msg({ from, msg, id }) {
+    const user = users.find(user => user.id === id);
+
     return (
         <div className={`chats-body-msg ${from ? "from" : ""}`}>
-            <Profile />
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, quaerat.</p>
+            <img src={require(`../../../assets/images/${user.posts[0].img}`)} alt="" />
+            <p>{msg}</p>
         </div>
     );
 }
