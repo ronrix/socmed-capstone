@@ -51,15 +51,6 @@ export default function PostPreview({ post, setPostPreview }) {
                             <Like />
                             {state ? "Liked" : "Like"}
                         </animated.button>
-                        <h6>other photos</h6>
-                        <div className="post-preview-inside-info-body-img-wrapper">
-                            <div className="img">
-                                <img src={require("../../assets/images/model.jpg")} alt="" />
-                            </div>
-                            <div className="img">
-                                <img src={require("../../assets/images/model.jpg")} alt="" />
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

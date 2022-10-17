@@ -2,7 +2,7 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
-export default function SearchResults({ data, searchInput }) {
+export default function SearchResults({ data, showResults }) {
     const navigate = useNavigate();
 
     const handleClickUser = id => {
@@ -10,8 +10,8 @@ export default function SearchResults({ data, searchInput }) {
     };
 
     return (
-        <div className={`search-results ${searchInput && "show"}`}>
-            <span>results</span>
+        <div className={`search-results ${showResults && "show"}`}>
+            <span className="header-result">results</span>
             {data.map((user, key) => {
                 return (
                     <div key={key} className={`search-results-user`} onClick={() => handleClickUser(user.id)}>

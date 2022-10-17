@@ -44,3 +44,53 @@ body::-webkit-scrollbar-thumb {
 .me-3 {
     margin-right: 0.5em;
 }
+
+div.container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+
+    &-left,
+    &-right {
+        flex: 1;
+        position: sticky;
+        top: 55px;
+
+        @media (max-width: 480px) {
+            flex: 0;
+        }
+
+        @media (min-width: 481px) {
+            flex: 0;
+        }
+
+        @media (min-width: 1023px) {
+            flex: 1;
+        }
+    }
+
+    &-left {
+        @media (min-width: 481px) {
+            & {
+                flex: 0.5;
+            }
+        }
+
+        @media (min-width: 481px) {
+            & {
+                flex: 1.5;
+            }
+        }
+
+        @media (min-width: 481px) {
+            & {
+                flex: 1;
+            }
+        }
+    }
+
+    &-main {
+        flex: 3;
+    }
+}

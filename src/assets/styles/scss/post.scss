@@ -28,7 +28,7 @@ div.placeholder-loading {
         }
 
         div.ph-picture {
-            height: 200px;
+            height: 500px;
             border-radius: $radius;
         }
 
@@ -45,105 +45,94 @@ div.post-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 2em;
 
-    div.img-wrapper {
-        margin-top: 1em;
-        margin-bottom: 0.2em;
-        border-radius: $radius;
-        overflow: hidden;
-        position: relative;
+    border-bottom: 1px solid $grey;
 
-        div.info-overlay {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            right: 0;
+    &-header {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+
+        &-info {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            align-items: flex-start;
 
-            &:hover > div.info-overlay-body {
-                display: block;
-                opacity: 1;
-            }
-
-            &-header {
-                padding: 1em;
-                color: $light;
+            span {
                 display: flex;
                 align-items: center;
-                background-color: rgba(0, 0, 0, 0.5);
+                justify-content: flex-start;
+                font-weight: bold;
 
-                svg {
-                    margin-right: 0.5em;
-                    width: $fs-medium;
-                    height: $fs-medium;
-                    path {
-                        stroke: $light;
-                        stroke-width: 2;
-                    }
+                img {
+                    clip-path: circle(12px at center);
+                    width: 25px;
+                    height: 25px;
                 }
             }
 
-            &-body {
-                padding: 2em;
-                opacity: 0;
-                box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.5);
-                background-color: rgba(0, 0, 0, 0.5);
-                transition: opacity 300ms ease-in-out;
-                text-align: left;
-
-                p {
-                    font-size: $fs-small;
-                    color: $light;
-                }
+            p {
+                font-size: $fs-small;
+                margin: 1em 0;
+                margin-left: 0.5em;
             }
         }
 
-        img {
-            width: 100%;
-        }
+        button {
+            padding: 0.3em;
+            background-color: $light;
+            border: 0.1em solid $dark-primary;
+            outline: none;
+            border-radius: $radius-lg;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $dark-primary;
+            font-weight: bold;
 
-        @media (min-width: 1023px) {
-            & {
-                max-height: 600px;
-                max-width: 500px;
-                text-align: center;
+            &.liked {
+                background-color: $dark-primary;
+                color: $light;
+
+                svg path {
+                    stroke: $light;
+                    stroke-width: 2;
+                }
+            }
+
+            svg {
+                width: $fs-normal;
+                height: $fs-normal;
+                margin-right: 0.3em;
+
+                path {
+                    stroke: $dark-primary;
+                }
+            }
+
+            &:hover {
+                color: $light;
+                background-color: $dark-primary;
+
+                svg path {
+                    stroke: $light;
+                }
             }
         }
     }
 
-    button {
-        padding: 0.5em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &-post {
         width: 100%;
-        font-weight: bold;
-        font-size: $fs-small;
-        border-radius: $radius;
-        background: linear-gradient(180deg, $light-primary 0%, $dark-primary 100%);
-        border: none;
-        outline: none;
-        color: $light;
+        text-align: center;
 
-        &:hover {
-            background: $dark-primary;
-        }
-
-        svg {
-            width: 25px;
-            height: 25px;
-
-            path {
-                stroke-width: 3;
-            }
-        }
-        @media (min-width: 1023px) {
-            & {
-                width: 500px;
-            }
+        img {
+            width: 70%;
+            border-radius: $radius;
         }
     }
 }

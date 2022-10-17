@@ -45,14 +45,23 @@ div.wrapper form div.form-wrapper div.absolute-or::after {
   background-color: #fff;
   padding: 0.2em;
 }
-div.wrapper form div.form-wrapper a.btn {
-  margin: 0.3em 0;
-  text-decoration: none;
-  display: block;
+div.wrapper form div.form-wrapper .auth-btn {
+  width: 100%;
   text-align: center;
-  border-radius: 15px;
-  padding: 0.5em;
-  font-weight: bolder;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 15px !important;
+}
+div.wrapper form div.form-wrapper .fb-btn {
+  margin-top: 0.5em;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,22 +71,17 @@ div.wrapper form div.form-wrapper a.btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-div.wrapper form div.form-wrapper a.btn.google {
-  color: #434343;
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
-}
-div.wrapper form div.form-wrapper a.btn.google:hover {
-  background-color: #e5e5e5;
-}
-div.wrapper form div.form-wrapper a.btn.fb {
-  background: -webkit-gradient(linear, left top, left bottom, from(#00b0f9), to(#0092df));
-  background: linear-gradient(180deg, #00b0f9 0%, #0092df 100%);
+  background-color: #00b0f9;
+  outline: none;
+  border-radius: 15px;
+  border: none;
   color: #fff;
+  padding: 0.5em;
+  cursor: pointer;
 }
-div.wrapper form div.form-wrapper a.btn.fb:hover {
-  background: #0092df;
+div.wrapper form div.form-wrapper .fb-btn svg path {
+  stroke: #fff;
+  stroke-width: 2;
 }
 div.wrapper form div.form-wrapper label {
   font-size: 1em;

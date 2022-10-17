@@ -91,7 +91,6 @@ export default function Profile() {
 
                     <form onSubmit={props.handleSubmit}>
                         <div className="profile-container">
-                            <Navigations otherClass="prof-nav" active="profile" />
                             <div className="description">
                                 <h3>Create your profile</h3>
                                 <div className="head-profile">
@@ -110,11 +109,11 @@ export default function Profile() {
                                     </div>
                                     <div className="head-profile-txt">
                                         <h3>{localStorage.getItem("fullname")}</h3>
-                                        <p>click the image above to upload your profile picture</p>
+                                        <p>click the image to upload your profile picture</p>
                                     </div>
                                 </div>
                                 <div className="more-info">
-                                    <label htmlFor="">
+                                    <label>
                                         <span>Description</span>
                                         <Field
                                             as="textarea"
@@ -130,12 +129,11 @@ export default function Profile() {
                                             <Location />
                                             <Field
                                                 as="textarea"
-                                                type="text"
                                                 name="location"
                                                 className={`location-text ${!disableLoc ? "edit" : ""}`}
                                                 disabled={disableLoc}
                                                 onChange={props.handleChange}
-                                                defaultValue={user?.location || props.values.location || "Palengke ng San Francisco, USA."}
+                                                value={user?.location || props.values.location || "Palengke ng San Francisco, USA."}
                                             />
                                             <input type="button" value="edit" onClick={handleEditLocation} />
                                         </span>

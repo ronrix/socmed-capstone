@@ -1,147 +1,135 @@
 @use "./variables.scss" as *;
 
 div.header {
+    text-align: center;
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: $light;
+    box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+    -moz-box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+    -webkit-box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+    padding: 0.5em;
 
-    span.space {
-        flex: 2;
-    }
-
-    div {
-        flex: 4;
-        position: relative;
+    &-container {
+        max-width: 1000px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
 
-        div.search-results {
-            margin-top: 0.1em;
-            width: 50%;
-            padding: 1em;
-            background: rgba(255, 255, 255, 0.38);
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(17.4px);
-            -webkit-backdrop-filter: blur(17.4px);
-            display: none;
-            position: absolute;
-            top: 100%;
-            z-index: 1000;
+        form.search-wrapper {
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0.5em;
+            background-color: transparent;
+            border-radius: $radius-lg;
+            border: 1px solid $dark-primary;
+            position: relative;
 
-            &.show {
-                display: block;
-            }
+            div.search-results {
+                position: absolute;
+                max-height: 300px;
+                min-height: 300px;
+                bottom: -306px;
+                overflow-y: scroll;
+                left: 50%;
+                width: 300px;
+                transform: translateX(-50%);
+                background-color: $light;
+                box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+                -moz-box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+                -webkit-box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+                padding: 1em;
+                display: none;
 
-            span {
-                display: block;
-                text-align: left;
-                width: 100%;
-                font-weight: bold;
-                font-size: $fs-small;
-            }
-
-            &-user {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                flex-direction: row;
-                margin: 0.2em 0;
-                padding: 0.2em;
-                border-radius: $radius;
-
-                img {
-                    clip-path: circle(15px at center);
-                    width: 30px;
+                &.show {
+                    display: block;
                 }
 
-                &:hover {
-                    background-color: $light-primary;
-                    opacity: 0.5;
+                &::-webkit-scrollbar {
+                    display: none;
                 }
 
                 span {
-                    display: inline-block;
-                    margin-left: 0.5em;
+                    font-weight: bold;
+                    font-size: $fs-small;
                 }
-            }
 
-            @media (max-width: 800px) {
-                width: 100%;
-            }
+                span.header-result {
+                    text-align: left;
+                    display: block;
+                    width: 100%;
+                    border-bottom: 1px solid $grey;
+                    padding-bottom: 0.5em;
+                }
 
-            @media (min-width: 1023px) {
-                width: 50%;
-            }
-        }
+                &-user {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    border-radius: $radius;
+                    padding: 0.2em;
+                    margin: 0.3em 0;
 
-        form.search-wrapper {
-            margin-top: 0.5em;
-            width: 20%;
-            padding: 0.3em;
-            border: 1px solid $dark;
-            border-radius: $radius;
-            display: flex;
-            align-items: center;
-            transition: width 200ms ease-in-out;
+                    &:hover {
+                        background-color: $grey;
+                    }
 
-            &:hover {
-                border: 1px solid $dark-primary;
-            }
+                    span {
+                        margin-left: 0.3em;
+                    }
 
-            &:has(input:focus) {
-                width: 85%;
-                border: 1px solid $dark-primary;
-            }
-
-            svg path {
-                stroke: $dark;
+                    img {
+                        clip-path: circle(12px at center);
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
             }
 
             input {
-                width: 90%;
-                outline: none;
                 border: none;
-                background-color: transparent;
-                margin-left: 0.5em;
-                text-align: center;
-                transition: width 100ms ease;
+                outline: none;
+                background-color: inherit;
 
                 &::placeholder {
-                    color: $dark;
                     font-weight: bold;
+                    color: $dark-primary;
                 }
             }
-        }
-    }
-    @media (max-width: 480px) {
-        & {
-            span.space {
-                display: none;
-            }
-            div {
-                width: 100%;
-                padding: 0.3em;
-                form.search-wrapper {
-                    width: 100%;
+
+            svg {
+                width: $fs-normal;
+                height: $fs-normal;
+                margin-right: 0.5em;
+
+                path {
+                    stroke: $dark-primary;
+                    stroke-width: 3;
                 }
             }
-        }
-    }
-    @media (min-width: 481px) {
-        & {
-            div {
-                width: 100%;
-                form.search-wrapper {
-                    width: 50%;
-                }
+
+            input:focus > & {
+                border: 1px solid $dark-primary;
             }
         }
-    }
-    @media (min-width: 1023px) {
-        form.search-wrapper {
-            width: 20%;
+
+        @media (max-width: 480px) {
+            & {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 481px) {
+            & {
+                flex-direction: row;
+            }
         }
     }
 }

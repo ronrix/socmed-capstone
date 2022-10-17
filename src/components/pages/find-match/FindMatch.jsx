@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../Header";
-import Navigations from "../../Navigations";
 import Loading from "./Loading";
 import MatchInfo from "./MatchInfo";
 
@@ -55,9 +54,7 @@ export default function FindMatch() {
     return (
         <div className="feed">
             <div className="container">
-                <Header />
                 <div className="inside-container">
-                    <Navigations active="find-match" />
                     <div className="find-match">
                         <span className="space"></span>
                         {loading ? (

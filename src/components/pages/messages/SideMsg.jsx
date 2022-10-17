@@ -5,7 +5,7 @@ export default function SideMsg({ data, handleDisplayMsgs, id }) {
     const user = users.find(user => user.id === data.id);
 
     return (
-        <div className="side-container-msgs-body-msg-wrapper" onClick={() => handleDisplayMsgs(id)}>
+        <div className="inside-msgs-body-msg-wrapper" onClick={() => handleDisplayMsgs(id)}>
             <img src={require(`../../../assets/images/${user.posts[0].img}`)} alt="" />
             <div className="side-container-msgs-body-msg-wrapper-body">
                 <h4>{user.username}</h4>

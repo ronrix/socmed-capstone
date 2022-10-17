@@ -1,60 +1,33 @@
 @use "./variables.scss" as *;
 
 nav {
-    position: fixed;
-    left: 100px;
-    top: 10px;
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1em;
-    width: auto;
     transition: all 200ms ease-in-out;
     overflow-y: scroll;
-    z-index: 1;
-    height: 90vh;
 
-    &::-webkit-scrollbar {
+    &.mobile-view {
         display: none;
-    }
-
-    &.msg-nav {
-        left: 100px;
-
-        @media (max-width: 480px) {
-            left: 0;
-        }
-
-        @media (min-width: 481px) {
-            left: 30px;
-        }
-
-        @media (min-width: 1023px) {
-            left: 70px;
-        }
-
-        @media (min-width: 1158px) {
-            left: 100px;
-        }
-    }
-
-    &.prof-nav {
-        width: 50px;
-        left: 0;
-        position: fixed;
-        top: 10px;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
 
         span {
             display: none;
         }
 
-        div.matches {
-            display: block;
-            h5 {
-                font-size: 0.5em;
-            }
+        @media (max-width: 480px) {
+            display: flex;
         }
+        @media (min-width: 481px) {
+            display: none;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
     }
 
     a {
@@ -75,9 +48,9 @@ nav {
         }
 
         svg {
-            margin-right: 1em;
-            width: 29px;
-            height: 29px;
+            margin-right: 0.7em;
+            width: $fs-large;
+            height: $fs-large;
             transition: stroke 120ms ease;
 
             path {
@@ -98,99 +71,36 @@ nav {
         svg path {
             stroke: $light;
             fill: $light-primary;
-            stroke-width: 1;
-        }
-    }
-
-    div.matches {
-        margin-top: 1em;
-        display: none;
-        &-match {
-            &-body {
-                display: flex;
-                align-items: center;
-                padding: 0.4em;
-                border-radius: $radius;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: rgb(65, 146, 223, 0.5);
-                }
-
-                img {
-                    width: 29px;
-                    height: 29px;
-                    clip-path: circle(14px at center);
-                }
-                span {
-                    margin-left: 0.5em;
-                    font-size: $fs-small;
-                    font-weight: bold;
-                }
-            }
+            stroke-width: 2;
         }
     }
 
     @media (max-width: 480px) {
         & {
-            width: 50px;
-            left: 0;
-
+            margin-left: 3em;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            display: none;
             span {
                 display: none;
-            }
-            div.matches {
-                display: block;
-                &-match-body {
-                    padding: 0;
-                }
-                h5 {
-                    font-size: 0.5em;
-                }
             }
         }
     }
 
     @media (min-width: 481px) {
         & {
-            width: 50px;
-            left: 20px;
-
+            display: block;
+            margin-left: 1.8em;
             span {
-                display: none;
-            }
-            div.matches {
-                display: block;
-
-                h5 {
-                    font-size: 0.5em;
-                }
+                font-size: $fs-small;
             }
         }
     }
 
     @media (min-width: 1023px) {
         & {
-            width: auto;
-            left: 50px;
-
-            span {
-                display: block;
-            }
-            div.matches {
-                display: none;
-                h5 {
-                    font-size: 1em;
-                }
-            }
-        }
-    }
-
-    @media (min-width: 1300px) {
-        & {
-            width: auto;
-            left: 180px;
-
+            margin-left: 0;
             span {
                 display: block;
             }

@@ -1,9 +1,7 @@
 import React from "react";
 
 import { Formik, Field } from "formik";
-import Navigations from "../../Navigations";
 
-import "../../../assets/styles/css/feed.css";
 import { ReactComponent as Send } from "../../../assets/icons/send.svg";
 import { ReactComponent as Profile } from "../../../assets/icons/circle-profile.svg";
 import { ReactComponent as Menu } from "../../../assets/icons/menu.svg";
@@ -13,6 +11,8 @@ import Msg from "./Msg";
 import SideMsgs from "./SideMsg";
 import { sampleMsgs } from "../../../config/messages";
 import { users } from "../../../config/users";
+
+import "../../../assets/styles/css/messages.css";
 
 export default function Messages() {
     const [showMsgs, setShowMsgs] = React.useState(false);
@@ -53,68 +53,48 @@ export default function Messages() {
             }}
         >
             {props => (
-                <form onSubmit={props.handleSubmit}>
-                    <div className="feed">
-                        <div className="container">
-                            <Navigations active="chats" otherClass="msg-nav" />
-                            <div className="inside-container">
-                                <span className="space"></span>
-                                <div className="chats">
-                                    <div className="chats-header">
-                                        {user ? (
-                                            <img src={user && require(`../../../assets/images/${user.posts[0].img}`)} alt="" />
-                                        ) : (
-                                            <Profile />
-                                        )}
-                                        <span>{user?.username}</span>
-                                    </div>
-                                    <div className="chats-body">
-                                        <div>
-                                            {msgState.msgs.map((msg, key) => {
-                                                return <Msg id={msg.id} key={key} from={msg.id === 1} msg={msg.msg} />;
-                                            })}
-                                        </div>
-                                    </div>
-                                    <div className="chats-form">
-                                        <Field
-                                            as="textarea"
-                                            placeholder="Type your message here..."
-                                            name="msg"
-                                            value={props.values.msg}
-                                            onChange={props.handleChange}
-                                        />
-                                        <button type="submit">
-                                            SEND
-                                            <Send />
-                                        </button>
-                                    </div>
+                <form onSubmit={props.handleSubmit} className="chats">
+                    <div className="chats-inside">
+                        <div className="chats-inside-header">
+                            {user ? <img src={user && require(`../../../assets/images/${user.posts[0].img}`)} alt="" /> : <Profile />}
+                            <span>{user?.username}</span>
+                        </div>
+                        <div className="chats-inside-body">
+                            {msgState.msgs.map((msg, key) => {
+                                return <Msg id={msg.id} key={key} from={msg.id === 1} msg={msg.msg} />;
+                            })}
+                        </div>
+                        <div className="chats-inside-form">
+                            <Field
+                                as="textarea"
+                                placeholder="Type your message here..."
+                                name="msg"
+                                value={props.values.msg}
+                                onChange={props.handleChange}
+                            />
+                            <button type="submit">
+                                SEND
+                                <Send />
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="side-container">
+                        <Menu onClick={() => setShowMsgs(!showMsgs)} />
+                        <div className={`inside ${showMsgs ? "show" : ""}`}>
+                            <div className="inside-msgs">
+                                <div className="inside-msgs-header">
+                                    <h2>
+                                        <MessageIcon />
+                                        Messages
+                                    </h2>
+                                    <input type="search" placeholder="search message" value={searchMsg} onChange={handleSearchMsg} />
                                 </div>
-                                <div className="side-container-menubar">
-                                    <Menu onClick={() => setShowMsgs(!showMsgs)} />
+                                <div className="inside-msgs-body">
+                                    {allMsgs?.map((data, id) => {
+                                        return <SideMsgs key={id} id={id} data={data} handleDisplayMsgs={handleDisplayMsgs} />;
+                                    })}
                                 </div>
-                                <span className="space">
-                                    <div className={`side-container ${showMsgs ? "show" : ""}`}>
-                                        <div className="side-container-msgs">
-                                            <div className="side-container-msgs-header">
-                                                <h2>
-                                                    <MessageIcon />
-                                                    Messages
-                                                </h2>
-                                                <input
-                                                    type="search"
-                                                    placeholder="search message"
-                                                    value={searchMsg}
-                                                    onChange={handleSearchMsg}
-                                                />
-                                            </div>
-                                            <div className="side-container-msgs-body">
-                                                {allMsgs?.map((data, id) => {
-                                                    return <SideMsgs key={id} id={id} data={data} handleDisplayMsgs={handleDisplayMsgs} />;
-                                                })}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </span>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Settings from "./modals/Settings";
-import Matches from "./matches/Matches";
 import "../assets/styles/css/navigations.css";
 
 // line icons
@@ -20,31 +19,45 @@ import { ReactComponent as ProfileSolid } from "../assets/icons/circle-profile-s
 import { ReactComponent as SearchSolid } from "../assets/icons/searchfavorite1-solid.svg";
 import { ReactComponent as SettingsSolid } from "../assets/icons/setting-solid.svg";
 
-export default function Navigations({ active, otherClass }) {
+export default function Navigations({ otherClass }) {
     const [settingsModal, setShowSettingsModal] = React.useState(false);
+    const [activePath, setActivePath] = React.useState(() =>
+        localStorage.getItem("active-page") ? localStorage.getItem("active-page") : "home"
+    );
+
+    const handleActivePage = str => {
+        localStorage.setItem("active-page", str);
+        setActivePath(str);
+    };
+
+    React.useEffect(() => {}, []);
 
     return (
         <nav className={`${otherClass ? otherClass : ""}`}>
             {settingsModal && <Settings setShowSettingsModal={setShowSettingsModal} />}
 
-            <Link to="/app" className={`${active === "home" && "active"}`}>
-                <abbr title="Home">{active === "home" ? <HomeSolid /> : <Home />}</abbr>
+            <Link to="/app" onClick={() => handleActivePage("home")} className={`${activePath === "home" ? "active" : ""}`}>
+                <abbr title="Home">{activePath === "home" ? <HomeSolid /> : <Home />}</abbr>
                 <span>Home</span>
             </Link>
-            <Link to="/app/profile" className={`${active === "profile" && "active"}`}>
-                <abbr title="Profile">{active === "profile" ? <ProfileSolid /> : <Profile />}</abbr>
+            <Link to="/app/profile" onClick={() => handleActivePage("profile")} className={`${activePath === "profile" ? "active" : ""}`}>
+                <abbr title="Profile">{activePath === "profile" ? <ProfileSolid /> : <Profile />}</abbr>
                 <span>Profile</span>
             </Link>
-            <Link to="/app/messages" className={`${active === "chats" && "active"}`}>
-                <abbr title="Chats">{active === "chats" ? <MessageSolid /> : <Message />}</abbr>
+            <Link to="/app/messages" onClick={() => handleActivePage("chats")} className={`${activePath === "chats" ? "active" : ""}`}>
+                <abbr title="Chats">{activePath === "chats" ? <MessageSolid /> : <Message />}</abbr>
                 <span>Chats</span>
             </Link>
-            <Link to="/app/find-match" className={`${active === "find-match" && "active"}`}>
-                <abbr title="Find your Match">{active === "find-match" ? <SearchSolid /> : <Search />}</abbr>
+            <Link
+                to="/app/find-match"
+                onClick={() => handleActivePage("find-match")}
+                className={`${activePath === "find-match" ? "active" : ""}`}
+            >
+                <abbr title="Find your Match">{activePath === "find-match" ? <SearchSolid /> : <Search />}</abbr>
                 <span>Find Your Match</span>
             </Link>
-            <Link to="#settings" className={`${active === "settings" && "active"}`} onClick={() => setShowSettingsModal(true)}>
-                <abbr title="Settings">{active === "settings" ? <SettingsSolid /> : <SettingsIcon />}</abbr>
+            <Link to="#settings" className={`${activePath === "settings" ? "active" : ""}`} onClick={() => setShowSettingsModal(true)}>
+                <abbr title="Settings">{activePath === "settings" ? <SettingsSolid /> : <SettingsIcon />}</abbr>
                 <span>Settings</span>
             </Link>
             <Link to="/login">
@@ -53,7 +66,6 @@ export default function Navigations({ active, otherClass }) {
                 </abbr>
                 <span>Logout</span>
             </Link>
-            <Matches />
         </nav>
     );
 }

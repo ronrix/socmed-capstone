@@ -1,0 +1,9 @@
+span.space {
+    width: 300px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    @import "./messages.scss";
+}

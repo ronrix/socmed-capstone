@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { loginSchema } from "../../config/validation";
 
 import "../../assets/styles/css/registration.css";
-import { ReactComponent as Google } from "../../assets/icons/google.svg";
-import { ReactComponent as Facebook } from "../../assets/icons/facebook.svg";
+import Google from "../authentication-btns/Google";
+import Facebook from "../authentication-btns/Facebook";
+
+import { ReactComponent as FbIcon } from "../../assets/icons/facebook.svg";
 
 import { Link } from "react-router-dom";
 
@@ -29,14 +31,10 @@ const Login = () => {
                     <form onSubmit={props.handleSubmit}>
                         <div className="form-wrapper">
                             <h1>LOGIN</h1>
-                            <a href="/google-login-api" className="btn google">
-                                <Google className="me-3" />
-                                Sign in with Google
-                            </a>
-                            <a href="/fb-login-api" className="btn fb">
-                                <Facebook className="me-3" />
-                                Sign in with facebook
-                            </a>
+
+                            <Google />
+                            <Facebook FacebookIcon={FbIcon} />
+
                             <div className="absolute-or"></div>
                             <label htmlFor="email">
                                 Email Address

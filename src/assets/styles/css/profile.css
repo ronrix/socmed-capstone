@@ -4,21 +4,22 @@
 /* box sizes */
 /* radius */
 div.profile-container {
-  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 0.5em;
   position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 1em;
 }
-div.profile-container div.description,
-div.profile-container div.posts {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
+div.profile-container div.description {
+  width: 100%;
 }
 div.profile-container div.description div.head-profile {
   display: -webkit-box;
@@ -73,6 +74,9 @@ div.profile-container div.description div.head-profile-txt {
 }
 div.profile-container div.description div.head-profile-txt p {
   font-size: 12px;
+}
+div.profile-container div.description div.more-info {
+  width: 100%;
 }
 div.profile-container div.description div.more-info label {
   margin: 0.8em 0;
@@ -231,7 +235,6 @@ div.profile-container div.posts span svg {
 div.profile-container div.posts div.img-post-wrapper {
   width: 100%;
   position: relative;
-  height: 600px;
 }
 div.profile-container div.posts div.img-post-wrapper button {
   padding: 1em;
@@ -300,95 +303,4 @@ div.profile-container div.posts div.btns input.save {
   border-radius: 15px;
   background: -webkit-gradient(linear, left top, left bottom, from(#4dfede), to(#00dfb7));
   background: linear-gradient(180deg, #4dfede 0%, #00dfb7 100%);
-}
-@media (max-width: 480px) {
-  div.profile-container {
-    padding-left: 3.5em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    position: relative;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    width: 100vw;
-  }
-  div.profile-container div.description {
-    width: 100%;
-  }
-  div.profile-container div.description div.head-profile {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 100%;
-  }
-  div.profile-container div.checkbox-wrapper {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  div.profile-container div.checkbox-wrapper label {
-    width: 100%;
-  }
-  div.profile-container div.posts {
-    width: auto;
-  }
-  div.profile-container div.posts div.img-post-wrapper {
-    width: 300px;
-  }
-  div.profile-container div.posts div.img-post-wrapper img {
-    width: 100%;
-  }
-}
-@media (min-width: 481px) {
-  div.profile-container {
-    padding-left: 5em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    position: relative;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  div.profile-container div.description {
-    width: 100%;
-  }
-  div.profile-container div.description div.head-profile {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 100%;
-  }
-  div.profile-container div.posts {
-    width: 100vw;
-  }
-  div.profile-container div.posts div.img-post-wrapper {
-    width: 100%;
-  }
-}
-@media (min-width: 1023px) {
-  div.profile-container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
 }

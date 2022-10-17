@@ -24,8 +24,8 @@ div.matches-match-body:hover {
   background-color: rgba(65, 146, 223, 0.5);
 }
 div.matches-match-body img {
-  width: 29px;
-  height: 29px;
+  width: 28px;
+  height: 28px;
   -webkit-clip-path: circle(14px at center);
           clip-path: circle(14px at center);
 }

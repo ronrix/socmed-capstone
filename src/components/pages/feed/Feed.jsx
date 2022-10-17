@@ -1,45 +1,40 @@
 import React from "react";
 
-import Header from "../../Header";
-import Navigations from "../../Navigations";
-import Post from "../../Post";
-import PostForm from "./PostForm";
-import Matches from "../../matches/Matches";
-
-// import reducer from "../../../config/reducer";
-import "../../../assets/styles/css/feed.css";
+import Post from "./Post";
+import PostFormModal from "../../modals/PostFormModal";
 import PostPreview from "../../modals/PostPreview";
+
+import { ReactComponent as Camera } from "../../../assets/icons/camera.svg";
+import "../../../assets/styles/css/feed.css";
 
 const initialPosts = [
     {
         id: 1,
         username: "Test 1",
-        description: "testing testing",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
         imgPath: "model.jpg"
     },
     {
         id: 2,
         username: "Test 2",
-        description: "testing testing",
-        imgPath: "model.jpg"
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        imgPath: "model-1.jpg"
     },
     {
         id: 3,
         username: "Test 3",
-        description: "testing testing",
-        imgPath: "model.jpg"
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        imgPath: "model-2.webp"
     }
 ];
 
 export default function Feed() {
-    // const [posts, dispatch] = React.useReducer(reducer, initialPosts);
     const [posts, setPosts] = React.useState(initialPosts);
-    const [postPreview, setPostPreview] = React.useState(null);
+    const [showPostFormModal, setShowPostFormModal] = React.useState(false);
     let clonePosts = [...posts];
 
     const formSubmit = values => {
         // dispatch({ type: "POST", values });
-        console.log(values);
         setPosts([
             ...posts,
             {
@@ -53,33 +48,23 @@ export default function Feed() {
         clonePosts = [...posts];
     };
 
-    const handlePreviewPost = post => {
-        setPostPreview(post);
-    };
-
     React.useEffect(() => {}, [posts]);
 
     return (
-        <div className="feed">
-            <div className="container">
-                <Header />
-                <div className="inside-container">
-                    <span className="space"></span>
-                    <Navigations active="home" />
-                    <div className="posts">
-                        <PostForm formSubmit={formSubmit} />
+        <>
+            <div className="feed-container-content">
+                {showPostFormModal && <PostFormModal setShowPostFormModal={setShowPostFormModal} />}
 
-                        <PostPreview post={postPreview} setPostPreview={setPostPreview} />
-
-                        {clonePosts.reverse().map(post => (
-                            <Post key={post.id} post={post} onClick={handlePreviewPost} />
-                        ))}
-                    </div>
-                    <span className="space">
-                        <Matches />
-                    </span>
+                <button className="upload-btn" onClick={() => setShowPostFormModal(true)}>
+                    <Camera />
+                    Upload new post
+                </button>
+                <div className="posts">
+                    {clonePosts.reverse().map(post => (
+                        <Post key={post.id} post={post} />
+                    ))}
                 </div>
             </div>
-        </div>
+        </>
     );
 }

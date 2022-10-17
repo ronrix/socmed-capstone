@@ -1,18 +1,16 @@
 @use "./variables.scss" as *;
 
 div.profile-container {
-    margin: auto;
     display: flex;
     align-items: flex-start;
-    padding: 0.5em;
     position: relative;
-
-    div.description,
-    div.posts {
-        flex: 3;
-    }
+    flex-direction: column;
+    width: 100%;
+    padding: 1em;
 
     div.description {
+        width: 100%;
+
         div.head-profile {
             display: flex;
             align-items: center;
@@ -71,6 +69,8 @@ div.profile-container {
         }
 
         div.more-info {
+            width: 100%;
+
             label {
                 margin: 0.8em 0;
                 display: block;
@@ -222,7 +222,6 @@ div.profile-container {
         div.img-post-wrapper {
             width: 100%;
             position: relative;
-            height: 600px;
 
             button {
                 padding: 1em;
@@ -290,72 +289,6 @@ div.profile-container {
                 border-radius: $radius;
                 background: linear-gradient(180deg, $light-secondary 0%, $dark-secondary 100%);
             }
-        }
-    }
-
-    @media (max-width: 480px) {
-        & {
-            padding-left: 3.5em;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            align-items: flex-start;
-            width: 100vw;
-
-            div.description {
-                width: 100%;
-                div.head-profile {
-                    align-items: flex-start;
-                    flex-direction: column;
-                    width: 100%;
-                }
-            }
-            div.checkbox-wrapper {
-                flex-direction: column;
-                label {
-                    width: 100%;
-                }
-            }
-            div.posts {
-                width: auto;
-                div.img-post-wrapper {
-                    width: 300px;
-                    img {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
-    @media (min-width: 481px) {
-        & {
-            padding-left: 5em;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            align-items: flex-start;
-
-            div.description {
-                width: 100%;
-                div.head-profile {
-                    align-items: flex-start;
-                    flex-direction: column;
-                    width: 100%;
-                }
-            }
-
-            div.posts {
-                width: 100vw;
-
-                div.img-post-wrapper {
-                    width: 100%;
-                }
-            }
-        }
-    }
-    @media (min-width: 1023px) {
-        & {
-            flex-direction: row;
         }
     }
 }

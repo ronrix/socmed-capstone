@@ -48,3 +48,68 @@ body::-webkit-scrollbar-thumb {
 .me-3 {
   margin-right: 0.5em;
 }
+
+div.container {
+  max-width: 1000px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+div.container-left, div.container-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: sticky;
+  top: 55px;
+}
+@media (max-width: 480px) {
+  div.container-left, div.container-right {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+  }
+}
+@media (min-width: 481px) {
+  div.container-left, div.container-right {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+  }
+}
+@media (min-width: 1023px) {
+  div.container-left, div.container-right {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+@media (min-width: 481px) {
+  div.container-left {
+    -webkit-box-flex: 0.5;
+        -ms-flex: 0.5;
+            flex: 0.5;
+  }
+}
+@media (min-width: 481px) {
+  div.container-left {
+    -webkit-box-flex: 1.5;
+        -ms-flex: 1.5;
+            flex: 1.5;
+  }
+}
+@media (min-width: 481px) {
+  div.container-left {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+div.container-main {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}

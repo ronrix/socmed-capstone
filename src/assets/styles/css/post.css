@@ -30,7 +30,7 @@ div.placeholder-loading div.ph-item {
   }
 }
 div.placeholder-loading div.ph-item div.ph-picture {
-  height: 200px;
+  height: 500px;
   border-radius: 15px;
 }
 div.placeholder-loading div.ph-item div.big {
@@ -51,20 +51,25 @@ div.post-wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2em;
+  border-bottom: 1px solid #e5e5e5;
 }
-div.post-wrapper div.img-wrapper {
-  margin-top: 1em;
-  margin-bottom: 0.2em;
-  border-radius: 15px;
-  overflow: hidden;
-  position: relative;
+div.post-wrapper-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: left;
+  width: 100%;
 }
-div.post-wrapper div.img-wrapper div.info-overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
+div.post-wrapper-header-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,60 +77,42 @@ div.post-wrapper div.img-wrapper div.info-overlay {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
-div.post-wrapper div.img-wrapper div.info-overlay:hover > div.info-overlay-body {
-  display: block;
-  opacity: 1;
-}
-div.post-wrapper div.img-wrapper div.info-overlay-header {
-  padding: 1em;
-  color: #fff;
+div.post-wrapper-header-info span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-weight: bold;
 }
-div.post-wrapper div.img-wrapper div.info-overlay-header svg {
-  margin-right: 0.5em;
-  width: 17px;
-  height: 17px;
+div.post-wrapper-header-info span img {
+  -webkit-clip-path: circle(12px at center);
+          clip-path: circle(12px at center);
+  width: 25px;
+  height: 25px;
 }
-div.post-wrapper div.img-wrapper div.info-overlay-header svg path {
-  stroke: #fff;
-  stroke-width: 2;
-}
-div.post-wrapper div.img-wrapper div.info-overlay-body {
-  padding: 2em;
-  opacity: 0;
-  -webkit-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.5);
-          box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.5);
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-  text-align: left;
-}
-div.post-wrapper div.img-wrapper div.info-overlay-body p {
+div.post-wrapper-header-info p {
   font-size: 12px;
-  color: #fff;
+  margin: 1em 0;
+  margin-left: 0.5em;
 }
-div.post-wrapper div.img-wrapper img {
-  width: 100%;
-}
-@media (min-width: 1023px) {
-  div.post-wrapper div.img-wrapper {
-    max-height: 600px;
-    max-width: 500px;
-    text-align: center;
-  }
-}
-div.post-wrapper button {
-  padding: 0.5em;
+div.post-wrapper-header button {
+  padding: 0.3em;
+  background-color: #fff;
+  border: 0.1em solid #0092df;
+  outline: none;
+  border-radius: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -135,28 +122,37 @@ div.post-wrapper button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
+  color: #0092df;
   font-weight: bold;
-  font-size: 12px;
-  border-radius: 15px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00b0f9), to(#0092df));
-  background: linear-gradient(180deg, #00b0f9 0%, #0092df 100%);
-  border: none;
-  outline: none;
+}
+div.post-wrapper-header button.liked {
+  background-color: #0092df;
   color: #fff;
 }
-div.post-wrapper button:hover {
-  background: #0092df;
+div.post-wrapper-header button.liked svg path {
+  stroke: #fff;
+  stroke-width: 2;
 }
-div.post-wrapper button svg {
-  width: 25px;
-  height: 25px;
+div.post-wrapper-header button svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.3em;
 }
-div.post-wrapper button svg path {
-  stroke-width: 3;
+div.post-wrapper-header button svg path {
+  stroke: #0092df;
 }
-@media (min-width: 1023px) {
-  div.post-wrapper button {
-    width: 500px;
-  }
+div.post-wrapper-header button:hover {
+  color: #fff;
+  background-color: #0092df;
+}
+div.post-wrapper-header button:hover svg path {
+  stroke: #fff;
+}
+div.post-wrapper-post {
+  width: 100%;
+  text-align: center;
+}
+div.post-wrapper-post img {
+  width: 70%;
+  border-radius: 15px;
 }
