@@ -75,6 +75,22 @@ div.profile-container div.description div.head-profile-txt {
 div.profile-container div.description div.head-profile-txt p {
   font-size: 12px;
 }
+@media (max-width: 520px) {
+  div.profile-container div.description div.head-profile {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (min-width: 521px) {
+  div.profile-container div.description div.head-profile {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
 div.profile-container div.description div.more-info {
   width: 100%;
 }
@@ -165,14 +181,18 @@ div.profile-container div.description div.more-info label.fw-bold input[type=tex
   padding: 0.2em;
 }
 div.profile-container div.description div.more-info label.fw-bold input[type=button] {
-  border: none;
   outline: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00b0f9), color-stop(80%, #0092df));
-  background: linear-gradient(180deg, #00b0f9 0%, #0092df 80%);
-  color: #fff;
+  border: 1px solid #0092df;
+  color: #0092df;
   font-weight: bolder;
   padding: 0.2em 0.5em;
   border-radius: 15px;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+}
+div.profile-container div.description div.more-info label.fw-bold input[type=button]:hover {
+  background-color: #0092df;
+  color: #fff;
 }
 div.profile-container div.description div.more-info div.checkbox-wrapper {
   display: -webkit-box;
@@ -285,22 +305,20 @@ div.profile-container div.posts div.btns {
 }
 div.profile-container div.posts div.btns input {
   padding: 0.8em 2em;
-  color: #fff;
+  color: #00dfb7;
   font-weight: bold;
   outline: none;
-  border: none;
   -webkit-transition: color 200ms ease;
   transition: color 200ms ease;
-}
-div.profile-container div.posts div.btns input.cancel {
-  color: #434343;
-  background-color: transparent;
-}
-div.profile-container div.posts div.btns input.cancel:hover {
-  color: #00dfb7;
+  border: 1px solid #00dfb7;
+  background-color: #fff;
 }
 div.profile-container div.posts div.btns input.save {
   border-radius: 15px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#4dfede), to(#00dfb7));
-  background: linear-gradient(180deg, #4dfede 0%, #00dfb7 100%);
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+}
+div.profile-container div.posts div.btns input.save:hover {
+  color: #fff;
+  background-color: #00dfb7;
 }

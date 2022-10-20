@@ -5,7 +5,7 @@ import "./assets/styles/css/index.css";
 import "./assets/styles/css/variables.css";
 
 // libraries
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 // components
 import Login from "./components/pages/Login";
@@ -24,30 +24,138 @@ function App() {
 
     return (
         <Router>
-            <Header />
-            <div className="container">
-                <div className="container-left">
-                    <Navigations />
-                </div>
-                <div className="container-main">
-                    <Routes>
-                        <Route exact path="/" element={<Navigate to="/login" />} />
-                        <Route exact path="/login" element={<Login />} />
-                        <Route exact path="/signup" element={<Signup />} />
-                        <Route exact path="/app" element={<Feed />} />
-                        <Route exact path="/app/profile" element={<Profile />} />
-                        <Route exact path="/app/messages" element={<Messages />} />
-                        <Route exact path="/app/create-profile" element={<Profile />} />
-                        <Route exact path="/app/find-match/:id" element={<FindMatch />} />
-                        <Route exact path="/app/find-match" element={<FindMatch />} />
-                        <Route path="*" element={<h1>Page not found</h1>} />
-                    </Routes>
-                </div>
+            <Routes>
+                <Route exact path="/" element={<Navigate to="/login" />} />
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/signup" element={<Signup />} />
+                <Route
+                    exact
+                    path="/app"
+                    element={
+                        <>
+                            <Header />
+                            <div className="container">
+                                <div className="container-left">
+                                    <Navigations />
+                                </div>
+                                <div className="container-main">
+                                    <Feed />
+                                </div>
 
-                <div className={`container-right`}>
-                    <Matches />
-                </div>
-            </div>
+                                <div className={`container-right`}>
+                                    <Matches />
+                                </div>
+                            </div>
+                        </>
+                    }
+                />
+                <Route
+                    exact
+                    path="/app/profile"
+                    element={
+                        <>
+                            <Header />
+                            <div className="container">
+                                <div className="container-left">
+                                    <Navigations />
+                                </div>
+                                <div className="container-main">
+                                    <Profile />
+                                </div>
+
+                                <div className={`container-right`}>
+                                    <Matches />
+                                </div>
+                            </div>
+                        </>
+                    }
+                />
+                <Route
+                    exact
+                    path="/app/messages"
+                    element={
+                        <>
+                            <Header />
+                            <div className="container">
+                                <div className="container-left">
+                                    <Navigations />
+                                </div>
+                                <div className="container-main">
+                                    <Messages />
+                                </div>
+
+                                <div className={`container-right`}>
+                                    <Matches />
+                                </div>
+                            </div>
+                        </>
+                    }
+                />
+                <Route
+                    exact
+                    path="/app/create-profile"
+                    element={
+                        <>
+                            <Header />
+                            <div className="container">
+                                <div className="container-left">
+                                    <Navigations />
+                                </div>
+                                <div className="container-main">
+                                    <Profile />
+                                </div>
+
+                                <div className={`container-right`}>
+                                    <Matches />
+                                </div>
+                            </div>
+                        </>
+                    }
+                />
+                <Route
+                    exact
+                    path="/app/find-match/:id"
+                    element={
+                        <>
+                            <Header />
+                            <div className="container">
+                                <div className="container-left">
+                                    <Navigations />
+                                </div>
+                                <div className="container-main">
+                                    <FindMatch />
+                                </div>
+
+                                <div className={`container-right`}>
+                                    <Matches />
+                                </div>
+                            </div>
+                        </>
+                    }
+                />
+                <Route
+                    exact
+                    path="/app/find-match"
+                    element={
+                        <>
+                            <Header />
+                            <div className="container">
+                                <div className="container-left">
+                                    <Navigations />
+                                </div>
+                                <div className="container-main">
+                                    <FindMatch />
+                                </div>
+
+                                <div className={`container-right`}>
+                                    <Matches />
+                                </div>
+                            </div>
+                        </>
+                    }
+                />
+                <Route path="*" element={<h1>Page not found</h1>} />
+            </Routes>
         </Router>
     );
 }

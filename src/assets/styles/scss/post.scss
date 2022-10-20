@@ -129,9 +129,12 @@ div.post-wrapper {
     &-post {
         width: 100%;
         text-align: center;
+        max-height: 700px;
 
         img {
             width: 70%;
+            object-fit: contain;
+            object-position: center;
             border-radius: $radius;
         }
     }

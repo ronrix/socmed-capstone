@@ -14,135 +14,89 @@ span.space {
   /* box sizes */
   /* radius */
 }
-span.space div.side-container {
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
-  -webkit-transform: translateX(10px) !important;
-          transform: translateX(10px) !important;
+span.space form.chats {
+  border: 1px solid black;
+  position: relative;
 }
-span.space div.side-container.show {
-  -webkit-transform: translateX(110px) !important;
-          transform: translateX(110px) !important;
-}
-span.space div.side-container-msgs {
-  width: 300px;
-  position: fixed;
-  top: 10px;
-  z-index: 1;
-  padding: 1em;
-  border-radius: 15px;
-  background-color: #fff;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-}
-span.space div.side-container-msgs-header input {
-  margin: 0.5em 0;
-  width: 100%;
-  border-radius: 15px;
-  padding: 0.5em 0.8em;
-  border: none;
-  -webkit-box-shadow: 0px 0px 2px #434343;
-          box-shadow: 0px 0px 2px #434343;
-  -webkit-transition: border 300ms ease;
-  transition: border 300ms ease;
-  outline: none;
-}
-span.space div.side-container-msgs-header input:hover, span.space div.side-container-msgs-header input:focus {
-  -webkit-box-shadow: 0px 0px 2px #0092df;
-          box-shadow: 0px 0px 2px #0092df;
-}
-span.space div.side-container-msgs-header h2 {
-  border-radius: 15px;
-  width: 100%;
-  font-size: 17px;
+span.space form.chats div.chats-inside-header {
+  box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+  -moz-box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
+  -webkit-box-shadow: 0px 3px 3px -1px rgba(125, 125, 125, 0.9);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  padding: 0.3em;
 }
-span.space div.side-container-msgs-header h2 svg {
-  width: 20px;
-  height: 20px;
+span.space form.chats div.chats-inside-header img {
+  -webkit-clip-path: circle(20px at center);
+          clip-path: circle(20px at center);
+  width: 40px;
+  height: 40px;
   margin-right: 0.5em;
 }
-span.space div.side-container-msgs-body {
-  overflow-y: scroll;
-  height: 90vh;
+span.space form.chats div.chats-inside-header span {
+  font-weight: bold;
 }
-span.space div.side-container-msgs-body::-webkit-scrollbar {
-  display: none;
-}
-span.space div.side-container-msgs-body-msg-wrapper {
-  background-color: #fff;
-  margin: 0.5em 0;
+span.space form.chats div.chats-inside-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding: 0.3em 0;
-  -webkit-transition: background-color 100ms ease-in-out;
-  transition: background-color 100ms ease-in-out;
-  cursor: pointer;
-  -webkit-box-shadow: -3px 0px 5px #e5e5e5;
-          box-shadow: -3px 0px 5px #e5e5e5;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-span.space div.side-container-msgs-body-msg-wrapper:hover {
-  background-color: #e5e5e5;
+span.space form.chats div.chats-inside-body-msg {
+  max-width: 300px;
+  border-radius: 15px;
 }
-span.space div.side-container-msgs-body-msg-wrapper img {
-  -webkit-clip-path: circle(25px at center);
-          clip-path: circle(25px at center);
-  width: 50px;
-  height: 50px;
-  margin-right: 0.3em;
+span.space form.chats div.chats-inside-body-msg img {
+  -webkit-clip-path: circle(15px at center);
+          clip-path: circle(15px at center);
+  width: 30px;
+  height: 30px;
 }
-span.space div.side-container-msgs-body-msg-wrapper h4 {
-  font-size: 12px;
+span.space form.chats div.chats-inside-body-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
 }
-span.space div.side-container-msgs-body-msg-wrapper-body p {
-  font-size: 12px;
+span.space form.chats div.chats-inside-body-form textarea,
+span.space form.chats div.chats-inside-body-form button {
+  padding: 0.5em;
+  border-radius: 15px;
+  display: inline-block;
 }
-@media (max-width: 480px) {
-  span.space div.side-container {
-    position: absolute;
-    top: 0;
-  }
-  span.space div.side-container-msgs {
-    width: 70vw;
-    z-index: 4;
-    -webkit-transform: translateX(450px);
-            transform: translateX(450px);
-  }
-  span.space div.side-container.show {
-    -webkit-transform: translateX(-320px) !important;
-            transform: translateX(-320px) !important;
-  }
+span.space form.chats div.chats-inside-body-form textarea {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
 }
-@media (min-width: 481px) {
-  span.space div.side-container.show {
-    -webkit-transform: translateX(-600px) !important;
-            transform: translateX(-600px) !important;
-  }
-  span.space div.side-container-msgs {
-    -webkit-transform: translateX(420px);
-            transform: translateX(420px);
-  }
+span.space form.chats div.chats-inside-body-form button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #0092df;
 }
-@media (min-width: 1080px) {
-  span.space div.side-container-msgs {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
+span.space form.chats div.side-container {
+  position: absolute;
+  top: 0;
+  right: -38%;
+  background-color: #fff;
+  z-index: 1000;
+}
+span.space form.chats div.side-container div.inside {
+  border: 1px solid black;
+}
+span.space form.chats div.side-container div.inside img {
+  width: 100px;
 }

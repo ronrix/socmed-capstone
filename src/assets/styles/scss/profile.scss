@@ -66,6 +66,18 @@ div.profile-container {
                     font-size: $fs-small;
                 }
             }
+
+            @media (max-width: 520px) {
+                & {
+                    flex-direction: column;
+                }
+            }
+
+            @media (min-width: 521px) {
+                & {
+                    flex-direction: row;
+                }
+            }
         }
 
         div.more-info {
@@ -159,13 +171,18 @@ div.profile-container {
                     padding: 0.2em;
                 }
                 input[type="button"] {
-                    border: none;
                     outline: none;
-                    background: linear-gradient(180deg, $light-primary 0%, $dark-primary 80%);
-                    color: $light;
+                    border: 1px solid $dark-primary;
+                    color: $dark-primary;
                     font-weight: bolder;
                     padding: 0.2em 0.5em;
                     border-radius: $radius;
+                    transition: background-color 150ms ease-in-out;
+
+                    &:hover {
+                        background-color: $dark-primary;
+                        color: $light;
+                    }
                 }
             }
 
@@ -271,23 +288,21 @@ div.profile-container {
 
             input {
                 padding: 0.8em 2em;
-                color: $light;
+                color: $dark-secondary;
                 font-weight: bold;
                 outline: none;
-                border: none;
                 transition: color 200ms ease;
-            }
-            input.cancel {
-                color: $dark;
-                background-color: transparent;
-
-                &:hover {
-                    color: $dark-secondary;
-                }
+                border: 1px solid $dark-secondary;
+                background-color: $light;
             }
             input.save {
                 border-radius: $radius;
-                background: linear-gradient(180deg, $light-secondary 0%, $dark-secondary 100%);
+                transition: background-color 150ms ease-in-out;
+
+                &:hover {
+                    color: $light;
+                    background-color: $dark-secondary;
+                }
             }
         }
     }
