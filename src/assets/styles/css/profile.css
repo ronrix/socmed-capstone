@@ -81,6 +81,12 @@ div.profile-container div.description div.head-profile-txt p {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 @media (min-width: 521px) {
@@ -285,12 +291,31 @@ div.profile-container div.posts div.img-post-wrapper button.arrow-right {
 div.profile-container div.posts div.img-post-wrapper div.use-spring-carousel-main-wrapper {
   overflow: hidden;
 }
-div.profile-container div.posts div.img-post-wrapper img {
-  width: 100%;
+div.profile-container div.posts div.img-post-wrapper div.img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+div.profile-container div.posts div.img-post-wrapper div.img img {
+  margin: auto;
+  width: 70%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
      object-position: top;
+}
+div.profile-container div.posts div.img-post-wrapper div.img p {
+  font-size: 0.8em;
 }
 div.profile-container div.posts div.btns {
   margin-top: 2em;

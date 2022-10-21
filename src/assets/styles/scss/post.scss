@@ -136,6 +136,7 @@ div.post-wrapper {
             object-fit: contain;
             object-position: center;
             border-radius: $radius;
+            z-index: 100;
         }
     }
 }

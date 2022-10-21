@@ -30,7 +30,10 @@ export default function Navigations({ otherClass }) {
         setActivePath(str);
     };
 
-    React.useEffect(() => {}, []);
+    React.useEffect(() => {
+        setActivePath("home");
+        localStorage.setItem("active-page", "home");
+    }, []);
 
     return (
         <nav className={`${otherClass ? otherClass : ""}`}>

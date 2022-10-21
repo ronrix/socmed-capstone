@@ -1,7 +1,6 @@
 @use "./variables.scss" as *;
 
 form.chats {
-    border: 1px solid black;
     position: relative;
 
     div.chats-inside {
@@ -27,38 +26,55 @@ form.chats {
         }
 
         &-body {
+            max-height: 350px;
+            min-height: 350px;
+            padding: 0.5em;
+        }
+
+        &-form {
             display: flex;
-            flex-direction: column;
-
-            &-msg {
-                max-width: 300px;
+            align-items: flex-start;
+            textarea {
+                flex: 2;
+                padding: 0.5em;
                 border-radius: $radius;
+                outline: none;
+                border: 1px solid $dark;
 
-                img {
-                    clip-path: circle(15px at center);
-                    width: 30px;
-                    height: 30px;
+                &:focus {
+                    border: 1px solid $dark-primary;
                 }
             }
-
-            &-form {
+            button {
                 display: flex;
-                align-items: top;
+                align-items: center;
+                justify-content: center;
+                border-radius: $radius;
+                border: 1px solid $dark-primary;
+                outline: none;
+                padding: 0.5em;
+                font-weight: bold;
+                transition: background-color 100ms ease-in;
+                background-color: $light;
+                color: $dark-primary;
 
-                textarea,
-                button {
-                    padding: 0.5em;
-                    border-radius: $radius;
-                    display: inline-block;
+                svg {
+                    width: 12px;
+                    height: 12px;
+
+                    path {
+                        stroke: $dark-primary;
+                        stroke-width: 3;
+                    }
                 }
 
-                textarea {
-                    flex: 4;
-                }
-
-                button {
-                    flex: 1;
+                &:hover {
                     background-color: $dark-primary;
+                    color: $light;
+
+                    svg path {
+                        stroke: $light;
+                    }
                 }
             }
         }
@@ -66,15 +82,113 @@ form.chats {
 
     div.side-container {
         position: absolute;
-        top: 0;
-        right: -38%;
-        background-color: $light;
-        z-index: 1000;
+        top: 10px;
+        right: -250px;
+
+        svg {
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            & {
+                top: 10px;
+                right: 20px;
+                svg {
+                    display: block;
+                }
+            }
+        }
+        @media (min-width: 481px) {
+            & {
+                top: 10px;
+                right: 20px;
+                svg {
+                    display: block;
+                }
+            }
+        }
+        @media (min-width: 1145px) {
+            & {
+                top: 10px;
+                right: -250px;
+                svg {
+                    display: none;
+                }
+            }
+        }
 
         div.inside {
-            border: 1px solid black;
+            background-color: $light;
+            box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            padding: 0.3em;
+            max-height: 500px;
+            min-height: 500px;
+            overflow-y: scroll;
+
+            &.show {
+                display: block;
+                position: absolute;
+                right: 0;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            @media (max-width: 480px) {
+                & {
+                    display: none;
+                }
+            }
+            @media (min-width: 481px) {
+                & {
+                    display: none;
+                }
+            }
+            @media (min-width: 1145px) {
+                & {
+                    display: block;
+                }
+            }
+
             img {
                 width: 100px;
+            }
+            &-msgs {
+                &-header {
+                    margin-bottom: 0.5em;
+                    h2 {
+                        display: flex;
+                        margin-bottom: 0.3em;
+                        align-items: center;
+                        svg {
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 0.2em;
+                        }
+                    }
+
+                    input {
+                        outline: none;
+                        border: 1px solid $dark;
+                        padding: 0.5em;
+                        border-radius: $radius;
+
+                        &:hover,
+                        &:focus {
+                            border: 1px solid $dark-primary;
+                        }
+                    }
+                }
+                &-body {
+                    margin: 0.2em 0;
+                    img {
+                        height: 30px;
+                        width: 30px;
+                        clip-path: circle(15px at center);
+                    }
+                }
             }
         }
     }

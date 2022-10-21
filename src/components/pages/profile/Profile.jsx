@@ -1,6 +1,5 @@
 import React from "react";
 import CheckBox from "./CheckBox";
-import Navigations from "../../Navigations";
 
 import { Formik, Field } from "formik";
 import { useSpringCarousel } from "react-spring-carousel";
@@ -38,7 +37,12 @@ export default function Profile() {
     const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
         items: carouselItemsState.map(i => ({
             id: i.id,
-            renderItem: <img src={i.file || require(`../../../assets/images/${i.img}`)} alt="profile" />
+            renderItem: (
+                <div className="img">
+                    <img src={i.file || require(`../../../assets/images/${i.img}`)} alt="profile" />
+                    <p>{i.description}</p>
+                </div>
+            )
         }))
     });
 
@@ -108,7 +112,7 @@ export default function Profile() {
                                         />
                                     </div>
                                     <div className="head-profile-txt">
-                                        <h3>{localStorage.getItem("fullname")}</h3>
+                                        <h3>{localStorage.getItem("fullname") || "Ronrix Lante"}</h3>
                                         <p>click the image to upload your profile picture</p>
                                     </div>
                                 </div>
