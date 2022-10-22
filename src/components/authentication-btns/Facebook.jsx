@@ -9,7 +9,6 @@ export default function Facebook({ FacebookIcon }) {
     return (
         <FacebookLogin
             appId="5974247595953761"
-            autoLoad={true}
             fields="name,email,picture"
             callback={responseFacebook}
             icon={<FacebookIcon />}

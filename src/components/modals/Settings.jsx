@@ -14,6 +14,8 @@ export default function Settings({ setShowSettings }) {
         setShowSettings(false);
     };
 
+    React.useEffect(() => {}, [isSubmitted]);
+
     return (
         <Formik
             initialValues={{
@@ -25,60 +27,57 @@ export default function Settings({ setShowSettings }) {
                 actions.resetForm();
                 actions.setSubmitting(false);
                 setIsSubmitted(true);
-
-                setTimeout(() => {
-                    setIsSubmitted(false);
-                }, 2000);
             }}
             validationSchema={changePasswordSchema}
         >
             {props => (
-                <form onSubmit={props.handleSubmit} className="settings-container">
+                <>
                     <Notification
                         show={isSubmitted}
-                        notifBodyMsg="Successfully changing your password"
-                        notifHeaderMsg="Success"
-                        status="success"
+                        notifBodyMsg="Successfully changed your password"
+                        setShowNoticationModal={setIsSubmitted}
                     />
-                    <div className="settings-container-inside">
-                        <h4>Change Password</h4>
-                        <label>
-                            Current password
-                            <Field type="password" name="currentPass" value={props.values.currentPass} onChange={props.handleChange} />
-                        </label>
+                    <form onSubmit={props.handleSubmit} className="settings-container">
+                        <div className="settings-container-inside">
+                            <h4>Change Password</h4>
+                            <label>
+                                Current password
+                                <Field type="password" name="currentPass" value={props.values.currentPass} onChange={props.handleChange} />
+                            </label>
 
-                        <label>
-                            New password
-                            <Field
-                                type="password"
-                                name="newPass"
-                                value={props.values.newPass}
-                                onChange={props.handleChange}
-                                className={`${props.touched.newPass && props.errors.newPass ? "error" : ""}`}
-                            />
-                            {props.touched.newPass && <span className="error">{props.errors.newPass}</span>}
-                        </label>
+                            <label>
+                                New password
+                                <Field
+                                    type="password"
+                                    name="newPass"
+                                    value={props.values.newPass}
+                                    onChange={props.handleChange}
+                                    className={`${props.touched.newPass && props.errors.newPass ? "error" : ""}`}
+                                />
+                                {props.touched && <span className="error">{props.errors.newPass}</span>}
+                            </label>
 
-                        <label>
-                            Confirm new password
-                            <Field
-                                type="password"
-                                name="confirmPass"
-                                value={props.values.confirmPass}
-                                onChange={props.handleChange}
-                                className={`${props.touched.confirmPass && props.errors.confirmPass ? "error" : ""}`}
-                            />
-                            {props.touched.confirmPass && <span className="error">{props.errors.confirmPass}</span>}
-                        </label>
+                            <label>
+                                Confirm new password
+                                <Field
+                                    type="password"
+                                    name="confirmPass"
+                                    value={props.values.confirmPass}
+                                    onChange={props.handleChange}
+                                    className={`${props.touched.confirmPass && props.errors.confirmPass ? "error" : ""}`}
+                                />
+                                {props.touched && <span className="error">{props.errors.confirmPass}</span>}
+                            </label>
 
-                        <div className="btns">
-                            <a href="##" className="cancel" onClick={() => handleCancel(props)}>
-                                Cancel
-                            </a>
-                            <input type="submit" value="Save" className="save" />
+                            <div className="btns">
+                                <a href="##" className="cancel" onClick={() => handleCancel(props)}>
+                                    Cancel
+                                </a>
+                                <input type="submit" value="Save" className="save" disabled={props.errors} />
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </>
             )}
         </Formik>
     );

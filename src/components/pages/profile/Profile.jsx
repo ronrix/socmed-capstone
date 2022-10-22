@@ -112,8 +112,8 @@ export default function Profile() {
                                         />
                                     </div>
                                     <div className="head-profile-txt">
-                                        <h3>{localStorage.getItem("fullname") || "Ronrix Lante"}</h3>
-                                        <p>click the image to upload your profile picture</p>
+                                        <h3>{JSON.parse(localStorage.getItem("socmed-profile")).name}</h3>
+                                        <p>{JSON.parse(localStorage.getItem("socmed-profile")).email}</p>
                                     </div>
                                 </div>
                                 <div className="more-info">

@@ -62,6 +62,9 @@ div.profile-container {
 
             &-txt {
                 margin: 1em 0;
+                h3 {
+                    text-transform: capitalize;
+                }
                 p {
                     font-size: $fs-small;
                 }

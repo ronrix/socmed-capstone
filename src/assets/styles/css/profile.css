@@ -72,6 +72,9 @@ div.profile-container div.description div.head-profile-img-wrapper svg path {
 div.profile-container div.description div.head-profile-txt {
   margin: 1em 0;
 }
+div.profile-container div.description div.head-profile-txt h3 {
+  text-transform: capitalize;
+}
 div.profile-container div.description div.head-profile-txt p {
   font-size: 12px;
 }

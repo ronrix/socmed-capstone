@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
+
     return (
         <div className="wrapper">
             <Formik
@@ -23,6 +24,15 @@ const Login = () => {
                 onSubmit={(values, actions) => {
                     actions.resetForm();
                     actions.setSubmitting(false);
+                    localStorage.setItem(
+                        "socmed-profile",
+                        JSON.stringify({
+                            email: values.email,
+                            familyName: "test",
+                            givenName: values.email.split("@")[0],
+                            name: values.email.split("@"[0] + " test")
+                        })
+                    );
                     navigate("/app");
                 }}
                 validationSchema={loginSchema}

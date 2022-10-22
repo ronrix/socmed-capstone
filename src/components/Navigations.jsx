@@ -40,9 +40,13 @@ export default function Navigations({ otherClass, setShowSettings }) {
                     <abbr title="Home">{activePath === "home" ? <HomeSolid /> : <Home />}</abbr>
                     <span>Home</span>
                 </Link>
-                <Link to="/app/profile" onClick={() => handleActivePage("profile")} className={`${activePath === "profile" ? "active" : ""}`}>
+                <Link
+                    to="/app/profile"
+                    onClick={() => handleActivePage("profile")}
+                    className={`${activePath === "profile" ? "active" : ""}`}
+                >
                     <abbr title="Profile">{activePath === "profile" ? <ProfileSolid /> : <Profile />}</abbr>
-                    <span>Profile</span>
+                    <span>{JSON.parse(localStorage.getItem("socmed-profile")).givenName}</span>
                 </Link>
                 <Link to="/app/messages" onClick={() => handleActivePage("chats")} className={`${activePath === "chats" ? "active" : ""}`}>
                     <abbr title="Chats">{activePath === "chats" ? <MessageSolid /> : <Message />}</abbr>
