@@ -13,6 +13,19 @@ form.modal-container {
     justify-content: center;
     align-items: center;
 
+    // error styles
+    .error-border {
+        border: 1px solid $dark-red;
+    }
+
+    p.error {
+        color: $light-red;
+        font-size: 0.8em;
+        font-weight: bold;
+        margin: 0;
+        text-align: left;
+    }
+
     div.modal-container-inside {
         width: 500px;
         padding: 1em;
@@ -36,6 +49,11 @@ form.modal-container {
             justify-content: flex-start;
             position: relative;
             overflow: hidden;
+
+            h3 {
+                font-size: 1em;
+                font-weight: bolder;
+            }
 
             &-img-wrapper {
                 border: 1px solid $dark;
@@ -66,6 +84,9 @@ form.modal-container {
 
                 svg {
                     cursor: pointer;
+                    path {
+                        stroke: $dark;
+                    }
                 }
             }
 
@@ -114,15 +135,36 @@ form.modal-container {
         &-end {
             padding: 0 1em;
             label {
+                position: relative;
                 font-size: 0.8em;
                 font-weight: bold;
+
+                p.error ~ textarea:focus,
+                p.error ~ textarea:hover {
+                    border: 1px solid $dark-red;
+                }
+
+                span.description-length {
+                    font-size: 0.7em;
+                    font-weight: bold;
+                    align-self: flex-end;
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                    text-align: end;
+                    margin-top: 0.2em;
+                }
+
                 textarea {
                     display: block;
                     width: 100%;
                     border-radius: $radius;
                     padding: 0.5em;
                     resize: none;
+                    min-height: 120px;
                     outline: none;
+                    margin-bottom: 1em;
+                    margin: 0;
 
                     &:hover,
                     &:focus {

@@ -1,59 +1,39 @@
 @use "./variables.scss" as *;
 
 div.notification {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 2100;
+    background-color: $light;
+    border-radius: $radius;
+    box-shadow: 0px 0px 1px solid rgba(0, 0, 0, 0.5);
+    display: none;
+    overflow: hidden;
+
     &.show {
-        border: 1px solid rgba(255, 255, 255, 0.31);
         display: block;
     }
 
-    &.show &-body,
-    &.show &-header {
-        padding: 0.5em;
+    &.hide {
+        display: none;
     }
 
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.38);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(17.4px);
-    -webkit-backdrop-filter: blur(17.4px);
+    div.toast-header {
+        border-bottom: 1px solid $grey;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0.5em 1em;
 
-    z-index: 3000;
-    overflow: hidden;
-    transition: height 200ms ease-in-out;
-
-    display: none;
-
-    &-header {
-        &.success {
-            background-color: $dark;
-        }
-
-        &.error {
-            background-color: $light-red;
-        }
-
-        h3 {
-            color: $light;
-            font-size: 1em;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-
-            svg {
-                margin-right: 0.5em;
-            }
+        svg path {
+            stroke: $dark;
         }
     }
 
-    &-body {
-        p {
-            font-size: 0.8em;
-            padding: 1em 0;
-        }
+    div.toast-body {
+        padding: 0.5em 1em;
+        font-size: 0.95em;
+        background-color: $grey;
     }
 }

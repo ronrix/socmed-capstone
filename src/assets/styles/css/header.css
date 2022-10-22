@@ -38,6 +38,16 @@ div.header-container {
   width: 90%;
   margin: auto;
 }
+div.header-container h1 {
+  font-size: 2em;
+  font-weight: bolder;
+}
+div.header-container h1 a {
+  text-decoration: none;
+}
+div.header-container h1 a:hover {
+  color: #0092df;
+}
 div.header-container form.search-wrapper {
   border-radius: 10px;
   display: -webkit-box;
@@ -116,6 +126,7 @@ div.header-container form.search-wrapper input {
   border: none;
   outline: none;
   background-color: inherit;
+  font-size: 0.9em;
 }
 div.header-container form.search-wrapper input::-webkit-input-placeholder {
   font-weight: bold;

@@ -22,6 +22,18 @@ div.header {
         width: 90%;
         margin: auto;
 
+        h1 {
+            font-size: 2em;
+            font-weight: bolder;
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    color: $dark-primary;
+                }
+            }
+        }
+
         form.search-wrapper {
             border-radius: 10px;
             display: flex;
@@ -97,6 +109,7 @@ div.header {
                 border: none;
                 outline: none;
                 background-color: inherit;
+                font-size: 0.9em;
 
                 &::placeholder {
                     font-weight: bold;

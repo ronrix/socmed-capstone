@@ -45,10 +45,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 15px;
 }
 
-.me-3 {
-  margin-right: 0.5em;
-}
-
 div.container {
   max-width: 1000px;
   margin: auto;
@@ -58,6 +54,7 @@ div.container {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  position: relative;
 }
 div.container-left, div.container-right {
   -webkit-box-flex: 1;

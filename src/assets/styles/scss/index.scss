@@ -41,15 +41,12 @@ body::-webkit-scrollbar-thumb {
     border-radius: $radius;
 }
 
-.me-3 {
-    margin-right: 0.5em;
-}
-
 div.container {
     max-width: 1000px;
     margin: auto;
     display: flex;
     align-items: flex-start;
+    position: relative;
 
     &-left,
     &-right {

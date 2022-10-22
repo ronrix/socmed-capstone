@@ -18,9 +18,11 @@ import FindMatch from "./components/pages/find-match/FindMatch";
 import Navigations from "./components/Navigations";
 import Matches from "./components/matches/Matches";
 import Header from "./components/Header";
+import Settings from "./components/modals/Settings";
 
 function App() {
     React.useEffect(() => {}, []);
+    const [showSettings, setShowSettings] = React.useState(false);
 
     return (
         <Router>
@@ -36,10 +38,11 @@ function App() {
                             <Header />
                             <div className="container">
                                 <div className="container-left">
-                                    <Navigations />
+                                    <Navigations setShowSettings={setShowSettings} />
                                 </div>
                                 <div className="container-main">
                                     <Feed />
+                                    {showSettings && <Settings setShowSettings={setShowSettings} />}
                                 </div>
 
                                 <div className={`container-right`}>
@@ -57,10 +60,11 @@ function App() {
                             <Header />
                             <div className="container">
                                 <div className="container-left">
-                                    <Navigations />
+                                    <Navigations setShowSettings={setShowSettings} />
                                 </div>
                                 <div className="container-main">
                                     <Profile />
+                                    {showSettings && <Settings setShowSettings={setShowSettings} />}
                                 </div>
 
                                 <div className={`container-right`}>
@@ -78,10 +82,11 @@ function App() {
                             <Header />
                             <div className="container">
                                 <div className="container-left">
-                                    <Navigations />
+                                    <Navigations setShowSettings={setShowSettings} />
                                 </div>
                                 <div className="container-main">
                                     <Messages />
+                                    {showSettings && <Settings setShowSettings={setShowSettings} />}
                                 </div>
 
                                 <div className={`container-right`}>
@@ -99,10 +104,11 @@ function App() {
                             <Header />
                             <div className="container">
                                 <div className="container-left">
-                                    <Navigations />
+                                    <Navigations setShowSettings={setShowSettings} />
                                 </div>
                                 <div className="container-main">
                                     <Profile />
+                                    {showSettings && <Settings setShowSettings={setShowSettings} />}
                                 </div>
 
                                 <div className={`container-right`}>
@@ -120,10 +126,11 @@ function App() {
                             <Header />
                             <div className="container">
                                 <div className="container-left">
-                                    <Navigations />
+                                    <Navigations setShowSettings={setShowSettings} />
                                 </div>
                                 <div className="container-main">
                                     <FindMatch />
+                                    {showSettings && <Settings setShowSettings={setShowSettings} />}
                                 </div>
 
                                 <div className={`container-right`}>
@@ -141,10 +148,11 @@ function App() {
                             <Header />
                             <div className="container">
                                 <div className="container-left">
-                                    <Navigations />
+                                    <Navigations setShowSettings={setShowSettings} />
                                 </div>
                                 <div className="container-main">
                                     <FindMatch />
+                                    {showSettings && <Settings setShowSettings={setShowSettings} />}
                                 </div>
 
                                 <div className={`container-right`}>

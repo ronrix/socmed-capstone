@@ -2,7 +2,6 @@ import React from "react";
 
 import Post from "./Post";
 import PostFormModal from "../../modals/PostFormModal";
-import PostPreview from "../../modals/PostPreview";
 
 import { ReactComponent as Camera } from "../../../assets/icons/camera.svg";
 import "../../../assets/styles/css/feed.css";
@@ -33,7 +32,7 @@ export default function Feed() {
     const [showPostFormModal, setShowPostFormModal] = React.useState(false);
     let clonePosts = [...posts];
 
-    const formSubmit = values => {
+    const handlePostSubmit = values => {
         // dispatch({ type: "POST", values });
         setPosts([
             ...posts,
@@ -53,7 +52,7 @@ export default function Feed() {
     return (
         <>
             <div className="feed-container-content">
-                {showPostFormModal && <PostFormModal setShowPostFormModal={setShowPostFormModal} />}
+                {showPostFormModal && <PostFormModal handlePostSubmit={handlePostSubmit} setShowPostFormModal={setShowPostFormModal} />}
 
                 <button className="upload-btn" onClick={() => setShowPostFormModal(true)}>
                     <Camera />

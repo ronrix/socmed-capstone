@@ -6,12 +6,12 @@ import Notification from "./Notification";
 import { changePasswordSchema } from "../../config/validation";
 import "../../assets/styles/css/settings.css";
 
-export default function Settings({ setShowSettingsModal }) {
+export default function Settings({ setShowSettings }) {
     const [isSubmitted, setIsSubmitted] = React.useState(false);
 
     const handleCancel = props => {
         props.resetForm();
-        setShowSettingsModal(false);
+        setShowSettings(false);
     };
 
     return (

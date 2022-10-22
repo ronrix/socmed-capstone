@@ -21,6 +21,16 @@ form.modal-container {
       -ms-flex-align: center;
           align-items: center;
 }
+form.modal-container .error-border {
+  border: 1px solid #f6645b;
+}
+form.modal-container p.error {
+  color: #ff857a;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
 form.modal-container div.modal-container-inside {
   width: 500px;
   padding: 1em;
@@ -60,6 +70,10 @@ form.modal-container div.modal-container-inside-start {
   position: relative;
   overflow: hidden;
 }
+form.modal-container div.modal-container-inside-start h3 {
+  font-size: 1em;
+  font-weight: bolder;
+}
 form.modal-container div.modal-container-inside-start-img-wrapper {
   border: 1px solid #434343;
   display: -webkit-box;
@@ -97,6 +111,9 @@ form.modal-container div.modal-container-inside-start-img-wrapper span {
 }
 form.modal-container div.modal-container-inside-start-img-wrapper svg {
   cursor: pointer;
+}
+form.modal-container div.modal-container-inside-start-img-wrapper svg path {
+  stroke: #434343;
 }
 form.modal-container div.modal-container-inside-start input[type=file] {
   display: none;
@@ -143,8 +160,24 @@ form.modal-container div.modal-container-inside-end {
   padding: 0 1em;
 }
 form.modal-container div.modal-container-inside-end label {
+  position: relative;
   font-size: 0.8em;
   font-weight: bold;
+}
+form.modal-container div.modal-container-inside-end label p.error ~ textarea:focus,
+form.modal-container div.modal-container-inside-end label p.error ~ textarea:hover {
+  border: 1px solid #f6645b;
+}
+form.modal-container div.modal-container-inside-end label span.description-length {
+  font-size: 0.7em;
+  font-weight: bold;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: end;
+  margin-top: 0.2em;
 }
 form.modal-container div.modal-container-inside-end label textarea {
   display: block;
@@ -152,7 +185,10 @@ form.modal-container div.modal-container-inside-end label textarea {
   border-radius: 15px;
   padding: 0.5em;
   resize: none;
+  min-height: 120px;
   outline: none;
+  margin-bottom: 1em;
+  margin: 0;
 }
 form.modal-container div.modal-container-inside-end label textarea:hover, form.modal-container div.modal-container-inside-end label textarea:focus {
   border: 1px solid #0092df;

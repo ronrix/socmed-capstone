@@ -10,7 +10,7 @@ form.settings-container {
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 10000;
+  z-index: 1000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,6 +78,7 @@ form.settings-container div.settings-container-inside div.btns a {
 }
 form.settings-container div.settings-container-inside div.btns a.cancel {
   color: #434343;
+  text-decoration: none;
   background-color: transparent;
 }
 form.settings-container div.settings-container-inside div.btns a.cancel:hover {

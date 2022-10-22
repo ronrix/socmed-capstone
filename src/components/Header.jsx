@@ -18,11 +18,7 @@ export default function Header() {
         setShowResults(true);
 
         setData(() => {
-            return users.filter(a => {
-                if (a.username.toLowerCase().includes(searchInput)) {
-                    return a;
-                }
-            });
+            return users.filter(a => a.username.toLowerCase().includes(searchInput));
         });
     };
 
@@ -31,7 +27,9 @@ export default function Header() {
     return (
         <div className="header">
             <div className="header-container">
-                <h1>Logo</h1>
+                <h1>
+                    <a href="/app">SocMed</a>
+                </h1>
                 <form className="search-wrapper" onClick={() => inputRef.current.click()}>
                     <Search />
                     <input
