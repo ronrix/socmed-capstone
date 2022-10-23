@@ -29,8 +29,7 @@ export default function Navigations({ otherClass, setShowSettings }) {
     };
 
     React.useEffect(() => {
-        setActivePath("home");
-        localStorage.setItem("active-page", "home");
+        setActivePath(() => (localStorage.getItem("active-page") ? localStorage.getItem("active-page") : "home"));
     }, []);
 
     return (

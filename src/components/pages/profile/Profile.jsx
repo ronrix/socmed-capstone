@@ -74,10 +74,6 @@ export default function Profile() {
                 localStorage.setItem("profile", JSON.stringify(values));
                 setShowNoticationModal(true);
                 setDisableLoc(false);
-
-                setTimeout(() => {
-                    setShowNoticationModal(false);
-                }, 5000);
             }}
         >
             {props => (
@@ -88,9 +84,8 @@ export default function Profile() {
 
                     <Notification
                         show={showNoficationModal}
+                        setShowNoticationModal={setShowNoticationModal}
                         notifBodyMsg="Successfully saving your profile"
-                        notifHeaderMsg="Success"
-                        status={"success"}
                     />
 
                     <form onSubmit={props.handleSubmit}>
@@ -99,7 +94,15 @@ export default function Profile() {
                                 <h3>Create your profile</h3>
                                 <div className="head-profile">
                                     <div className="head-profile-img-wrapper">
-                                        <img src={user?.file || file || require("../../../assets/images/profile.png")} alt="profile" />
+                                        <img
+                                            src={
+                                                JSON.parse(localStorage.getItem("socmed-profile")).imageUrl ||
+                                                user?.file ||
+                                                file ||
+                                                require("../../../assets/images/profile.png")
+                                            }
+                                            alt="profile"
+                                        />
                                         <Camera onClick={() => profileRef.current.click()} />
                                         <Field
                                             type="file"
