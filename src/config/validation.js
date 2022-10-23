@@ -13,7 +13,10 @@ export const registerSchema = yup.object().shape({
 });
 
 export const changePasswordSchema = yup.object().shape({
-    currentPass: yup.string(),
-    newPass: yup.string().min(8, "New password must be at least 8 characters"),
-    confirmPass: yup.string().oneOf([yup.ref("newPass"), null], "New password must match")
+    currentPass: yup.string().required("Current Password is a required field"),
+    newPass: yup.string().min(8, "New password must be at least 8 characters").required("New password is a required field"),
+    confirmPass: yup
+        .string()
+        .oneOf([yup.ref("newPass"), null], "New password must match")
+        .required("Confirm password is a required field")
 });

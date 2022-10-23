@@ -22,7 +22,15 @@ const Signup = () => {
                     confirmPassword: ""
                 }}
                 onSubmit={(values, actions) => {
-                    localStorage.setItem("fullname", values.fullname);
+                    localStorage.setItem(
+                        "socmed-profile",
+                        JSON.stringify({
+                            email: values.email,
+                            familyName: values.fullname.split(" ")[1],
+                            givenName: values.fullname.split(" ")[0],
+                            name: values.fullname
+                        })
+                    );
                     actions.setSubmitting(false);
                     actions.resetForm();
                     navigate("/app/profile");

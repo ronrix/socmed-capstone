@@ -42,7 +42,14 @@ export default function Settings({ setShowSettings }) {
                             <h4>Change Password</h4>
                             <label>
                                 Current password
-                                <Field type="password" name="currentPass" value={props.values.currentPass} onChange={props.handleChange} />
+                                <Field
+                                    type="password"
+                                    name="currentPass"
+                                    value={props.values.currentPass}
+                                    onChange={props.handleChange}
+                                    className={`${props.touched.newPass && props.errors.newPass ? "error" : ""}`}
+                                />
+                                {props.touched.currentPass && <span className="error">{props.errors.currentPass}</span>}
                             </label>
 
                             <label>
@@ -50,11 +57,9 @@ export default function Settings({ setShowSettings }) {
                                 <Field
                                     type="password"
                                     name="newPass"
-                                    value={props.values.newPass}
-                                    onChange={props.handleChange}
                                     className={`${props.touched.newPass && props.errors.newPass ? "error" : ""}`}
                                 />
-                                {props.touched && <span className="error">{props.errors.newPass}</span>}
+                                {props.touched.newPass && <span className="error">{props.errors.newPass}</span>}
                             </label>
 
                             <label>
@@ -62,11 +67,9 @@ export default function Settings({ setShowSettings }) {
                                 <Field
                                     type="password"
                                     name="confirmPass"
-                                    value={props.values.confirmPass}
-                                    onChange={props.handleChange}
                                     className={`${props.touched.confirmPass && props.errors.confirmPass ? "error" : ""}`}
                                 />
-                                {props.touched && <span className="error">{props.errors.confirmPass}</span>}
+                                {props.touched.confirmPass && <span className="error">{props.errors.confirmPass}</span>}
                             </label>
 
                             <div className="btns">
