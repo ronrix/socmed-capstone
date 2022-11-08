@@ -119,9 +119,16 @@ div.wrapper form div.form-wrapper input.btn {
 div.wrapper form div.form-wrapper input.btn:hover {
   background: #00dfb7;
 }
-div.wrapper form div.form-wrapper span.error {
+div.wrapper form div.form-wrapper span.error,
+div.wrapper form div.form-wrapper span.login-error {
   font-size: 0.8em;
   color: #f6645b;
+}
+div.wrapper form div.form-wrapper span.login-error {
+  width: 100%;
+  padding: 0.5em;
+  background-color: #f6645b;
+  color: #fff;
 }
 div.wrapper form div.form-wrapper p {
   margin-top: 1em;

@@ -10,8 +10,11 @@ import Facebook from "../authentication-btns/Facebook";
 import { ReactComponent as FbIcon } from "../../assets/icons/facebook.svg";
 
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../config/global-variables";
 
 const Login = () => {
+    const [err, setError] = React.useState("");
     const navigate = useNavigate();
 
     return (
@@ -22,23 +25,36 @@ const Login = () => {
                     password: ""
                 }}
                 onSubmit={(values, actions) => {
-                    actions.resetForm();
                     actions.setSubmitting(false);
-                    localStorage.setItem(
-                        "socmed-profile",
-                        JSON.stringify({
-                            email: values.email,
-                            familyName: "test",
-                            givenName: values.email.split("@")[0],
-                            name: values.email.split("@"[0] + " test")
+
+                    // request to backend
+                    axios
+                        .post(
+                            BASE_URL + "/login",
+                            JSON.stringify({
+                                email: values.email,
+                                password: values.password
+                            }),
+                            {
+                                headers: {
+                                    "Content-Type": "application/json"
+                                }
+                            }
+                        )
+                        .then(res => {
+                            // set user cred on local storage
+                            localStorage.setItem("socmed-profile", JSON.stringify(res.data));
+                            navigate("/app");
                         })
-                    );
-                    navigate("/app");
+                        .catch(err => {
+                            actions.setFieldValue("password", "");
+                            setError(err.response.data.msg);
+                        });
                 }}
                 validationSchema={loginSchema}
             >
                 {props => (
-                    <form onSubmit={props.handleSubmit}>
+                    <form onSubmit={props.handleSubmit} method="POST">
                         <div className="form-wrapper">
                             <h1>LOGIN</h1>
 
@@ -46,6 +62,7 @@ const Login = () => {
                             <Facebook FacebookIcon={FbIcon} />
 
                             <div className="absolute-or"></div>
+                            {err && <span className="login-error">{err}</span>}
                             <label htmlFor="email">
                                 Email Address
                                 <Field
