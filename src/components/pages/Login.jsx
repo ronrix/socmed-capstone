@@ -43,7 +43,7 @@ const Login = () => {
                         )
                         .then(res => {
                             // set user cred on local storage
-                            localStorage.setItem("socmed-profile", JSON.stringify(res.data));
+                            localStorage.setItem("token", res.data.token);
                             navigate("/app");
                         })
                         .catch(err => {

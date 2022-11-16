@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../assets/styles/css/navigations.css";
 
@@ -18,14 +18,33 @@ import { ReactComponent as ProfileSolid } from "../assets/icons/circle-profile-s
 import { ReactComponent as SearchSolid } from "../assets/icons/searchfavorite1-solid.svg";
 import { ReactComponent as SettingsSolid } from "../assets/icons/setting-solid.svg";
 
+import axios from "axios";
+import { BASE_URL } from "../config/global-variables";
+
 export default function Navigations({ otherClass, setShowSettings }) {
     const [activePath, setActivePath] = React.useState(() =>
         localStorage.getItem("active-page") ? localStorage.getItem("active-page") : "home"
     );
 
+    const navigate = useNavigate();
+
     const handleActivePage = str => {
         localStorage.setItem("active-page", str);
         setActivePath(str);
+    };
+
+    const handleLogout = e => {
+        axios
+            .get(BASE_URL + "/logout", { withCredentials: true })
+            .then(res => {
+                console.log(res);
+                navigate("/login");
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        e.preventDefault();
     };
 
     React.useEffect(() => {
@@ -36,20 +55,20 @@ export default function Navigations({ otherClass, setShowSettings }) {
         <>
             <nav className={`${otherClass ? otherClass : ""}`}>
                 <Link to="/app" onClick={() => handleActivePage("home")} className={`${activePath === "home" ? "active" : ""}`}>
-                    <abbr title="Home">{activePath === "home" ? <HomeSolid /> : <Home />}</abbr>
-                    <span>Home</span>
+                    <abbr title="home">{activePath === "home" ? <HomeSolid /> : <Home />}</abbr>
+                    <span>home</span>
                 </Link>
                 <Link
                     to="/app/profile"
                     onClick={() => handleActivePage("profile")}
                     className={`${activePath === "profile" ? "active" : ""}`}
                 >
-                    <abbr title="Profile">{activePath === "profile" ? <ProfileSolid /> : <Profile />}</abbr>
-                    <span>{JSON.parse(localStorage.getItem("socmed-profile")).givenName}</span>
+                    <abbr title="profile">{activePath === "profile" ? <ProfileSolid /> : <Profile />}</abbr>
+                    <span>{JSON.parse(localStorage.getItem("socmed-profile")).fullname.split(" ")[0]}</span>
                 </Link>
                 <Link to="/app/messages" onClick={() => handleActivePage("chats")} className={`${activePath === "chats" ? "active" : ""}`}>
                     <abbr title="Chats">{activePath === "chats" ? <MessageSolid /> : <Message />}</abbr>
-                    <span>Chats</span>
+                    <span>chats</span>
                 </Link>
                 <Link
                     to="/app/find-match"
@@ -57,17 +76,17 @@ export default function Navigations({ otherClass, setShowSettings }) {
                     className={`${activePath === "find-match" ? "active" : ""}`}
                 >
                     <abbr title="Find your Match">{activePath === "find-match" ? <SearchSolid /> : <Search />}</abbr>
-                    <span>Find Your Match</span>
+                    <span>find your match</span>
                 </Link>
                 <Link to="#settings" className={`${activePath === "settings" ? "active" : ""}`} onClick={() => setShowSettings(true)}>
                     <abbr title="Settings">{activePath === "settings" ? <SettingsSolid /> : <SettingsIcon />}</abbr>
-                    <span>Settings</span>
+                    <span>settings</span>
                 </Link>
-                <Link to="/login">
+                <Link onClick={handleLogout}>
                     <abbr title="Logout">
                         <Logout />
                     </abbr>
-                    <span>Logout</span>
+                    <span>logout</span>
                 </Link>
             </nav>
         </>

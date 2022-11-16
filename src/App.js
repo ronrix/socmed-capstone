@@ -21,20 +21,40 @@ import Header from "./components/Header";
 import Settings from "./components/modals/Settings";
 
 function App() {
-    React.useEffect(() => {}, []);
     const [showSettings, setShowSettings] = React.useState(false);
+    const [auth, setAuth] = React.useState(() => localStorage.getItem("token"));
+
+    React.useEffect(() => {
+        setAuth(() => localStorage.getItem("token"));
+    }, []);
 
     return (
         <Router>
             <Routes>
-                <Route exact path="/" element={<Navigate to="/login" />} />
-                <Route exact path="/login" element={<Login />} />
-                <Route exact path="/signup" element={<Signup />} />
+                <Route
+                    exact
+                    path="/"
+                    element={
+                        <>
+                            {auth && <Navigate to="/app" />}
+                            <Navigate to="/login" />
+                        </>
+                    } />
+                <Route exact path="/login" element={
+                <>
+                            {auth && <Navigate to="/app" />}
+                <Login />
+</>
+                } />
+                <Route exact path="/signup" element={<>
+                            {auth && <Navigate to="/app" />}
+                <Signup /></>} />
                 <Route
                     exact
                     path="/app"
                     element={
                         <>
+                            {!auth && <Navigate to="/login" />}
                             <Header />
                             <div className="container">
                                 <div className="container-left">
@@ -57,6 +77,7 @@ function App() {
                     path="/app/profile"
                     element={
                         <>
+                            {!auth && <Navigate to="/login" />}
                             <Header />
                             <div className="container">
                                 <div className="container-left">
@@ -79,6 +100,7 @@ function App() {
                     path="/app/messages"
                     element={
                         <>
+                            {!auth && <Navigate to="/login" />}
                             <Header />
                             <div className="container">
                                 <div className="container-left">
@@ -101,6 +123,7 @@ function App() {
                     path="/app/create-profile"
                     element={
                         <>
+                            {!auth && <Navigate to="/login" />}
                             <Header />
                             <div className="container">
                                 <div className="container-left">
@@ -123,6 +146,7 @@ function App() {
                     path="/app/find-match/:id"
                     element={
                         <>
+                            {!auth && <Navigate to="/login" />}
                             <Header />
                             <div className="container">
                                 <div className="container-left">
@@ -145,6 +169,7 @@ function App() {
                     path="/app/find-match"
                     element={
                         <>
+                            {!auth && <Navigate to="/login" />}
                             <Header />
                             <div className="container">
                                 <div className="container-left">
